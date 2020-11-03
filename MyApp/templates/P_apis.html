@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wqrf_button{
+            {#background-color: #0fd1ab;#}
+            background: linear-gradient(to top, #daffff, white);
+            border-radius: 5px;
+            border: 1px solid #353C48;
+            box-shadow: 4px 4px 4px grey;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation" style="position: absolute;top: 0px;left: 80px;width: -webkit-calc(100% - 200px);z-index: 1">
+    <div class="container-fluid">
+    <div class="navbar-header"></div>
+        <span style="font-size: xx-small" class="navbar-brand">项目名称：{{ project.name }}</span>
+        <a class="navbar-brand" href="/project_list/">返回项目列表</a>
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/apis/{{project.id}}/">接口库</a></li>
+            <li><a href="/cases/{{project.id}}/">用例库</a></li>
+            <li><a href="/project_set/{{project.id}}/">项目设置</a></li>
+        </ul>
+    </div>
+</nav>
+
+<br> <br>
+
+<table class="table table-striped"  style="margin-left: 75px">
+    <thead>
+        <tr>
+            <th style="width: 20px">id</th> <th style="width: 40%">接口名称</th> <th style="width: 20%">url</th> <th style="width: 350px">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in apis %}
+            <tr>
+                <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.api_url }}</td>
+                <td>
+                    <button onclick="ts_show('{{ i.id }}', '{{ i.name }}')" class="btn btn-success">调试</button>
+                    <button onclick="open_bz('{{ i.id }}')" class="wqrf_button">备注</button>
+                    <button class="wqrf_button">复制</button>
+                    <button class="wqrf_button">异常值测试</button>
+                    <button onclick="document.location.href='/project_api_del/{{ i.id }}'" class="btn btn-danger" >删除</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div style="position: fixed;bottom:0px;
+width:100%;background-color: #f8f8f8;text-align: center;
+boeder:1px solid #e7e7e7">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" onclick="document.location.href='/project_api_add/{{ project.id }}/'">新增接口</button>
+            <button type="button" class="btn btn-default">全局请求头</button>
+            <button type="button" class="btn btn-default">全局域名</button>
+            <button type="button" class="btn btn-default">接口文档导入</button>
+            <button type="button" class="btn btn-default">抓包导入</button>
+            <button type="button" class="btn btn-default">加密算法</button>
+            <button type="button" class="btn btn-default">登录态接口</button>
+            <button type="button" class="btn btn-default">备用</button>
+        </div>
+
+</div>
+{#备注弹层及函数#}
+<div id="bz" style="display:none;width: 50%;height: 30%;position: fixed;left: 25%;top: 35%;background-color: #3c4043;box-shadow: 4px 4px 8px grey">
+    <input id="which_api" type="text" style="display: none">
+    <textarea name="" id="bz_value" style="width: 100%;height: 80%" placeholder="请输入接口备注" cols="30" rows="10"></textarea>
+    <button onclick="save_bz()" style="width: 49.9%;height: 20%">保存</button>
+    <button onclick="close_bz()" style="width: 49.3%;height: 20%">取消</button>
+
+</div>
+<script>
+    function open_bz(id) {
+        {#然后我们要做到一个效果，就是每当用户打开任意接口的备注时，这个多行文本框都要显示保存好的，而不是一片空白#}
+        document.getElementById('bz_value').value = ''; //这是清空上一个打开的接口的内容
+        $.get('/get_bz/',{
+            'api_id':id
+        },function (ret) {
+            document.getElementById('bz').style.display='block';
+            document.getElementById('which_api').value = id;
+            document.getElementById('bz_value').value = ret;
+        })
+    }
+    function save_bz() {
+        id = document.getElementById('which_api').value;
+        bz_value = document.getElementById('bz_value').value;
+        $.get('/save_bz/',{
+            'api_id':id,
+            'bz_value':bz_value
+        },function (ret) {
+            document.getElementById('bz').style.display='none';
+
+        })
+    }
+    function close_bz() {
+        document.getElementById('bz').style.display='none';
+    }
+</script>
+{#调试弹层及函数#}
+<div id="ts" style="border-radius: 5px;width: 80%;display: none;
+position: fixed;left: 10%;top: 10%;background-color: #3c4043;box-shadow: 4px 4px 8px grey;
+color: white;padding-left: 10px">
+{#    我们因为div的背景色太黑了，所以文案都看不见，所以我们要给div补充上属性color=white白色，而且为了美观，我们不要顶格，就加入了格内左边距padding-left = 10px#}
+    <div class="btn-group" style="float: right">
+{#        //float:right可以让俩个按钮并不会占用一整行位置。但是之后所有的控件必须都要放在这对按钮之下才可以#}
+        <button onclick="ts_save()" type="button" class="btn btn-success">保存</button>
+        <button onclick="ts_close()" type="button" class="btn btn-default">取消</button>
+    </div>
+{#    h3这个大标题中，我写了俩对 small标签，small标签内可以放字号较小的文案，俩个标签，第一个里面放接口id，第二个放接口名字。中间用个横线链接会美观。目前这里是空的，具体填入什么，要靠我们之后写的打开调试面板的函数 来自动填充，所以最后我们也要给这俩个small标签添加不同的id。#}
+{#    <h3>接口：<small style="color: #0fd1ab" id="ts_api_id"></small>-<small style="color: #0fd1ab" id="ts_api_name"></small></h3>#}
+    <h4>接口：<small style="color: #0fd1ab" id="ts_api_id"></small>-
+        <input type="text" id="ts_api_name" style="padding-left: 5px;width: 50%;color: #239c17">
+    </h4>
+    <ul class="nav navbar-nav" style="width: 98%">
+        <li>
+            <select name="" id="ts_method"style="height: 40px;"class="form-control">
+                <option value="none">请求方式</option>
+                <option value="post">POST</option>
+                <option value="get">GET</option>
+                <option value="pute">PUT</option>
+                <option value="delete">DELETD</option>
+
+            </select>
+        </li>
+        <li style="width: -webkit-calc(100% - 225px)">
+            <input id="ts_url" style=" color: black;padding-left: 10px;width: 100%;height: 40px;" type="text" placeholder="url:如 /abcd/efgh" value="">
+        </li>
+        <li>
+            <button type="button"
+                    style="height: 40px;width: 120px;"class="btn btn-default"><span style="font-size: large">Send</span></button>
+        </li>
+    </ul>
+    <br><br><br>
+    <ul class="nav navbar-nav"style="width: 98%">
+        <li style="width: -webkit-calc(100% - 63px)">
+            <input id="ts_host" style=" color: black;padding-left: 10px;width: 100%;height: 40px" type="text" placeholder="host:如http(s)://www.baidu.com" value="">
+
+        </li>
+        <li>
+            <button type="button"
+                    style="height: 40px;width: 60px;"class="btn btn-default"><span >Clear</span></button>
+        </li>
+    </ul>
+        <br><br><br>
+    <ul class="nav navbar-nav"style="width: 98%">
+        <li style="width: -webkit-calc(100% - 63px)">
+            <input id="ts_header" style=" color: black;padding-left: 10px;width: 100%;height: 40px" type="text" placeholder='header请求头:如{"Content":"application/json"}' value="">
+
+        </li>
+        <li>
+            <button type="button"
+                    style="height: 40px;width: 60px;"class="btn btn-default"><span >Clear</span></button>
+        </li>
+    </ul>
+    <br> <br><br>
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a id="click_none" href="#none" data-toggle="tab">none</a></li>
+        <li><a href="#form-data"data-toggle="tab">form-data</a></li>
+        <li><a href="#x-www-form-urlencoded" data-toggle="tab">x-www-form-urlencoded</a></li>
+        <li class="dropdown">
+            <a href="#raw" class="dropdown-toggle" data-toggle="dropdown">raw <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#Text" tabindex="-1"data-toggle="tab">Text</a></li>
+                <li><a href="#JavaScript" tabindex="-1"data-toggle="tab">JavaScript</a></li>
+                <li><a href="#Json" tabindex="-1"data-toggle="tab">Json</a></li>
+                <li><a href="#Html" tabindex="-1"data-toggle="tab">Html</a></li>
+                <li><a href="#Xml" tabindex="-1"data-toggle="tab">Xml</a></li>
+            </ul>
+        </li>
+        <li><a href="#response"  data-toggle="tab" >返回体</a></li>
+    </ul>
+{#    刚刚写的那些按钮的中的 href属性，利用锚点技术，href=“#None” 那么你新建的小div 的id写成None ,即可让二者联系起来。#}
+{#    至于到底内部是怎么做的呢？其实都在于我们bootstrap3中，已经写好了，我们只需要给他们的class属性写对就可以了#}
+    <div id="myTabContent"class="tab-content">
+{#        只有第一个 id=None的小div的class 比别人多了 in active.这就是默认显示#}
+        <div class="tab-pane fade in active" id="none" style="text-align: center;color: grey">
+            <h3>这个请求将不会携带任何请求体</h3>
+            <h5>This request will not carry any request-body</h5>
+        </div>
+        <div class="tab-pane " id="form-data">
+            <div class="table-responsive" style="width: 98%;color: black">
+                <table class="table table-bordered table-striped" id="mytable" style="background-color:white">
+                    <thead style="color: #337ab7;font-size: x-small">
+                      <tr>
+                        <td style="width: 30%">Key</td>
+                        <td style="width: 50%">Value</td>
+                      </tr>
+                    </thead>
+                    <tbody id="mytbody">
+                      <tr>
+{#                          必须要留一个空行，不然会触发这个第三方表格插件的bug#}
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-default" id="add"><i class="fa fa-plus"></i> 添加新参数</button>
+            <script>window.jQuery || document.write('<script src="/static/201801271505/js/jquery-1.11.0.min.js"><\/script>')</script>
+            <script type="text/javascript" src="/static/201801271505/js/bootstable.js"></script>
+{#            <script type="text/javascript">#}
+{#                $('#mytable').SetEditable({#}
+{#                    $addButton: $('#add'),#}
+{#                });#}
+{#            </script>#}
+        </div>
+        <div class="tab-pane " id="x-www-form-urlencoded">
+                        <div class="table-responsive" style="width: 98%;color: black">
+                <table class="table table-bordered table-striped" id="mytable2" style="background-color:white">
+                    <thead style="color: #337ab7;font-size: x-small">
+                      <tr>
+                        <td style="width: 30%">Key</td>
+                        <td style="width: 50%">Value</td>
+                      </tr>
+                    </thead>
+                    <tbody id="mytbody2">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-default" id="add2"><i class="fa fa-plus"></i> 添加新参数</button>
+            <script>window.jQuery || document.write('<script src="/static/201801271505/js/jquery-1.11.0.min.js"><\/script>')</script>
+            <script type="text/javascript" src="/static/201801271505/js/bootstable.js"></script>
+{#            <script type="text/javascript">#}
+{#                $('#mytable2').SetEditable({#}
+{#                    $addButton: $('#add2'),#}
+{#                });#}
+{#            </script>#}
+        </div>
+        <div class="tab-pane " id="Text">
+            <textarea name="" id="raw_Text" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+        <div class="tab-pane " id="JavaScript">
+            <textarea name="" id="raw_JavaScript" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+        <div class="tab-pane " id="Json">
+            <textarea name="" id="raw_Json" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+        <div class="tab-pane " id="Html">
+            <textarea name="" id="raw_Html" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+        <div class="tab-pane " id="Xml">
+            <textarea name="" id="raw_Xml" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+        <div class="tab-pane " id="response">
+            <textarea name="" id="ts_response_body" disabled="disabled" style="color: black;width: 98%;height: 300px" ></textarea>
+        </div>
+    </div>
+    <br>
+</div>
+<script>
+    function clear_ts_api() {
+        document.getElementById('ts_api_id').innerText = '';
+        document.getElementById('ts_api_name').value = '';
+        document.getElementById('ts_method').value = 'none';
+        document.getElementById('ts_url').value = '';
+        document.getElementById('ts_host').value = '';
+        document.getElementById('ts_header').value = '{}';
+        // 下面开始初始化请求体编码格式部分
+        document.getElementById('click_none').click(); //点击none子标签
+        document.getElementById('mytbody').innerHTML='<tr><td></td><td></td></tr>';
+        document.getElementById('mytbody2').innerHTML='<tr><td></td><td></td></tr>';
+        document.getElementById('raw_Text').value = '';
+        document.getElementById('raw_JavaScript').value = '';
+        document.getElementById('raw_Json').value = '';
+        document.getElementById('raw_Html').value = '';
+        document.getElementById('raw_Xml').value = '';
+        //返回体清空：
+        document.getElementById('ts_response_body').value = '';
+
+        //在ts_show()函数中调用这个clear_ts_api即可
+        {#这俩部分之所以没有生效，是因我们在运行clear_ts_api()时，没有加入，而他们本来的运行时机是在整个接口库页面刚进入的时候就运行过了，#}
+        {#之后我们若想强行更改tbody的内容tr td等，就必须重新运行这俩个函数，所以我们还要在clear_ts_api()函数的最后再运行一下这俩个函数即可#}
+        $('#mytable').SetEditable({
+            $addButton: $('#add'),
+         });
+        $('#mytable2').SetEditable({
+            $addButton: $('#add2'),
+         });
+
+    }
+    function ts_show(id, name) {
+        clear_ts_api();
+        document.getElementById('ts').style.display='block';
+        document.getElementById('ts_api_id').innerText = id;
+        {#document.getElementById('ts_api_name').value = name;#} //抛弃掉之前的显示名称的代码，在这里加上新的实时显示
+        $.get('/get_api_data/',{
+            'api_id':id,
+        },function (ret) {
+            console.log(ret)
+            //接收返回值后的动作
+            document.getElementById('ts_api_name').value = ret.name;
+            {#请求方式是一个下拉框，一个下拉框中是由多个option构成，当每个option被选中时，实际上是这个下拉框本身的value值变成了这个option的value。#}
+            {#所以我们只要强行指定下拉框的value = 接口返回值的接口api_method即可：#}
+            document.getElementById('ts_method').value = ret.api_method;
+            document.getElementById('ts_url').value = ret.api_url;
+            document.getElementById('ts_host').value = ret.api_host;
+            document.getElementById('ts_header').value = ret.api_header;
+            // 请求体编码格式
+            {#第一句是我们拼接起来这个#form-data。因为所有的li标签内的a标签的href 都是#开头。我们就是要利用这个href来进行定位。#}
+            {#然后第二句是jquery选择器的语法，意思是li 标签下的a标签中 href 是这个拼接字符串的 元素执行点击click操作。#}
+            {#效果如下，打开调试弹层后，自动切换到来form-data：#}
+            var body_method = '#'+ret.body_method;
+            $("li a[href="+body_method+"]")[0].click();
+            // 请求体显示
+            if(ret.body_method == 'Text'){
+                document.getElementById('raw_Text').value = ret.api_body;
+            }
+            if(ret.body_method == 'JavaScript'){
+                document.getElementById('raw_JavaScript').value = ret.api_body;
+            }
+            if(ret.body_method == 'Json'){
+                document.getElementById('raw_TJson').value = ret.api_body;
+            }
+            if(ret.body_method == 'Html'){
+                document.getElementById('raw_Html').value = ret.api_body;
+            }
+            if(ret.body_method == 'Xml'){
+                document.getElementById('raw_Xml').value = ret.api_body;
+            }
+            if(ret.body_method == 'form-data'){
+                var tbody = document.getElementById('mytbody'); // 定位表格中的tbody部分
+                body = eval(ret.api_body); //把这个像列表的字符串请求体变成真正的列表,示例："[["name","qw"],["pwd","er"]]
+                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
+                    key = body[i][0]; //拿出每一个键值对的key
+                    value = body[i][1];//拿出每一个键值对的value
+                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
+                    // 每个tr下的children得到的是 td列表，只有俩个。
+                    childs_tr[i].children[0].innerText = key; //第一个td放key
+                    childs_tr[i].children[1].innerText = value;//第二个td放value
+                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                    if(i<body.length-1){
+                        document.getElementById('add').click()
+                    }
+                }
+            }
+            if(ret.body_method == 'x-www-form-urlencoded'){
+                var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
+                body = eval(ret.api_body); //把这个像列表的字符串请求体变成真正的列表
+                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
+                    key = body[i][0]; //拿出每一个键值对的key
+                    value = body[i][1];//拿出每一个键值对的value
+                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
+                    // 每个tr下的children得到的是 td列表，只有俩个。
+                    childs_tr[i].children[0].innerText = key; //第一个td放key
+                    childs_tr[i].children[1].innerText = value;//第二个td放value
+                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                    if(i<body.length-1){
+                        document.getElementById('add2').click()
+                    }
+                }
+            }
+
+
+
+
+
+
+        })
+
+    }
+    function ts_close() {
+        document.location.reload(); //js刷新页面
+    }
+    function ts_save() {
+        var api_name = document.getElementById('ts_api_name').value;
+        var ts_method = document.getElementById('ts_method').value;
+        var ts_url = document.getElementById('ts_url').value;
+        var ts_host = document.getElementById('ts_host').value;
+        var ts_header = document.getElementById('ts_header').value;
+        var ts_body_method = $('ul#myTab li[class="active"]')[0].innerText;
+        if(ts_body_method == 'none'){
+            var ts_api_body = ''
+        }
+        if(ts_body_method == 'form-data'){
+            var ts_api_body = []; //新建这个空列表用来存放后续的数据
+            var tbody_ = $("table#mytable tbody")[0]; //获取表格的内容部分
+            var trlist = tbody_.children; //获取下面的所有tr，每个tr就是一个键值对 实际上
+            for(var i=0;i<trlist.length;i++){
+                var tdarr = trlist[i].children; //获取tr下的两个td
+                var key = tdarr[0].innerText; //获取key
+                var value = tdarr[1].innerText; //获取value
+                ts_api_body.push([key, value]); //作为一个数组，存放到这个大数组里
+            }
+            ts_api_body = JSON.stringify(ts_api_body);
+
+        }
+        if(ts_body_method == 'x-www-form-urlencoded'){
+            var ts_api_body = []; //新建这个空列表用来存放后续的数据
+            var tbody_ = $("table#mytable2 tbody")[0]; //获取表格的内容部分
+            var trlist = tbody_.children; //获取下面的所有tr，每个tr就是一个键值对 实际上
+            for(var i=0;i<trlist.length;i++){
+                var tdarr = trlist[i].children; //获取tr下的两个td
+                var key = tdarr[0].innerText; //获取key
+                var value = tdarr[1].innerText; //获取value
+                ts_api_body.push([key, value]); //作为一个数组，存放到这个大数组里
+            }
+            ts_api_body = JSON.stringify(ts_api_body);
+
+        }
+        if(ts_body_method == 'Text'){
+            var ts_api_body = document.getElementById('raw_Text').value;
+
+        }
+        if(ts_body_method == 'JavaScript'){
+            var ts_api_body = document.getElementById('raw_JavaScript').value;
+        }
+        if(ts_body_method == 'Json'){
+            var ts_api_body = document.getElementById('raw_Json').value;
+        }
+        if(ts_body_method == 'Html'){
+            var ts_api_body = document.getElementById('raw_Html').value;
+        }
+        if(ts_body_method == 'Xml'){
+            var ts_api_body = document.getElementById('raw_Xml').value;
+        }
+
+
+        var api_id = document.getElementById('ts_api_id').innerText ;//获取到了接口id
+        $.get('/Api_save/',{
+            'api_id':api_id,
+            'api_name':api_name,
+            'ts_method':ts_method,
+            'ts_url':ts_url,
+            'ts_host':ts_host,
+            'ts_header':ts_header,
+            'ts_body_method':ts_body_method,
+            'ts_api_body':ts_api_body,
+        },function (ret) {
+            document.location.reload()
+        })
+
+
+
+
+
+
+
+
+
+    }
+</script>
+
+</body>
+
+</html>

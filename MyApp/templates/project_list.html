@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目列表</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h3 style="padding-left: 10px;color: #353c48">项目列表：<span style="font-size: small;color: grey;">（这里显示全部项目,您可以进入他人的项目中查看）</span></h3>
+
+ <button onclick="javascript:document.getElementById('add_projest_div').style.display='block'" style="border-left: 10px solid black;border-right: 10px solid black;border-top: 0;
+    position: fixed;top: 0px;left: -webkit-calc(50% - 75px);width: 150px;height: 40px;font-size: x-large;background-color: white;color:black ;
+    border-radius: 0px 0px 10px 10px;">新增项目</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>项目id</th> <th>项目名称</th> <th>创建者</th> <th>备注</th> <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in projects %}
+            <tr>
+                <!--我们这里点击后是直接跳转到新页面，所以不需要调用异步接口。直接强行让其跳转即可，所以给它加上onclick属性，里面是一句简单的跳转js代码
+                document.location.href = '路由'  可以强行跳转。我们要跳到的链接中，肯定需要带上i.id才行，这样django才知道你要跳转的是哪个项目的接口库-->
+                <td>{{ i.id }}</td> <td>{{ i.name }}</td> <td>{{ i.user }}</td> <td>{{ i.remark }}</td> <td>
+                <button onclick="javascript:document.location.href='/apis/{{ i.id }}/'" class="btn btn-success">进入</button>
+                <button onclick="delete_project('{{ i.id }}')" class="btn btn-danger">删除</button></td>
+            </tr>
+            {%  endfor %}
+        </tbody>
+    </table>
+    <script>
+        {#<!--这时候如果点击取消，那么这个confirm方法会返回一个false,如果点击确定，那么就返回true，我们要做的逻辑是，点击取消，返回false,那么就中止这个删除功能，如果点击确定，返回true，那么就继续走这个删除功能。#}
+        {#所以在js中我们要写一个判断if语句。判断这个confirm的返回值-->#}
+        {#具体删除的代码，我们必须通过发出一个异步请求来实现，也就是$.get('url',{参数},function (ret){返回之后的动作})#}
+        {#url设计成 /delete_project/ 了，直观简洁#}
+        {#需要带的参数只有一个，就是id ，项目id。#}
+        {#请求之后的动作我们设计成 刷新页面，这样可以让我们立即看到那个项目消失了。html页面就是这样静态的。你不刷新的话，那么即便断网，页面的元素也不会消失。#}
+        function delete_project(id) {
+            if(confirm('确定要删除该项目么？') == false){return}
+            $.get('/delete_project/',{
+                'id':id
+            },function (ret) {
+                document.location.reload()
+
+            })
+        }
+    </script>
+    <div id="add_projest_div" style="width: 50%;background-color: white;border: 1px solid black;
+    position: absolute;left: 25%;top: 30px;padding-left: 10px;
+    box-shadow: 4px 4px 8px grey;border-radius: 5px;
+    display: none">
+        <h3>项目名称：(最多100字)</h3>
+        <input id="project_name" type="text" placeholder="请输入项目名称" style="width: 95%">
+        <br> <br>
+        <!--因为取消按钮要执行的js语句只有一句，我们可以偷懒直接写在onclick属性中，而不需要先写个js函数，然后onclick再调用这个函数-->
+        <button onclick="javascript:document.getElementById('add_projest_div').style.display='none'" class="btn btn-danger">取消</button>
+        <!--然后我们要给这个弹层的确定按钮，加上onclick属性，来调用这个add_project()函数-->
+        <button onclick="add_project()" class="btn btn-success">确定</button>
+        <br> <br>
+
+    </div>
+    <script>
+        function add_project() {
+            project_name = document.getElementById('project_name').value ;
+            {#我们新定义的变量可以获取到这个输入框的内容，也就是value,然后就要写个异步请求，发给后台：#}
+            {#url依然是/add_project/ ，注意前后都必须有/ 然后带一个参数，就是project_name.等收到接口成功返回后，直接刷新页面，用语句:document.location.reload()；#}
+            $.get('/add_project/',{
+                'project_name':project_name,
+            },function (ret) {
+                document.location.reload();
+
+
+            })
+
+        }
+    </script>
+</body>
+</html>

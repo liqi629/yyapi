@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+        body{
+            background: url("/static/img/home.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body >
+    <div style="text-align: center">
+        <h1>
+            <br>
+            欢迎 {{ username }} 使用 接口测试平台
+        </h1>
+{#        传送门超链接#}
+{#        其中text-align:left 是为了消除掉最外层div的text-align:center的影响。 内部又包了一层strong，是为了让文字加粗 看着更清晰。#}
+        <div style="border: 1px solid black;border-radius: 10px 0px 0px 10px;text-align: center;background-color: #e3ffe3;opacity: 0.8;color: white;margin-left: 300px">
+            <h3 style="color: black">欢迎使用传送门：</h3>
+            <strong>
+            <!--html中的标准循环代码-->
+                {% for i in hrefs %}
+                    <a href="{{ i.href }}" target="_blank" style="color:#353c48;text-decoration: none">{{ i.name }}</a> <br>
+                {% endfor %}
+
+            </strong>
+
+        </div>
+        <br>
+        <div style="border: 1px solid black;border-radius: 10px 0px 0px 10px;text-align: center;background-color: #e3ffe3;opacity: 0.8;color: white;margin-left: 300px">
+            <h3 style="color: #3e2935">您的项目：</h3>
+            <span style="color: black">
+            {#       这里存放后续的个人项目列表循环，类似传送门的套路 ,点击自己创建的项目可以直接进入项目内     #}
+            </span>
+            <br>
+        </div>
+
+        <br>
+        <div style="border: 1px solid black;border-radius: 10px 0px 0px 10px;text-align: center;background-color: #e3ffe3;opacity: 0.8;color: white;margin-left: 300px">
+            <h3 style="color: #3e2935">最新消息：</h3>
+            <span style="color: black">
+            帮助页面上线；<br>
+            后台开启，仅限有管理权限同学使用；<br>
+            项目列表上线，您现在可以进入所有项目内了 <br>
+                </span>
+            <br>
+        </div>
+
+
+
+        <br>
+
+{#        <h3>welcome to use yyapi</h3>#}
+        <!--在标签内加 placeholder 属性，就是我们的默认文案，它不是css，所以千万不要写在style里。它是和id name 平级的属性-->
+{#        给下面的吐槽框和按钮 新包了一层div，然后给这个div的属性中设置 位置固定，距离底部5px 右边5px#}
+        <div style="border: 1px solid black;border-radius: 10px 0px 0px 10px;text-align: center;background-color: #e3ffe3;opacity: 0.8;color: white;margin-left: 300px">
+            <br>
+            <textarea  id="tucao_input" cols="50" rows="5" style="border-radius: 5px;padding-left: 10px;box-shadow: 4px 4px 9px gray" placeholder="匿名吐槽专用,点击 发送按钮即可反馈！"></textarea>
+            <br>
+            <button style="border-radius: 0px 0px 50px 50px;width: 100px" onclick="pei()">发送</button>
+            <br> <br>
+        </div>
+    </div>
+    <script>
+        function pei() {
+            $.get("/pei/",{
+                "tucao_text":document.getElementById('tucao_input').value,
+            },function (ret) {
+                alert('已成功吐槽！')
+            })
+
+        }
+    </script>
+</body>
+</html>
