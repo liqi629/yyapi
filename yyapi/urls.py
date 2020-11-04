@@ -67,6 +67,8 @@ urlpatterns = [
     path('get_bz/', get_bz), # 获取备注
     re_path(r'^Api_save/$', Api_save), # 保存接口
     re_path(r'^get_api_data/$', get_api_data), # 获取接口数据
+    re_path(r"^Api_send/$", Api_send), # 调试层发送请求
+    path(r'copy_api/', copy_api),  # 复制接口
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]

@@ -3,15 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .wqrf_button{
-            {#background-color: #0fd1ab;#}
-            background: linear-gradient(to top, #daffff, white);
-            border-radius: 5px;
-            border: 1px solid #353C48;
-            box-shadow: 4px 4px 4px grey;
-        }
-    </style>
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation" style="position: absolute;top: 0px;left: 80px;width: -webkit-calc(100% - 200px);z-index: 1">
@@ -41,11 +33,16 @@
             <tr>
                 <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.api_url }}</td>
                 <td>
-                    <button onclick="ts_show('{{ i.id }}', '{{ i.name }}')" class="btn btn-success">调试</button>
-                    <button onclick="open_bz('{{ i.id }}')" class="wqrf_button">备注</button>
-                    <button class="wqrf_button">复制</button>
-                    <button class="wqrf_button">异常值测试</button>
-                    <button onclick="document.location.href='/project_api_del/{{ i.id }}'" class="btn btn-danger" >删除</button>
+{#                    打开调试层的时候，调试按钮居然显示出来了,不知道是不是所有小伙伴都和我一样遇到了这个问题。#}
+{#                    该问题出现的原因在于我们之前加入的按钮组的样式bug。#}
+{#                    解决方法：在按钮组上加入属性z-index，强制把层级变成最低的0#}
+                    <div class="btn-group" style="z-index: 0"> //
+                        <button onclick="ts_show('{{ i.id }}', '{{ i.name }}')" class="btn btn-success">调试</button>
+                        <button onclick="open_bz('{{ i.id }}')" class="btn btn-default">备注</button>
+                        <button onclick="copy_api('{{ i.id }}')" class="btn btn-default">复制</button>
+                        <button onclick="error_test('{{ i.id }}', '{{ i.api_body }}')" class="btn btn-default">异常值测试</button>
+                        <button onclick="document.location.href='/project_api_del/{{ i.id }}'" class="btn btn-danger" >删除</button>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
@@ -103,18 +100,18 @@ boeder:1px solid #e7e7e7">
 </script>
 {#调试弹层及函数#}
 <div id="ts" style="border-radius: 5px;width: 80%;display: none;
-position: fixed;left: 10%;top: 10%;background-color: #3c4043;box-shadow: 4px 4px 8px grey;
+position: absolute;left: 10%;top: 10%;background-color: #3c4043;box-shadow: 4px 4px 8px grey;
 color: white;padding-left: 10px">
-{#    我们因为div的背景色太黑了，所以文案都看不见，所以我们要给div补充上属性color=white白色，而且为了美观，我们不要顶格，就加入了格内左边距padding-left = 10px#}
+    {#    我们因为div的背景色太黑了，所以文案都看不见，所以我们要给div补充上属性color=white白色，而且为了美观，我们不要顶格，就加入了格内左边距padding-left = 10px#}
     <div class="btn-group" style="float: right">
-{#        //float:right可以让俩个按钮并不会占用一整行位置。但是之后所有的控件必须都要放在这对按钮之下才可以#}
+    {#        //float:right可以让俩个按钮并不会占用一整行位置。但是之后所有的控件必须都要放在这对按钮之下才可以#}
         <button onclick="ts_save()" type="button" class="btn btn-success">保存</button>
         <button onclick="ts_close()" type="button" class="btn btn-default">取消</button>
     </div>
-{#    h3这个大标题中，我写了俩对 small标签，small标签内可以放字号较小的文案，俩个标签，第一个里面放接口id，第二个放接口名字。中间用个横线链接会美观。目前这里是空的，具体填入什么，要靠我们之后写的打开调试面板的函数 来自动填充，所以最后我们也要给这俩个small标签添加不同的id。#}
-{#    <h3>接口：<small style="color: #0fd1ab" id="ts_api_id"></small>-<small style="color: #0fd1ab" id="ts_api_name"></small></h3>#}
+    {#    h3这个大标题中，我写了俩对 small标签，small标签内可以放字号较小的文案，俩个标签，第一个里面放接口id，第二个放接口名字。中间用个横线链接会美观。目前这里是空的，具体填入什么，要靠我们之后写的打开调试面板的函数 来自动填充，所以最后我们也要给这俩个small标签添加不同的id。#}
+    {#    <h3>接口：<small style="color: #0fd1ab" id="ts_api_id"></small>-<small style="color: #0fd1ab" id="ts_api_name"></small></h3>#}
     <h4>接口：<small style="color: #0fd1ab" id="ts_api_id"></small>-
-        <input type="text" id="ts_api_name" style="padding-left: 5px;width: 50%;color: #239c17">
+        <input placeholder="请在此输入接口名称" type="text" id="ts_api_name" style="padding-left: 5px;width: 50%;color: #239c17">
     </h4>
     <ul class="nav navbar-nav" style="width: 98%">
         <li>
@@ -131,8 +128,9 @@ color: white;padding-left: 10px">
             <input id="ts_url" style=" color: black;padding-left: 10px;width: 100%;height: 40px;" type="text" placeholder="url:如 /abcd/efgh" value="">
         </li>
         <li>
-            <button type="button"
-                    style="height: 40px;width: 120px;"class="btn btn-default"><span style="font-size: large">Send</span></button>
+            <button onclick="ts_send()" type="button"
+                    style="height: 40px;width: 120px;
+                    "class="btn btn-default"><span style="font-size: large">Send</span></button>
         </li>
     </ul>
     <br><br><br>
@@ -174,8 +172,8 @@ color: white;padding-left: 10px">
         </li>
         <li><a href="#response"  data-toggle="tab" >返回体</a></li>
     </ul>
-{#    刚刚写的那些按钮的中的 href属性，利用锚点技术，href=“#None” 那么你新建的小div 的id写成None ,即可让二者联系起来。#}
-{#    至于到底内部是怎么做的呢？其实都在于我们bootstrap3中，已经写好了，我们只需要给他们的class属性写对就可以了#}
+    {#    刚刚写的那些按钮的中的 href属性，利用锚点技术，href=“#None” 那么你新建的小div 的id写成None ,即可让二者联系起来。#}
+    {#    至于到底内部是怎么做的呢？其实都在于我们bootstrap3中，已经写好了，我们只需要给他们的class属性写对就可以了#}
     <div id="myTabContent"class="tab-content">
 {#        只有第一个 id=None的小div的class 比别人多了 in active.这就是默认显示#}
         <div class="tab-pane fade in active" id="none" style="text-align: center;color: grey">
@@ -204,11 +202,11 @@ color: white;padding-left: 10px">
             <button class="btn btn-default" id="add"><i class="fa fa-plus"></i> 添加新参数</button>
             <script>window.jQuery || document.write('<script src="/static/201801271505/js/jquery-1.11.0.min.js"><\/script>')</script>
             <script type="text/javascript" src="/static/201801271505/js/bootstable.js"></script>
-{#            <script type="text/javascript">#}
-{#                $('#mytable').SetEditable({#}
-{#                    $addButton: $('#add'),#}
-{#                });#}
-{#            </script>#}
+        {#            <script type="text/javascript">#}
+        {#                $('#mytable').SetEditable({#}
+        {#                    $addButton: $('#add'),#}
+        {#                });#}
+        {#            </script>#}
         </div>
         <div class="tab-pane " id="x-www-form-urlencoded">
                         <div class="table-responsive" style="width: 98%;color: black">
@@ -230,11 +228,11 @@ color: white;padding-left: 10px">
             <button class="btn btn-default" id="add2"><i class="fa fa-plus"></i> 添加新参数</button>
             <script>window.jQuery || document.write('<script src="/static/201801271505/js/jquery-1.11.0.min.js"><\/script>')</script>
             <script type="text/javascript" src="/static/201801271505/js/bootstable.js"></script>
-{#            <script type="text/javascript">#}
-{#                $('#mytable2').SetEditable({#}
-{#                    $addButton: $('#add2'),#}
-{#                });#}
-{#            </script>#}
+        {#            <script type="text/javascript">#}
+        {#                $('#mytable2').SetEditable({#}
+        {#                    $addButton: $('#add2'),#}
+        {#                });#}
+        {#            </script>#}
         </div>
         <div class="tab-pane " id="Text">
             <textarea name="" id="raw_Text" style="color: black;width: 98%;height: 300px" ></textarea>
@@ -251,11 +249,26 @@ color: white;padding-left: 10px">
         <div class="tab-pane " id="Xml">
             <textarea name="" id="raw_Xml" style="color: black;width: 98%;height: 300px" ></textarea>
         </div>
-        <div class="tab-pane " id="response">
-            <textarea name="" id="ts_response_body" disabled="disabled" style="color: black;width: 98%;height: 300px" ></textarea>
+        <div class="tab-pane " id="response" >
+            <textarea name="" id="ts_response_body" disabled="disabled" style=" background-color: #cce5a3;color: black;width: 98%;height: 300px " ></textarea>
         </div>
     </div>
     <br>
+</div>
+{# 异常值测试#}
+<div id="error_div" style="display: none;border-radius: 5px;width: 80%;
+position: absolute;left: 10%;top: 10%;background-color: #3c4043;box-shadow: 4px 4px 8px grey;
+color: white;padding-left: 10px">
+    <h4>接口：<small id="error_api_name"></small>的异常值测试结果如下：</h4>
+    <span>替换：username -> 123</span>
+    <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
+    <span>替换：username -> "aaa"</span>
+    <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
+    <span>替换：username -> "哈哈哈"</span>
+    <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
+
+
+
 </div>
 <script>
     function clear_ts_api() {
@@ -359,12 +372,6 @@ color: white;padding-left: 10px">
                     }
                 }
             }
-
-
-
-
-
-
         })
 
     }
@@ -377,6 +384,118 @@ color: white;padding-left: 10px">
         var ts_url = document.getElementById('ts_url').value;
         var ts_host = document.getElementById('ts_host').value;
         var ts_header = document.getElementById('ts_header').value;
+
+         // 判断顶部的数据是否填充完
+        if(api_name == ''){alert('请输入接口名字！');return}
+        if(ts_method == 'none'){alert('请选择请求方式！');return}
+        if(ts_url == ''){alert('请输入url！');return}
+        if(ts_host == ''){alert('请输入host！');return}
+
+        // 判断关键数据是否符合规则
+        {#字符串.slice(0,7) 是截取字符串的意思，0,7 就代表要前7个字符，和python的切片类似。代码含义判断这个host开头是不是http或https。#}
+        {#!= 和python一样就是不等于的意思。&&是且的意思，相当于python的and#}
+        {#后面必须加return，这样js函数就会终止，不会再运行下去了，不然它虽然提示了错误，但是仍然会继续走代码而保存成功。#}
+        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://'){
+            alert('host必须以http://或https://开头！');return;
+        }
+        if(ts_header !=''){
+            try{
+                JSON.parse(ts_header)
+            }catch (e) {
+                alert('header请求头不符合json规范');
+                return;
+
+            }
+        }
+
+        var ts_body_method = $('ul#myTab li[class="active"]')[0].innerText;
+        if(ts_body_method == 'none'){
+            var ts_api_body = ''
+        }
+        if(ts_body_method == 'form-data'){
+            var ts_api_body = []; //新建这个空列表用来存放后续的数据
+            var tbody_ = $("table#mytable tbody")[0]; //获取表格的内容部分
+            var trlist = tbody_.children; //获取下面的所有tr，每个tr就是一个键值对 实际上
+            for(var i=0;i<trlist.length;i++){
+                var tdarr = trlist[i].children; //获取tr下的两个td
+                var key = tdarr[0].innerText; //获取key
+                var value = tdarr[1].innerText; //获取value
+                ts_api_body.push([key, value]); //作为一个数组，存放到这个大数组里
+            }
+            ts_api_body = JSON.stringify(ts_api_body);
+        }
+        if(ts_body_method == 'x-www-form-urlencoded'){
+            var ts_api_body = []; //新建这个空列表用来存放后续的数据
+            var tbody_ = $("table#mytable2 tbody")[0]; //获取表格的内容部分
+            var trlist = tbody_.children; //获取下面的所有tr，每个tr就是一个键值对 实际上
+            for(var i=0;i<trlist.length;i++){
+                var tdarr = trlist[i].children; //获取tr下的两个td
+                var key = tdarr[0].innerText; //获取key
+                var value = tdarr[1].innerText; //获取value
+                ts_api_body.push([key, value]); //作为一个数组，存放到这个大数组里
+            }
+            ts_api_body = JSON.stringify(ts_api_body);
+        }
+        if(ts_body_method == 'Text'){
+            var ts_api_body = document.getElementById('raw_Text').value;
+
+        }
+        if(ts_body_method == 'JavaScript'){
+            var ts_api_body = document.getElementById('raw_JavaScript').value;
+        }
+        if(ts_body_method == 'Json'){
+            var ts_api_body = document.getElementById('raw_Json').value;
+        }
+        if(ts_body_method == 'Html'){
+            var ts_api_body = document.getElementById('raw_Html').value;
+        }
+        if(ts_body_method == 'Xml'){
+            var ts_api_body = document.getElementById('raw_Xml').value;
+        }
+        var api_id = document.getElementById('ts_api_id').innerText ;//获取到了接口id
+        $.get('/Api_save/',{
+            'api_id':api_id,
+            'api_name':api_name,
+            'ts_method':ts_method,
+            'ts_url':ts_url,
+            'ts_host':ts_host,
+            'ts_header':ts_header,
+            'ts_body_method':ts_body_method,
+            'ts_api_body':ts_api_body,
+        },function (ret) {
+            document.location.reload()
+        })
+    }
+    {#首先他要获取这个接口当前所有的数据，用户正在选择的编码格式和请求体。#}
+    {#然后发出请求给后台传递这个接口的所有数据。然后接受到后台返回值后，直接切换到返回体子页面，并把返回值显示到返回体的多行文本框中。#}
+    {#(获取各种接口数据的代码和保存接口的函数中基本相同，所以基本可以直接复制)#}
+    {#好，代码如下：大家直接复制保存函数中的代码即可，但是#}
+    {#要注意修改请求url为/Api_send/，返回值处理方式也做了变更#}
+    function ts_send() {
+        var api_name = document.getElementById('ts_api_name').value;
+        var ts_method = document.getElementById('ts_method').value;
+        var ts_url = document.getElementById('ts_url').value;
+        var ts_host = document.getElementById('ts_host').value;
+        var ts_header = document.getElementById('ts_header').value;
+
+         // 判断顶部的数据是否填充完
+        if(api_name == ''){alert('请输入接口名字！');return}
+        if(ts_method == 'none'){alert('请选择请求方式！');return}
+        if(ts_url == ''){alert('请输入url！');return}
+        if(ts_host == ''){alert('请输入host！');return}
+
+        // 判断关键数据是否符合规则
+        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://'){
+            alert('host必须以http://或https://开头！');return;
+        }
+        if(ts_header !=''){
+            try{
+                JSON.parse(ts_header)
+            }catch (e) {
+                alert('header请求头不符合json规范');
+                return;
+            }
+        }
         var ts_body_method = $('ul#myTab li[class="active"]')[0].innerText;
         if(ts_body_method == 'none'){
             var ts_api_body = ''
@@ -426,7 +545,7 @@ color: white;padding-left: 10px">
 
 
         var api_id = document.getElementById('ts_api_id').innerText ;//获取到了接口id
-        $.get('/Api_save/',{
+        $.get('/Api_send/',{
             'api_id':api_id,
             'api_name':api_name,
             'ts_method':ts_method,
@@ -436,15 +555,22 @@ color: white;padding-left: 10px">
             'ts_body_method':ts_body_method,
             'ts_api_body':ts_api_body,
         },function (ret) {
-            document.location.reload()
+            $("li a[href=#response]")[0].click(); //发送请求后，点击返回体
+            document.getElementById('ts_response_body').value = ret; //把请求返回的数据放在返回体
         })
 
+    }
+    function copy_api(api_id) {
+        $.get('/copy_api/',{
+            'api_id':api_id
+        },function (ret) {
+            document.location.reload()
 
+        })
 
-
-
-
-
+    }
+    function error_test(api_id,api_body) {
+        document.getElementById('error_div').style.display='block';
 
 
     }
