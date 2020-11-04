@@ -259,17 +259,25 @@ color: white;padding-left: 10px">
 <div id="error_div" style="display: none;border-radius: 5px;width: 80%;
 position: absolute;left: 10%;top: 10%;background-color: #3c4043;box-shadow: 4px 4px 8px grey;
 color: white;padding-left: 10px">
-    <h4>接口：<small id="error_api_name"></small>的异常值测试结果如下：</h4>
+    <div class="btn-group" style="position: absolute;right: 0px">
+        <button onclick="error_play()" type="button" class="btn btn-success">开始测试</button>
+        <button onclick="error_colse()" type="button" class="btn btn-default">关闭</button>
+
+    </div>
+    <h4>接口：<small id="error_api_name" style="color: #3e8f3e"></small> 的异常值测试结果如下：</h4>
+    <strong>带替换的数据：(用英文逗号隔开)</strong>
+
+    <input id="ready_error_data" type="text" style="color:black ;border-radius: 5px;width: 99%"
+    value="'a',123,'','./7*&','中文'">
+    <br><br>
     <span>替换：username -> 123</span>
     <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
     <span>替换：username -> "aaa"</span>
     <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
     <span>替换：username -> "哈哈哈"</span>
     <textarea style="width: 99%;height: 40px;border-radius: 5px" name="" id="" ></textarea>
-
-
-
 </div>
+<input type="text" style="display: none" id="error_api_body">
 <script>
     function clear_ts_api() {
         document.getElementById('ts_api_id').innerText = '';
@@ -302,6 +310,11 @@ color: white;padding-left: 10px">
 
     }
     function ts_show(id, name) {
+        // 显示遮罩层，并设置好遮罩层的层级关系，让其在调试层之下，其他元素之上
+        document.getElementById('mengceng').style.display='block';
+        document.getElementById('mengceng').style.zIndex='998';
+        document.getElementById('ts').style.zIndex='999';
+
         clear_ts_api();
         document.getElementById('ts').style.display='block';
         document.getElementById('ts_api_id').innerText = id;
@@ -570,12 +583,71 @@ color: white;padding-left: 10px">
 
     }
     function error_test(api_id,api_body) {
+        // 显示遮罩层，并设置好遮罩层的层级关系，让其在调试层之下，其他元素之上
+        document.getElementById('mengceng').style.display='block';
+        document.getElementById('mengceng').style.zIndex='998';
+        document.getElementById('error_div').style.zIndex='999';
+        error_clean();
         document.getElementById('error_div').style.display='block';
+        document.getElementById('error_api_name').innerText = api_id;
+        document.getElementById('error_api_body').value=api_body;  //添加了一个隐藏的input 存储请求体
 
+
+    }
+    function error_colse() {
+        {#为了防止关闭异常测试层后引发其他bug，我们把关闭函数的代码从隐藏这个div改成刷新整个页面#}
+        document.location.reload();
+
+    }
+    function error_clean() {
+        document.getElementById('error_div').innerHTML = '<div class="btn-group" style="position: absolute;right: 0px">\n' +
+            '        <button onclick="error_play()" type="button" class="btn btn-success">开始测试</button>\n' +
+            '        <button onclick="error_colse()" type="button" class="btn btn-default">关闭</button>\n' +
+            '\n' +
+            '    </div>\n' +
+            '    <h4>接口：<small id="error_api_name" style="color: #3e8f3e"></small> 的异常值测试结果如下：</h4>\n' +
+            '    <strong>带替换的数据：(用英文逗号隔开)</strong>\n' +
+            '\n' +
+            '    <input id="ready_error_data" type="text" style="color:black ;border-radius: 5px;width: 99%"\n' +
+            '    value="\'a\',123,\'\',\'./7*&\',\'中文\'"><br><br>'
+
+    }
+    function error_play() {
+        api_body = document.getElementById('error_api_body').value;
+        ready_error_data = document.getElementById('ready_error_data').value;
+        console.log(api_body);
+        // 判断是不是form-data/x-www...的二维数组格式
+        try{
+            var s = eval(api_body);
+            if(s instanceof Array){
+                console(s)
+            }
+
+        }catch (e) {
+            //若不是就继续判断是不是raw-json的json串格式
+            try{
+                var s = JSON.parse(api_body);
+                console(s)
+            }catch (e) {
+                //若也不是，那就不需要做异常值测试了
+                alert('当前接口的请求体类型不支持异常值测试！')
+            }
+        }
+        console.log(ready_error_data);
 
     }
 </script>
 
+{#遮罩层#}
+{#关于调试层遗漏的一个设计缺陷。就是当已经打开了一个接口的调试层后，如果直接点击其他接口的调试层便会出现显示错误。这类的问题非常多，我们最好是直接根本上绕过去。#}
+{#解决办法一般来说有俩种#}
+{#1: 添加蒙版，就是在打开这个调试层的时候，其他位置都变成暗色的蒙版遮住，不让用户能点击到其他区域#}
+<div id="mengceng" style="display: none;opacity:0.5;position: absolute;left: 0;top: 100px;
+                          background-color: gray;width: 100%">
+</div>
+<script>
+    document.getElementById('mengceng').style.height=window.screen.availHeight.toString()+'px';
+</script>
 </body>
 
 </html>
