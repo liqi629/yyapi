@@ -357,7 +357,10 @@ def Api_send(request):
         api = DB_apis.objects.filter(id=api_id)
         api.update(last_body_method=ts_body_method, last_api_body=ts_api_body)
     # 发送请求获取返回值
-    header = json.loads(ts_header)
+    try:
+        header = json.loads(ts_header) # 处理header
+    except:
+        return HttpResponse('请求头不符合json格式！')
     # 拼接完整url
     if ts_host[-1]=='/' and ts_url[0]=='/': # 都有/
         url = ts_host[:-1]+ts_url
@@ -365,36 +368,39 @@ def Api_send(request):
         url = ts_host+'/'+ts_url
     else: #肯定有一个/
         url = ts_host+ts_url
-    if ts_body_method =='none':
-        response = requests.request(ts_method.upper(), url, headers=header, data={})
-    elif ts_body_method =='form-data':
-        files = []
-        payload = {}
-        for i in eval(ts_api_body):
-            payload[i[0]] = i[1]
-        response = requests.request(ts_method.upper(), url, headers=header, data=payload, files=files)
-    elif ts_body_method == 'x-www-form-urlencoded':
-        header['Content-Type'] = 'application/x-www-form-urlencoded'
-        payload = {}
-        for i in eval(ts_api_body):
-            payload[i[0]] = i[1]
-        response = requests.request(ts_method.upper(), url, headers=header, data=payload)
-    else:
-        if ts_body_method == 'Text':
-            header['Content-Type'] = 'text/plan'
-        if ts_body_method == 'JavaScript':
-            header['Content-Type'] = 'text/plan'
-        if ts_body_method == 'Json':
-            header['Content-Type'] = 'text/plan'
-        if ts_body_method == 'Html':
-            header['Content-Type'] = 'text/plan'
-        if ts_body_method == 'Xml':
-            header['Content-Type'] = 'text/plan'
-        response = requests.request(ts_method.upper(), url, headers=header, data=ts_api_body.encode('utf-8'))
+    try:
+        if ts_body_method =='none':
+            response = requests.request(ts_method.upper(), url, headers=header, data={})
+        elif ts_body_method =='form-data':
+            files = []
+            payload = {}
+            for i in eval(ts_api_body):
+                payload[i[0]] = i[1]
+            response = requests.request(ts_method.upper(), url, headers=header, data=payload, files=files)
+        elif ts_body_method == 'x-www-form-urlencoded':
+            header['Content-Type'] = 'application/x-www-form-urlencoded'
+            payload = {}
+            for i in eval(ts_api_body):
+                payload[i[0]] = i[1]
+            response = requests.request(ts_method.upper(), url, headers=header, data=payload)
+        else:
+            if ts_body_method == 'Text':
+                header['Content-Type'] = 'text/plan'
+            if ts_body_method == 'JavaScript':
+                header['Content-Type'] = 'text/plan'
+            if ts_body_method == 'Json':
+                header['Content-Type'] = 'text/plan'
+            if ts_body_method == 'Html':
+                header['Content-Type'] = 'text/plan'
+            if ts_body_method == 'Xml':
+                header['Content-Type'] = 'text/plan'
+            response = requests.request(ts_method.upper(), url, headers=header, data=ts_api_body.encode('utf-8'))
 
-    # 把返回值传送给前端页面
-    response.encoding = 'utf-8'  # 解决接口的返回值中，中文会显示乱码的问题
-    return HttpResponse(response.text)
+        # 把返回值传送给前端页面
+        response.encoding = 'utf-8'  # 解决接口的返回值中，中文会显示乱码的问题
+        return HttpResponse(response.text)
+    except Exception as e:
+        return HttpResponse(e)
 
 def copy_api(request):
     """
@@ -426,3 +432,104 @@ def copy_api(request):
                            )
     # 返回
     return HttpResponse('')
+
+
+def error_request(request):
+    api_id = request.GET['api_id']
+    new_body = request.GET['new_body']
+    span_text = request.GET['span_text']
+    print(new_body)
+    api = DB_apis.objects.filter(id=api_id)[0]
+    method = api.api_method
+    url = api.api_url
+    host = api.api_host
+    header = api.api_header
+    body_method = api.body_method
+    try:
+        header = json.loads(header)  # 处理header
+    except:
+        return HttpResponse('请求头不符合json格式！')
+    try:
+        if host[-1] == '/' and url[0] =='/': #都有/
+            url = host[:-1] + url
+        elif host[-1] != '/' and url[0] !='/': #都没有/
+            url = host+ '/' + url
+        else: #肯定有一个有/
+            url = host + url
+
+        if body_method == 'form-data':
+            files = []
+            payload = {}
+            for i in eval(new_body):
+                payload[i[0]] = i[1]
+            response = requests.request(method.upper(), url, headers=header, data=payload, files=files)
+        elif body_method == 'x-www-form-urlencoded':
+            header['Content-Type'] = 'application/x-www-form-urlencoded'
+            payload = {}
+            for i in eval(new_body):
+                payload[i[0]] = i[1]
+            response = requests.request(method.upper(), url, headers=header, data=payload)
+        elif body_method == 'Json':
+            header['Content-Type'] = 'text/plain'
+            response = requests.request(method.upper(), url, headers=header, data=new_body.encode('utf-8'))
+        else:
+            return HttpResponse('非法的请求体类型')
+        # 把返回值传递给前端页面
+        response.encoding = "utf-8"
+        res_json = {"response":response.text, "span_text":span_text}
+        return HttpResponse(json.dumps(res_json), content_type='application/json')
+    except:
+        res_json = {"response": '对不起，接口未通！', "span_text": span_text}
+        return HttpResponse(json.dumps(res_json), content_type='application/json')
+
+
+def error_requesta(request):
+    api_id = request.GET['api_id']
+    new_body = request.GET['new_body']
+    span_text= request.GET['span_text']
+
+    api = DB_apis.objects.filter(id=api_id)[0]
+    method = api.api_method
+    url = api.api_url
+    host = api.api_host
+    header = api.api_header
+    body_method = api.body_method
+    try:
+        header = json.loads(header)
+    except:
+        return HttpResponse('请求头不符合json格式！')
+
+    if host[-1] == '/' and url[0] =='/': #都有/
+        url = host[:-1] + url
+    elif host[-1] != '/' and url[0] !='/': #都没有/
+        url = host+ '/' + url
+    else: #肯定有一个有/
+        url = host + url
+
+    try:
+        if body_method == 'form-data':
+            files = []
+            payload = {}
+            for i in eval(new_body):
+                payload[i[0]] = i[1]
+            response = requests.request(method.upper(), url, headers=header, data=payload, files=files)
+        elif body_method == 'x-www-form-urlencoded':
+            header['Content-Type'] = 'application/x-www-form-urlencoded'
+            payload = {}
+            for i in eval(new_body):
+                payload[i[0]] = i[1]
+            response = requests.request(method.upper(), url, headers=header, data=payload)
+        elif body_method == 'Json':
+            header['Content-Type'] = 'text/plain'
+            response = requests.request(method.upper(), url, headers=header, data=new_body.encode('utf-8'))
+        else:
+            return HttpResponse('非法的请求体类型')
+        # 把返回值传递给前端页面
+        response.encoding = "utf-8"
+        res_json = {"response":response.text,"span_text":span_text}
+        return HttpResponse(json.dumps(res_json),content_type='application/json')
+    except:
+        res_json = {"response": '对不起，接口未通！', "span_text": span_text}
+        print(res_json)
+        return HttpResponse(json.dumps(res_json), content_type='application/json')
+

@@ -69,6 +69,7 @@ urlpatterns = [
     re_path(r'^get_api_data/$', get_api_data), # 获取接口数据
     re_path(r"^Api_send/$", Api_send), # 调试层发送请求
     path(r'copy_api/', copy_api),  # 复制接口
+    path(r'error_request/', error_request), # 调用异常测试接口
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]
