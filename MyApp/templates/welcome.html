@@ -82,6 +82,7 @@
     </div>
     <br>
 	<script src="/static/201908059658/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+
         <!--include plugin js-->
         <script type="text/javascript" src="/static/201908059658/src/jquery-rvnm.js"></script>
         <!--js run code-->
@@ -101,13 +102,14 @@
 <div id="page1"></div>
 
 <script>
-$('#page1').load('/child/'+'{{ whichHTML }}/{{ oid }}/')
+$('#page1').load('/child/'+'{{ whichHTML }}/{{ oid }}/{{ ooid }}/')
 </script>
 
 <script>
-    if ("{{ whichHTML }}" != "home.html" ){
+    if( "{{ whichHTML }}" != 'Home.html' ){
         document.getElementById('menu_btn').click();
     }
+
 </script>
 
 </body>

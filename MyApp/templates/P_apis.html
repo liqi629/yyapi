@@ -36,7 +36,7 @@
 {#                    打开调试层的时候，调试按钮居然显示出来了,不知道是不是所有小伙伴都和我一样遇到了这个问题。#}
 {#                    该问题出现的原因在于我们之前加入的按钮组的样式bug。#}
 {#                    解决方法：在按钮组上加入属性z-index，强制把层级变成最低的0#}
-                    <div class="btn-group" style="z-index: 0"> //
+                    <div class="btn-group" style="z-index: 0">
                         <button onclick="ts_show('{{ i.id }}', '{{ i.name }}')" class="btn btn-success">调试</button>
                         <button onclick="open_bz('{{ i.id }}')" class="btn btn-default">备注</button>
                         <button onclick="copy_api('{{ i.id }}')" class="btn btn-default">复制</button>

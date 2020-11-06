@@ -45,7 +45,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', welcome), #进入欢迎页
     path('home/', home), #进入主页
-    re_path(r"^child/(?P<eid>.+)/(?P<oid>.*)/$", child), # 返回子页面
+    re_path(r"^child/(?P<eid>.+)/(?P<oid>.*)/(?P<ooid>.*)/$",child), # 返回子页面
     path('login/', login), #进入登录页
     path('login_action/', login_action), # 登录 动作
     path('register_action/', register_action), # 注册
@@ -70,6 +70,10 @@ urlpatterns = [
     re_path(r"^Api_send/$", Api_send), # 调试层发送请求
     path(r'copy_api/', copy_api),  # 复制接口
     path(r'error_request/', error_request), # 调用异常测试接口
+    re_path(r"^Api_send_home/$", Api_send_home), # 首页发送请求
+    path('get_home_log/', get_home_log), # 获取最新请求记录
+    path('get_api_log_home/',get_api_log_home ), # 获取完整得单一得请求记录数据
+    re_path(r'^home_log/(?P<log_id>.*)/$', home), # 再次进入首页，这次带着记录
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]
