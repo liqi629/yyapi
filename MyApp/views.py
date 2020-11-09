@@ -545,7 +545,7 @@ def error_requesta(request):
 # 首页发送请求
 def Api_send_home(request):
     # 提取所有数据
-    print('qwe')
+
     ts_method = request.GET['ts_method']
     ts_url = request.GET['ts_url']
     ts_host = request.GET['ts_host']

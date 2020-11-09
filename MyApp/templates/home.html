@@ -14,13 +14,13 @@
 
 <div id="home_log_plan" style="padding-left: 20px;overflow-y: scroll;width: 320px">
     {% for i in home_log %}
-        <a href="/home_log/{{ i.id }}/" style="text-decoration: none"  class="log" >
+{#        <a href="javascript:home_log_show('{{ i.id }}')" style="text-decoration: none"  class="log" >#}
+            <a href="/home_log/{{ i.id }}" style="text-decoration: none"  class="log" >
             <span style="font-size: large;color: black">{{ i.api_method }}</span> -
             {{ i.api_host }}{{ i.api_url }}
         </a> <br>
     {% endfor %}
 </div>
-
 <div style="position: absolute;top: 100px;left: 380px;width: -webkit-calc(100% - 390px);">
     {# 调试弹层及函数 #}
         <ul class="nav navbar-nav" style="width: 98%">
@@ -151,76 +151,176 @@
             </div>
         </div>
         <br>
-
     <script>
-        // 自动设置请求类型
-        if( "{{ log.api_method }}" != ''){
+        // 自动设置请求类型/请求体类型/请求体
+        if("{{ log.api_method }}" != ''){
             document.getElementById('ts_method').value = "{{ log.api_method }}";
         }
         //请求体类型 //请求体
-        if("{{ log.body_method }}" != ''){
+    if("{{ log.body_method }}" != ''){
+        console.log("{{ log.body_method }}");
+        console.log("{{ log.api_body }}");
 
-            var body_method = '#'+"{{ log.body_method }}";
-            $("li a[href="+body_method+"]").click();
+        var body_method = '#'+"{{ log.body_method }}";
+        $("li a[href="+body_method+"]").click();
 
-            if("{{ log.body_method }}" == 'Text'){
-                document.getElementById('raw_Text').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'JavaScript'){
-                document.getElementById('raw_JavaScript').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Json'){
-                document.getElementById('raw_Json').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Html'){
-                document.getElementById('raw_Html').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Xml'){
-                document.getElementById('raw_Xml').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'form-data'){
-                var tbody = document.getElementById('mytbody'); //
-
-                body = eval("{{ log.api_body }}".replace(new RegExp('&quot;',"gm"),'"')); //把这个像列表的字符串请求体变成真正的列表
-                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
-                    key = body[i][0]; //拿出每一个键值对的key
-                    value = body[i][1];//拿出每一个键值对的value
-                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
-                    // 每个tr下的children得到的是 td列表，只有俩个。
-                    childs_tr[i].children[0].innerText = key; //第一个td放key
-                    childs_tr[i].children[1].innerText = value;//第二个td放value
-                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
-                    if(i<body.length-1){
-                        document.getElementById('add').click()
-                    }
-                }
-            }
-            if("{{ log.body_method }}" == 'x-www-form-urlencoded'){
-                var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
-                body = eval("{{ log.api_body }}".replace(new RegExp('&quot;',"gm"),'"')); //把这个像列表的字符串请求体变成真正的列表
-                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
-                    key = body[i][0]; //拿出每一个键值对的key
-                    value = body[i][1];//拿出每一个键值对的value
-                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
-                    // 每个tr下的children得到的是 td列表，只有俩个。
-                    childs_tr[i].children[0].innerText = key; //第一个td放key
-                    childs_tr[i].children[1].innerText = value;//第二个td放value
-                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
-                    if(i<body.length-1){
-                        document.getElementById('add2').click()
-                    }
+        if("{{ log.body_method }}" == 'Text'){
+            document.getElementById('raw_Text').value = "{{ log.api_body }}";
+        }
+        if("{{ log.body_method }}" == 'JavaScript'){
+            document.getElementById('raw_JavaScript').value = "{{ log.api_body }}";
+        }
+        if("{{ log.body_method }}" == 'Json'){
+            document.getElementById('raw_Json').value = "{{ log.api_body }}";
+        }
+        if("{{ log.body_method }}" == 'Html'){
+            document.getElementById('raw_Html').value = "{{ log.api_body }}";
+        }
+        if("{{ log.body_method }}" == 'Xml'){
+            document.getElementById('raw_Xml').value = "{{ log.api_body }}";
+        }
+        if("{{ log.body_method }}" == 'form-data'){
+            var tbody = document.getElementById('mytbody'); // 定位表格中的tbody部分
+            body = eval("{{ log.api_body }}".replace(new RegExp('&quot;', "gm"),'"')); //把这个像列表的字符串请求体变成真正的列表.正则替换：把所有&quot;都换成双引号。
+            for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
+                key = body[i][0]; //拿出每一个键值对的key
+                value = body[i][1];//拿出每一个键值对的value
+                var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
+                // 每个tr下的children得到的是 td列表，只有俩个。
+                childs_tr[i].children[0].innerText = key; //第一个td放key
+                childs_tr[i].children[1].innerText = value;//第二个td放value
+                //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                if(i<body.length-1){
+                    document.getElementById('add').click()
                 }
             }
         }
+        if("{{ log.body_method }}" == 'x-www-form-urlencoded'){
+            var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
+            body = eval("{{ log.api_body }}"); //把这个像列表的字符串请求体变成真正的列表
+            for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
+                key = body[i][0]; //拿出每一个键值对的key
+                value = body[i][1];//拿出每一个键值对的value
+                var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
+                // 每个tr下的children得到的是 td列表，只有俩个。
+                childs_tr[i].children[0].innerText = key; //第一个td放key
+                childs_tr[i].children[1].innerText = value;//第二个td放value
+                //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                if(i<body.length-1){
+                    document.getElementById('add2').click()
+                }
+            }
+        }
+    }
     </script>
-
     <script>
         $('#mytable').SetEditable({
-                $addButton: $('#add'),
-            });
+            $addButton: $('#add'),
+         });
         $('#mytable2').SetEditable({
-                $addButton: $('#add2'),
-            });
+            $addButton: $('#add2'),
+         });
+        // 左侧记录刷新
+        log_refersh();
+        function log_refersh() {
+            //清空
+            div = document.getElementById('home_log_plan');
+            div.innerHTML = '';
+            //生成新的
+            $.get('/get_home_log/',{
+            },function (ret) {
+                //这里展示数据代码
+                console.log(ret);
+                var res = eval(ret);
+                var all_logs = res.all_logs;
+                for(var i=0; i<all_logs.length;i++) {
+                    var a = document.createElement('a');//创建a标签
+                    {#a.href = "javascript:home_log_show("+all_logs[i].id.toString()+")"; // 点击函数#}
+                    a.href = "/home_log/"+all_logs[i].id+"/"; // 点击函数#
+                    a.style = "text-decoration: none";
+                    a.class = 'log';
+                    var s = document.createElement('span'); //声明显示请求体类型的span
+                    s.style = "font-size: large;color: black";
+                    s.innerText = all_logs[i].api_method + ' - '; //设定这个method;
+                    var s2 = document.createElement('span'); // 声明存放host+url的span
+                    s2.innerText = all_logs[i].api_host + all_logs[i].api_url;
+                    a.appendChild(s);
+                    a.appendChild(s2);
+                    div.appendChild(a);
+                    div.appendChild(document.createElement('br'));
+                }
+            })
+
+        }
+        //左侧记录点击后
+        function home_log_show_feiqi(id) {
+            $.get('/get_api_log_home/',{
+                "log_id":id
+            },function (ret) {
+                console.log(ret);
+                //改变右侧得请求模块
+                res = eval(ret); //此时res成了一个字典
+                log = res.log; //此时log获取了这个字段中得log，也就是目标记录得完整请求数据
+                // 解析来开始往右侧塞。
+                 document.getElementById('ts_method').value = log.api_method;
+                document.getElementById('ts_url').value = log.api_url;
+                document.getElementById('ts_host').value = log.api_host;
+                document.getElementById('ts_header').value = log.api_header;
+                {#    var body_method = '#'+ret.body_method;#}
+                {#$("li a[href="+body_method+"]")[0].click();#}
+                // 请求体显示
+                if(log.body_method == 'Text'){
+                    document.getElementById('raw_Text').value = log.api_body;
+                }
+                if(log.body_method == 'JavaScript'){
+                    document.getElementById('raw_JavaScript').value = log.api_body;
+                }
+                if(log.body_method == 'Json'){
+                    document.getElementById('raw_Json').value = log.api_body;
+                }
+                if(log.body_method == 'Html'){
+                    document.getElementById('raw_Html').value = log.api_body;
+                }
+                if(log.body_method == 'Xml'){
+                    document.getElementById('raw_Xml').value = log.api_body;
+                }
+                if(log.body_method == 'form-data'){
+                    var tbody = document.getElementById('mytbody'); // 定位表格中的tbody部分
+                    body = eval(log.api_body); //把这个像列表的字符串请求体变成真正的列表,示例："[["name","qw"],["pwd","er"]]
+
+                    for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
+                        key = body[i][0]; //拿出每一个键值对的key
+                        value = body[i][1];//拿出每一个键值对的value
+                        var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
+                        // 每个tr下的children得到的是 td列表，只有俩个。
+                        childs_tr[i].children[0].innerText = key; //第一个td放key
+                        childs_tr[i].children[1].innerText = value;//第二个td放value
+                        //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                        if(i<body.length-1){
+                            document.getElementById('add').click()
+                        }
+                    }
+                }
+                if(log.body_method == 'x-www-form-urlencoded') {
+                    var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
+                    body = eval(log.api_body); //把这个像列表的字符串请求体变成真正的列表
+                    for (var i = 0; i < body.length; i++) { // 遍历这个请求体列表
+                        key = body[i][0]; //拿出每一个键值对的key
+                        value = body[i][1];//拿出每一个键值对的value
+                        var childs_tr = tbody.children;//获取到这个表格下面所有的tr组成的大列表
+                        // 每个tr下的children得到的是 td列表，只有俩个。
+                        childs_tr[i].children[0].innerText = key; //第一个td放key
+                        childs_tr[i].children[1].innerText = value;//第二个td放value
+                        //判断是否是最后一次遍历，来决定是否点击新增参数按钮
+                        if (i < body.length - 1) {
+                            document.getElementById('add2').click()
+                        }
+                    }
+                }
+
+            })
+
+        }
         function ts_send() {
             // 获取接口的所有数据
             var ts_method = document.getElementById('ts_method').value ;
@@ -296,111 +396,12 @@
                 'ts_api_body':ts_api_body
             },function (ret) {
                  log_refersh();
-                $("li a[href=#response]")[0].click(); //点击一下返回体按钮
+                $("li a[href=#response]").click(); //点击一下返回体按钮
                 document.getElementById('ts_response_body').value = ret ;//把返回值显示到返回值多行文本框中
-            })
-        }
-        // 左侧记录刷新
-        function log_refersh() {
-            //清空
-            div = document.getElementById('home_log_plan');
-            div.innerHTML = '';
-            // 生成新的
-            $.get('/get_home_log/',{
-            },function (ret) { //ret 应该就是我们获取到的记录列表数组 的字符串形式
-                // 这里写生成展示的代码
-                console.log(ret);
-                var res = eval(ret);
-                var all_logs = res.all_logs;
-                for(var i=0; i<all_logs.length;i++){
-                    var a =document.createElement('a') ;//创建a标签
-                    a.href="/home_log/"+all_logs[i].id+"/" ; // 点击函数
-                    a.style="text-decoration: none" ;
-                    a.class = 'log';
-                    var s = document.createElement('span'); //声明显示请求体类型的span
-                    s.style = "font-size: large;color: black";
-                    s.innerText = all_logs[i].api_method+' - '; //设定这个method;
-                    var s2 = document.createElement('span'); // 声明存放host+url的span
-                    s2.innerText = all_logs[i].api_host+all_logs[i].api_url;
-                    a.appendChild(s);
-                    a.appendChild(s2);
-                    div.appendChild(a);
-                    div.appendChild(document.createElement('br'));
-                }
             })
         }
     </script>
 </div>
-<div id="shu" style="width: 2px;background-color: #262c2c;position: absolute;top: 70px;left:340px;">
-    &nbsp;
-</div>
-<script>
-    var h = document.documentElement.clientHeight;
-    document.getElementById('shu').style.height = (h-85).toString() +'px';
-    document.getElementById('home_log_plan').style.height = (h - 85).toString()+'px';
-
-
-
-        //自动设置请求类型
-    if( "{{ log.api_method }}" != ''){
-            document.getElementById('ts_method').value = "{{ log.api_method }}";
-        }
-        //请求体类型 //请求体
-        if("{{ log.body_method }}" != ''){
-
-            var body_method = '#'+"{{ log.body_method }}";
-            $("li a[href="+body_method+"]")[0].click();
-
-            if("{{ log.body_method }}" == 'Text'){
-                document.getElementById('raw_Text').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'JavaScript'){
-                document.getElementById('raw_JavaScript').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Json'){
-                document.getElementById('raw_Json').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Html'){
-                document.getElementById('raw_Html').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'Xml'){
-                document.getElementById('raw_Xml').value = "{{ log.api_body }}";
-            }
-            if("{{ log.body_method }}" == 'form-data'){
-                var tbody = document.getElementById('mytbody'); //
-
-                body = eval("{{ log.api_body }}".replace(new RegExp('&quot;',"gm"),'"')); //把这个像列表的字符串请求体变成真正的列表
-                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
-                    key = body[i][0]; //拿出每一个键值对的key
-                    value = body[i][1];//拿出每一个键值对的value
-                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
-                    // 每个tr下的children得到的是 td列表，只有俩个。
-                    childs_tr[i].children[0].innerText = key; //第一个td放key
-                    childs_tr[i].children[1].innerText = value;//第二个td放value
-                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
-                    if(i<body.length-1){
-                        document.getElementById('add').click()
-                    }
-                }
-            }
-            if("{{ log.body_method }}" == 'x-www-form-urlencoded'){
-                var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
-                body = eval("{{ log.api_body }}".replace(new RegExp('&quot;',"gm"),'"')); //把这个像列表的字符串请求体变成真正的列表
-                for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
-                    key = body[i][0]; //拿出每一个键值对的key
-                    value = body[i][1];//拿出每一个键值对的value
-                    var childs_tr = tbody.children ;//获取到这个表格下面所有的tr组成的大列表
-                    // 每个tr下的children得到的是 td列表，只有俩个。
-                    childs_tr[i].children[0].innerText = key; //第一个td放key
-                    childs_tr[i].children[1].innerText = value;//第二个td放value
-                    //判断是否是最后一次遍历，来决定是否点击新增参数按钮
-                    if(i<body.length-1){
-                        document.getElementById('add2').click()
-                    }
-                }
-            }
-        }
-</script>
 
 </body>
 </html>
