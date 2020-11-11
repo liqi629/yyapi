@@ -89,3 +89,30 @@ class DB_apis_log(models.Model):
 
     def __str__(self):
         return self.api_url
+
+
+class DB_cases(models.Model):
+    project_id = models.CharField(verbose_name="所属项目id", max_length=10, null=True)
+    name = models.CharField(verbose_name="用例名字", max_length=50, null=True)
+
+    def __str__(self):
+        return self.name
+
+class DB_step(models.Model):
+    Case_id = models.CharField(max_length=10, null=True)  # 所属大用例id
+    name = models.CharField(max_length=50, null=True)  # 步骤名字
+    index = models.IntegerField(null=True)  # 执行步骤
+    api_method = models.CharField(max_length=10, null=True)  # 请求方式
+    api_url = models.CharField(max_length=1000, null=True)  # url
+    api_host = models.CharField(max_length=100, null=True)  # host
+    api_header = models.CharField(max_length=1000, null=True)  # 请求头
+    api_body_method = models.CharField(max_length=10, null=True)  # 请求体编码类型
+    api_body = models.CharField(max_length=10, null=True)  # 请求体
+    get_path = models.CharField(max_length=500, null=True)  # 提取返回值-路径法
+    get_zz = models.CharField(max_length=500, null=True)  # 提取返回值-正则
+    assert_zz = models.CharField(max_length=500, null=True)  # 断言返回值-正则
+    assert_qz = models.CharField(max_length=500, null=True)  # 断言返回值-全文检索存在
+    assert_path = models.CharField(max_length=500, null=True)  # 断言返回值-路径法
+
+    def __str__(self):
+        return self.name

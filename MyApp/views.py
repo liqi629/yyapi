@@ -57,6 +57,8 @@ def child_json(eid, oid='', ooid=''):
     接下来我们想一个问题，我们要给前端返回的数据，格式上是有严格要求的，只能是字典。但是我们刚刚从数据库取出来的这个date是一个类似列表的格式，要怎么办呢？
     很简单，我们新建一个字典res,然后把date作为res的一个键值对的值即可。
     :param eid: 我们要进入的html文件名字
+    :param oid: 形参
+
     :return:res是个字典，可以直接让我们child函数返回给前端
     """
     res = {}  # 我们在最开始给res = {} 即可。这样如果有控制说res={什么数据} 也可以，没有指定的那就是不需要数据，就当{}空字典返回即可
@@ -78,7 +80,9 @@ def child_json(eid, oid='', ooid=''):
         res = {"project": project, "apis": apis}
     if eid == 'P_cases.html':
         project = DB_project.objects.filter(id=oid)[0]
-        res = {"project": project}
+        Cases = DB_cases.objects.filter(project_id=oid)
+        apis = DB_apis.objects.filter(project_id=oid)
+        res = {"project":project,"Cases": Cases, "apis":apis}
     if eid == 'P_project_set.html':
         project = DB_project.objects.filter(id=oid)[0]
         res = {"project": project}
@@ -185,6 +189,7 @@ def project_list(request):
 
 def delete_project(request):
     """
+    删除项目
     .filter() 方法可以找出所有符合的数据记录，当然这里我们肯定只能找到一条。但是返回的仍然是一个类似列表的格式，虽然只有一个元素。
     后接.delete()方法 ，可以删除。然后直接返回给前端，证明事办完了。前端就会自动刷新，用户看到的就是 这个项目不见了。
     :param request:
@@ -192,7 +197,11 @@ def delete_project(request):
     """
     id = request.GET['id']
     DB_project.objects.filter(id=id).delete()
-    DB_apis.objects.filter(project_id=id).delete()
+    DB_apis.objects.filter(project_id=id).delete() #删除旗下接口
+    all_Case = DB_cases.objects.filter(project_id=id)
+    for i in all_Case:
+        DB_step.objects.filter(Case_id=i.id).delete() # 删除步骤
+        i.delete()  #用例删除自己
     return HttpResponse('')
 
 
@@ -623,6 +632,11 @@ def Api_send_home(request):
 
 
 def get_home_log(request):
+    """
+    首页获取当前用户请求记录
+    :param request:
+    :return:
+    """
     user_id = request.user.id
     all_logs = DB_apis_log.objects.filter(user_id=user_id)
     ret = {"all_logs":list(all_logs.values("id","api_method","api_host","api_url"))[::-1]}
@@ -631,9 +645,110 @@ def get_home_log(request):
 
 
 def get_api_log_home(request):
+    """
+    首页点击左侧请求记录触发得函数
+    :param request:
+    :return:
+    """
     log_id = request.GET['log_id']
     log = DB_apis_log.objects.filter(id=log_id)
     ret = {"log":list(log.values())[0]}
     print(ret)
 
     return HttpResponse(json.dumps(ret),content_type='application/json')
+
+
+def add_case(request, eid):
+    """
+    添加用例
+    :param request:
+    :param eid: 项目id
+    :return:
+    """
+    DB_cases.objects.create(project_id=eid, name='')
+    return HttpResponseRedirect('/cases/%s'%eid)
+
+
+def del_case(request, eid,oid):
+    """
+    删除用例
+    :param request:
+    :param eid: 项目id
+    :param oid: 用例id
+    :return:
+    """
+    DB_cases.objects.filter(id=oid).delete()
+    DB_step.objects.filter(Case_id=oid).delete()
+    return HttpResponseRedirect('/cases/%s'%eid)
+
+
+def copy_case(request, eid,oid):
+    """
+    复制用例
+    :param request:
+    :param eid: 项目id
+    :param oid: 用例id
+    :return:
+    """
+    old_case = DB_cases.objects.filter(id=oid)[0]
+    DB_cases.objects.create(project_id=old_case.project_id, name=old_case.name+'_副本')
+
+    return HttpResponseRedirect('/cases/%s'%eid)
+
+
+
+def get_small(request):
+    """
+    获取小用例步骤得数据
+    :param request:
+    :return:
+    """
+    case_id = request.GET['case_id']
+    steps = DB_step.objects.filter(Case_id=case_id).order_by('index')
+    ret = {"all_steps": list(steps.values("index", "id", "name"))}
+    return HttpResponse(json.dumps(ret), content_type='application/json')
+
+
+def add_new_step(request):
+    """
+    新增步骤
+    :param request:
+    :return:
+    """
+    Case_id = request.GET['Case_id']
+    all_len = len(DB_step.objects.filter(Case_id=Case_id))
+    DB_step.objects.create(Case_id=Case_id, name='我是新步骤', index=all_len+1)
+    return HttpResponse('')
+
+
+def delete_step(request, eid):
+    """
+    删除步骤# 运用了双筛选和 大于写法 字段__gt =   注意是__  不是_
+    :param request:
+    :param eid: 步骤id
+    :return:
+    """
+    step = DB_step.objects.filter(id=eid)[0] # 获取待删除得step
+    index = step.index # 获取目标index
+    Case_id = step.Case_id # 获取目标所属用例得id
+    DB_step.objects.filter(id=eid).delete() # 删除目标step
+    for i in DB_step.objects.filter(Case_id=Case_id).filter(index__gt = index):
+        i.index -= 1 # 执行顺序自减1
+        i.save()
+    return HttpResponse('')
+
+
+
+def get_step(request,eid):
+    """
+
+    :param request:
+    :param eid: 项目id
+    :return:举例：{"api": [{"api_method": "post", "api_url": "/hjhj/asd", "api_header": "{}"}]}
+    """
+    Case_id = request.GET['Case_id']
+    step_id = request.GET['step_id']
+    Case = DB_cases.objects.filter(project_id=eid).filter(id=Case_id)[0]
+    case_id = Case.id
+    ret = DB_step.objects.filter(Case_id=case_id).filter(id=step_id).values()[0]
+    return HttpResponse(json.dumps(ret), content_type='application/json')

@@ -74,6 +74,14 @@ urlpatterns = [
     path('get_home_log/', get_home_log), # 获取最新请求记录
     path('get_api_log_home/',get_api_log_home ), # 获取完整得单一得请求记录数据
     re_path(r'^home_log/(?P<log_id>.*)/$', home), # 再次进入首页，这次带着记录
+    re_path(r'^add_case/(?P<eid>.*)/$', add_case), # 用例库-添加用例
+    re_path(r'^del_case/(?P<eid>.*)/(?P<oid>.*)/$', del_case), # 用例库-删除用例
+    re_path(r'^copy_case/(?P<eid>.*)/(?P<oid>.*)/$', copy_case), # 用例库-复制用例
+    path('get_small/', get_small), # 获取小用例步骤得列表数据
+    path('add_new_step/', add_new_step), # 新增小步骤接口
+    re_path('^delete_step/(?P<eid>.*)/', delete_step), # 删除小步骤接口
+    re_path('^get_step/(?P<eid>.*)/$', get_step), # 获取步骤得数据
+
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]
