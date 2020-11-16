@@ -739,16 +739,46 @@ def delete_step(request, eid):
 
 
 
-def get_step(request,eid):
+def get_step(request):
     """
-
+    获取小步骤内容
     :param request:
-    :param eid: 项目id
-    :return:举例：{"api": [{"api_method": "post", "api_url": "/hjhj/asd", "api_header": "{}"}]}
+    :return: 例如{"id": 44, "Case_id": "1", "name": "\u6211\u662f\u65b0\u6b65\u9aa4c",
+    "index": 1, "api_method": "post", "api_url": "/hjhj/asd", "api_host": "https://www.asd.com",
+     "api_header": "{}", "api_body_method": "Json", "api_body": "{\"a\":11}",
+     "get_path": "1", "get_zz": "1", "assert_zz": "1", "assert_qz": "1", "assert_path": "1"}
     """
-    Case_id = request.GET['Case_id']
     step_id = request.GET['step_id']
-    Case = DB_cases.objects.filter(project_id=eid).filter(id=Case_id)[0]
-    case_id = Case.id
-    ret = DB_step.objects.filter(Case_id=case_id).filter(id=step_id).values()[0]
-    return HttpResponse(json.dumps(ret), content_type='application/json')
+    step = DB_step.objects.filter(id=step_id)
+    steplist = list(step.values())[0]
+    print(json.dumps(steplist))
+    return HttpResponse(json.dumps(steplist), content_type='application/json')
+
+
+def save_step(request):
+    step_id = request.GET['step_id']
+    name = request.GET['name']
+    index = request.GET['index']
+    step_method = request.GET['step_method']
+    step_url = request.GET['step_url']
+    step_host = request.GET['step_host']
+    step_header = request.GET['step_header']
+    step_body_method = request.GET['step_body_method']
+    step_api_body = request.GET['step_api_body']
+
+    DB_step.objects.filter(id=step_id).update(name=name,
+                                              index=index,
+                                              api_method=step_method,
+                                              api_url=step_url,
+                                              api_host=step_host,
+                                              api_header=step_header,
+                                              api_body_method=step_body_method,
+                                              api_body=step_api_body,
+                                              )
+    return HttpResponse('保存成功')
+
+
+def step_get_api(request):
+    api_id = request.GET['api_id']
+    api = DB_apis.objects.filter(id=api_id).values()[0]
+    return HttpResponse(json.dumps(api), content_type='application/json')
