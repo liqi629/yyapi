@@ -22,16 +22,16 @@
 
 <br> <br>
 
-<table class="table table-striped"  style="margin-left: 75px">
+<table class="table table-striped"  >
     <thead>
         <tr>
-            <th style="width: 20px">id</th> <th style="width: 40%">接口名称</th> <th style="width: 20%">url</th> <th style="width: 350px">操作</th>
+            <th style="width: 80px; text-align: center">id</th> <th style="min-width: 200px">接口名称</th> <th style="width: 30%">url</th> <th style="min-width: 350px">操作</th>
         </tr>
     </thead>
     <tbody>
         {% for i in apis %}
             <tr>
-                <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.api_url }}</td>
+                <td style="text-align: center">{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.short_url }}</td>
                 <td>
 {#                    打开调试层的时候，调试按钮居然显示出来了,不知道是不是所有小伙伴都和我一样遇到了这个问题。#}
 {#                    该问题出现的原因在于我们之前加入的按钮组的样式bug。#}
@@ -54,7 +54,7 @@ width:100%;background-color: #f8f8f8;text-align: center;
 boeder:1px solid #e7e7e7">
         <div class="btn-group">
             <button type="button" class="btn btn-primary" onclick="document.location.href='/project_api_add/{{ project.id }}/'">新增接口</button>
-            <button type="button" class="btn btn-default">全局请求头</button>
+            <button type="button" onclick="project_header_div_show()" class="btn btn-default">全局请求头</button>
             <button type="button" class="btn btn-default">全局域名</button>
             <button type="button" class="btn btn-default">接口文档导入</button>
             <button type="button" class="btn btn-default">抓包导入</button>
@@ -141,19 +141,27 @@ color: white;padding-left: 10px">
 
         </li>
         <li>
-            <button type="button"
+            <button type="button" onclick="ts_clear_host()"
                     style="height: 40px;width: 60px;"class="btn btn-default"><span >Clear</span></button>
         </li>
     </ul>
         <br><br><br>
     <ul class="nav navbar-nav"style="width: 98%">
-        <li style="width: -webkit-calc(100% - 63px)">
+        <li style="width: -webkit-calc(100% - 127px)">
             <input id="ts_header" style=" color: black;padding-left: 10px;width: 100%;height: 40px" type="text" placeholder='header请求头:如{"Content":"application/json"}' value="">
 
         </li>
         <li>
-            <button type="button"
+            <button type="button" onclick="ts_clear_header()"
                     style="height: 40px;width: 60px;"class="btn btn-default"><span >Clear</span></button>
+            <button type="button" onclick="ts_show_project_header()"
+                    style="height: 40px;width: 60px;"class="btn btn-default"><span >▼</span></button>
+        </li>
+        <li id="ts_project_header_li" style="display: none">
+            {% for i in project_header %}
+                <label style="margin-right: 5px"><input id="checkbox_{{ i.id }}" value="{{ i.id }}" type="checkbox">{{ i.name }}</label>
+            {% endfor %}
+
         </li>
     </ul>
     <br> <br><br>
@@ -273,6 +281,103 @@ color: white;padding-left: 10px">
     <br><br>
 
 </div>
+
+
+{# 全局请求头 #}
+<div id="project_header_div" style="display: none;border-radius:5px;width: 70%;height: 70%;
+position: absolute;left: 15%;top: 15%;box-shadow: 4px 4px 8px grey;
+padding-left: 10px;background-color: white">
+    <div class="btn-group" style="float: right">
+        <button onclick="project_header_save()" type="button" class="btn btn-success">保存</button>
+        <button onclick="project_header_close()" type="button" class="btn btn-default">取消</button>
+    </div>
+
+    <h4>请设置本项目的全局公共请求头：</h4>
+    <div id="header_plan">
+        {% for i in project_header %}
+            <input type="text" name="header_id" value="{{ i.id }}" style="display: none">
+            <input type="text" name="header_name" value="{{ i.name }}" style="width: 20%;margin-top: 3px" placeholder="请求头name"> ={"
+            <input type="text" name="header_key" value="{{ i.key }}" style="width: 15%;" placeholder="请求头key"> " : "
+            <input type="text" name="header_value" value="{{ i.value }}" style="width: 50%;" placeholder="请求头value"> "}
+
+        {% endfor %}
+    </div>
+    <br>
+    <button onclick="add_project_header()">新增</button>
+
+
+</div>
+<script>
+    function project_header_div_show() {
+        document.getElementById('project_header_div').style.display = 'block';
+    }
+    function project_header_close() {
+        document.location.reload()
+    }
+    function project_header_save() {
+        var names = document.getElementsByName('header_name');
+        var keys = document.getElementsByName('header_key');
+        var values = document.getElementsByName('header_value');
+        var ids = document.getElementsByName('header_id')
+        var req_names= [];
+        var req_keys=[];
+        var req_values=[];
+        var req_ids =[];
+        for(var i=0;i<names.length;i++){
+
+                req_names.push(names[i].value);
+                req_keys.push(keys[i].value);
+                req_values.push(values[i].value);
+                req_ids.push(ids[i].value)
+
+        }
+        {#console.log(req_names)#}
+        {#console.log(req_keys)#}
+        {#console.log(req_values)#}
+
+        $.get('/save_project_header/',{
+            "project_id":"{{ project.id }}",
+            "req_names":req_names.toString(),
+            "req_keys":req_keys.toString(),
+            "req_values":req_values.toString(),
+            "req_ids":req_ids.toString()
+        },function (ret) {
+            document.location.reload();
+        })
+    }
+    function add_project_header() {
+        var header_plan = document.getElementById('header_plan');
+        var i0 = document.createElement('input');
+        i0.name = 'header_id'
+        i0.value ='new';
+        i0.style.display ='none';
+
+        var i1 = document.createElement('input');
+        i1.style='width:20%;margin-top:3px';
+        i1.placeholder='请求头name';
+        i1.name='header_name';
+        var i2 = document.createElement('input');
+        i2.style='width:15%;';
+        i2.placeholder='请求头key';
+        i2.name='header_key';
+        var i3 = document.createElement('input');
+        i3.style='width:50%';
+        i3.placeholder='请求头value';
+        i3.name='header_value';
+        header_plan.appendChild(i0);
+        header_plan.appendChild(i1);
+        header_plan.appendChild(document.createTextNode(' ={" '));
+        header_plan.appendChild(i2);
+        header_plan.appendChild(document.createTextNode(' " : " '));
+        header_plan.appendChild(i3);
+        header_plan.appendChild(document.createTextNode(' "}" '));
+        header_plan.appendChild(document.createElement("br"));
+
+    }
+</script>
+
+
+
 <input type="text" style="display: none" id="error_api_body">
 <script>
     function clear_ts_api() {
@@ -327,6 +432,16 @@ color: white;padding-left: 10px">
             document.getElementById('ts_url').value = ret.api_url;
             document.getElementById('ts_host').value = ret.api_host;
             document.getElementById('ts_header').value = ret.api_header;
+            //公共请求头
+            var project_headers = ret.public_header.split(',');
+            for(var i=0;i<project_headers.length;i++){
+                try{
+                    document.getElementById('checkbox_'+project_headers[i]).checked='checked';
+                }catch (e) {
+                    
+                }
+               
+            }
             // 请求体编码格式
             {#第一句是我们拼接起来这个#form-data。因为所有的li标签内的a标签的href 都是#开头。我们就是要利用这个href来进行定位。#}
             {#然后第二句是jquery选择器的语法，意思是li 标签下的a标签中 href 是这个拼接字符串的 元素执行点击click操作。#}
@@ -393,6 +508,21 @@ color: white;padding-left: 10px">
         var ts_url = document.getElementById('ts_url').value;
         var ts_host = document.getElementById('ts_host').value;
         var ts_header = document.getElementById('ts_header').value;
+
+        {#首先用project_headers获取这li标签下所有 label标签，成为一个列表。#}
+        {#然后创建空列表 用于存放一会要传给后端的字段。#}
+        {#然后for循环遍历，此时的project_headers[i]就是某个label，但是这个label内仍然有子元素，#}
+        {#也就是我们要定位的input，所以还要再加.children方法来获取它下面的所有子标签，当然input是第一个，#}
+        {#所以下标为[0]。然后再获取它的选中状态，为true就代表选中。那么就给它的value，也就是这个请求头的id，#}
+        {#添加到我们的空列表：ts_project_headers 中，等全部遍历完，就把这个列表转成字符串，#}
+        {#和其他接口字段一起传递个后台函数。#}
+        var project_headers = document.getElementById('ts_project_header_li').children;
+        var ts_project_header = [];
+        for(var i=0;i<project_headers.length;i++){
+            if (project_headers[i].children[0].checked==true){
+                ts_project_header.push(project_headers[i].children[0].value)
+            }
+        }
 
          // 判断顶部的数据是否填充完
         if(api_name == ''){alert('请输入接口名字！');return}
@@ -471,6 +601,7 @@ color: white;padding-left: 10px">
             'ts_header':ts_header,
             'ts_body_method':ts_body_method,
             'ts_api_body':ts_api_body,
+            'ts_project_headers':ts_project_header.toString(),
         },function (ret) {
             document.location.reload()
         })
@@ -568,6 +699,15 @@ color: white;padding-left: 10px">
             document.getElementById('ts_response_body').value = ret; //把请求返回的数据放在返回体
         })
 
+    }
+    function ts_clear_host() {
+        document.getElementById('ts_host').value='';
+    }
+    function ts_clear_header() {
+        document.getElementById('ts_header').value='';
+    }
+    function ts_show_project_header() {
+        document.getElementById('ts_project_header_li').style.display = 'block';
     }
     function copy_api(api_id) {
         $.get('/copy_api/',{

@@ -1,0 +1,437 @@
+[2020-11-19 09:40:32,529][MainThread:3308][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-19 09:42:42,365][MainThread:3308][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-19 09:42:43,587][MainThread:6892][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-19 09:55:02,546][Thread-6:8700][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Run_Case/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 830, in Run_Case
+    run(Case_id, Case.name, steps)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 29, in run
+    make_def(steps)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 23, in make_def
+    setattr(Test, 'test_'+str(steps[i].index).zfill(3), make_defself(steps[i]))
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 18, in make_defself
+    return tool()
+TypeError: tool() missing 1 required positional argument: 'self'
+[2020-11-19 09:55:25,351][MainThread:6892][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-19 09:55:26,603][MainThread:1840][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-19 16:35:08,981][MainThread:12424][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-19 16:35:17,374][Thread-6:14060][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-11-24 09:32:46,785][MainThread:16356][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 09:32:48,360][Thread-6:6060][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-11-24 09:53:18,981][MainThread:16356][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 09:53:20,261][MainThread:14108][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:07:58,084][MainThread:14108][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:07:59,354][MainThread:8584][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:09:12,697][MainThread:8584][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:09:13,934][MainThread:13652][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:09:15,687][Thread-7:9696][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:18,938][Thread-8:17920][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:19,649][Thread-9:17464][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:20,325][Thread-10:12708][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:20,878][Thread-11:15184][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:29:09,747][Thread-14:11080][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:29:11,058][Thread-14:11080][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:34:38,773][MainThread:13652][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:34:40,112][MainThread:13992][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:35:06,199][MainThread:13992][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:35:07,464][MainThread:5168][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:35:07,991][Thread-7:14788][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:38:25,226][Thread-9:9664][task_id:django.request][log.py:230][WARNING][Not Found: /apis/]
+[2020-11-24 10:38:37,160][Thread-12:10556][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:39:08,634][Thread-14:6944][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:39:20,017][MainThread:5168][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:39:21,385][MainThread:15260][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:40:13,647][MainThread:15260][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:40:14,896][MainThread:13940][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:40:16,255][Thread-7:6724][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:40:33,736][Thread-8:8608][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:40:34,445][MainThread:13940][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:40:35,677][MainThread:8480][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:40:36,243][Thread-7:3924][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:41:07,387][Thread-12:4960][task_id:django.request][log.py:230][ERROR][Internal Server Error: /admin/MyApp/db_apis/11/change/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaultfilters.py", line 42, in _dec
+    args[0] = str(args[0])
+TypeError: __str__ returned non-string (type NoneType)
+[2020-11-24 10:41:41,072][MainThread:8480][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:41:42,328][MainThread:4748][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:42:18,995][MainThread:4748][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:42:20,234][MainThread:10980][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:44:07,145][MainThread:10980][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:44:08,403][MainThread:11640][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 10:44:21,564][MainThread:11640][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-24 10:44:22,812][MainThread:16636][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:20:24,423][MainThread:16636][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:20:25,689][MainThread:2408][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:23:31,177][MainThread:2408][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:23:32,419][MainThread:3796][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:25:27,358][MainThread:3796][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:25:28,586][MainThread:14580][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:30:23,016][MainThread:14580][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:30:24,338][MainThread:13744][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:31:15,878][MainThread:13744][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:31:17,216][MainThread:6324][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 14:35:49,331][MainThread:6324][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 14:35:50,605][MainThread:14596][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 15:19:58,750][MainThread:14596][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-24 15:20:00,066][MainThread:4800][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 17:19:46,632][MainThread:11840][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-24 17:19:50,550][Thread-6:6364][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-11-24 17:19:50,864][Thread-6:6364][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-11-26 18:03:54,434][MainThread:22072][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:05:56,258][Thread-6:22468][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-11-26 18:05:56,411][Thread-6:22468][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-11-26 18:13:47,481][MainThread:22072][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:13:48,784][MainThread:2972][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:26:18,439][MainThread:2972][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:26:19,783][MainThread:14992][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:27:47,097][MainThread:14992][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:27:48,526][MainThread:5440][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:33:34,931][MainThread:5440][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:33:36,280][MainThread:18360][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:35:19,561][MainThread:18360][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:35:21,050][MainThread:20772][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:38:58,219][MainThread:20772][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:38:59,518][MainThread:18388][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:41:31,192][MainThread:18388][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:41:32,544][MainThread:17144][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:42:29,269][MainThread:17144][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:42:30,680][MainThread:22260][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:43:20,251][MainThread:22260][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:43:21,605][MainThread:16632][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:44:46,626][MainThread:16632][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:44:47,976][MainThread:21896][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:45:28,724][MainThread:21896][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:45:30,087][MainThread:7992][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:47:29,934][MainThread:7992][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:47:31,294][MainThread:18572][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:49:24,812][MainThread:18572][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:49:26,178][MainThread:5476][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:50:29,180][MainThread:5476][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:50:30,520][MainThread:11416][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-26 18:55:17,563][MainThread:11416][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\run_case.py changed, reloading.]
+[2020-11-26 18:55:18,941][MainThread:18672][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-27 09:30:17,312][MainThread:16044][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-27 09:30:20,613][Thread-6:4544][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-11-27 09:32:49,187][MainThread:16044][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-27 09:32:50,497][MainThread:2892][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-30 17:24:50,128][MainThread:13248][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-30 17:25:05,429][Thread-6:12432][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-11-30 17:33:26,356][MainThread:13248][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2020-11-30 17:33:27,686][MainThread:10784][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-11-30 17:35:02,211][MainThread:10784][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-11-30 17:35:03,471][MainThread:3472][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-01 10:28:26,801][MainThread:14568][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-01 10:28:30,429][Thread-6:17080][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-01 10:28:34,374][Thread-6:17080][task_id:django.request][log.py:230][WARNING][Not Found: /h]
+[2020-12-04 10:38:20,949][MainThread:18144][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-04 10:38:22,517][Thread-6:25472][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-04 10:38:22,682][Thread-6:25472][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-04 10:43:01,561][MainThread:18144][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2020-12-04 10:43:02,838][MainThread:19956][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-04 11:01:19,848][Thread-15:15312][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-09 10:27:26,118][MainThread:16544][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 10:27:35,900][Thread-6:18600][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-09 11:09:37,211][MainThread:16544][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 11:09:38,446][MainThread:16580][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 11:13:35,484][MainThread:16580][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 11:13:36,732][MainThread:1536][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 11:25:23,188][MainThread:1536][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 11:25:24,432][MainThread:12528][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 19:16:21,991][MainThread:20340][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 19:16:23,390][Thread-6:12324][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-09 19:16:23,477][Thread-6:12324][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-09 20:20:56,428][MainThread:20340][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:20:57,678][MainThread:22448][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:21:13,385][Thread-6:21360][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:21:23,452][Thread-6:21360][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:21:36,577][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:22:08,134][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:22:13,894][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:23:40,771][MainThread:22448][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:23:42,074][MainThread:21252][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:38:56,843][MainThread:21252][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:38:58,114][MainThread:12104][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:39:59,689][MainThread:12104][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:40:00,942][MainThread:2872][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:41:25,948][MainThread:2872][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:41:27,238][MainThread:16092][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:43:39,765][MainThread:16092][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:43:40,964][MainThread:19504][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-09 20:45:35,286][MainThread:19504][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-09 20:45:36,561][MainThread:13876][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]

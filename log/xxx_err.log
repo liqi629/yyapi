@@ -1,0 +1,309 @@
+[2020-11-19 09:55:02,546][Thread-6:8700][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Run_Case/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 830, in Run_Case
+    run(Case_id, Case.name, steps)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 29, in run
+    make_def(steps)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 23, in make_def
+    setattr(Test, 'test_'+str(steps[i].index).zfill(3), make_defself(steps[i]))
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 18, in make_defself
+    return tool()
+TypeError: tool() missing 1 required positional argument: 'self'
+[2020-11-24 10:09:15,687][Thread-7:9696][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:18,938][Thread-8:17920][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:19,649][Thread-9:17464][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:20,325][Thread-10:12708][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:09:20,878][Thread-11:15184][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:29:09,747][Thread-14:11080][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:29:11,058][Thread-14:11080][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:35:07,991][Thread-7:14788][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:38:37,160][Thread-12:10556][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:39:08,634][Thread-14:6944][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 107, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:40:16,255][Thread-7:6724][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:40:33,736][Thread-8:8608][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:40:36,243][Thread-7:3924][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_apis.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 69, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 108, in child_json
+    i.short_url = i.api_url.split('?')[0][:50]
+AttributeError: 'NoneType' object has no attribute 'split'
+[2020-11-24 10:41:07,387][Thread-12:4960][task_id:django.request][log.py:230][ERROR][Internal Server Error: /admin/MyApp/db_apis/11/change/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 202, in _get_response
+    response = response.render()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\defaultfilters.py", line 42, in _dec
+    args[0] = str(args[0])
+TypeError: __str__ returned non-string (type NoneType)
+[2020-12-09 20:21:13,385][Thread-6:21360][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:21:23,452][Thread-6:21360][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:21:36,577][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:22:08,134][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
+[2020-12-09 20:22:13,894][Thread-7:1048][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts-project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 355, in Api_save
+    ts_project_headers = request.GET['ts-project_headers']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'

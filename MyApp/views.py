@@ -1,3 +1,4 @@
+import ast
 import json
 import requests
 
@@ -12,6 +13,29 @@ from MyApp.models import *
 # 调用的HttpResponse函数是用来返回一个字符串的，后续返回的json格式字符串也是用它，
 # HttpResponseRedirect 是用来重定向到其他url上的。
 # render是用来返回html页面和页面初始数据的。
+
+def glodict(request):
+    userimg = str(request.user.id)+'.png' #写死png后缀，上传强制转成png
+    res = {"username":request.user.username, "userimg":userimg}
+    return res
+
+
+
+
+# 上传用户头像
+def user_upload(request):
+    file = request.FILES.get("fileUpload",None) # 靠name获取上传的文件，如果没有，避免报错，设置成None
+
+    if not file:
+        return HttpResponseRedirect('/home/') #如果没有则返回到首页
+
+    new_name = str(request.user.id) + '.png' #设置好这个新图片的名字
+    destination = open("MyApp/static/user_img/"+new_name, 'wb+')  # 打开特定的文件进行二进制的写操作
+    for chunk in file.chunks():  # 分块写入文件
+        destination.write(chunk)
+    destination.close()
+
+    return HttpResponseRedirect('/home/') #返回到首页
 
 
 @login_required
@@ -31,7 +55,8 @@ def home(request, log_id=''):
     :return:
     """
     # return  HttpResponse("欢迎进入主页")
-    return render(request, 'welcome.html', {"whichHTML": "home.html", "oid": request.user.id, "ooid":log_id})
+    return render(request, 'welcome.html', {"whichHTML": "home.html", "oid": request.user.id, "ooid":log_id
+                                            ,**glodict(request)})
 
 
 def child(request, eid, oid, ooid):
@@ -77,7 +102,21 @@ def child_json(eid, oid='', ooid=''):
     if eid == 'P_apis.html':
         project = DB_project.objects.filter(id=oid)[0]
         apis = DB_apis.objects.filter(project_id=oid)
-        res = {"project": project, "apis": apis}
+        # 我们给每个接口api，都新增了一个short_url，值为原始url的?号前面路由的部分，
+        # 并且最大只要前50个字符串。
+        for i in apis:
+            # print(i.api_url)
+            # url为空得时候，'NoneType' object has no attribute 'split' 报错，会导致页面打不开，此处进行判断，或者views.py中的新增接口函数，给它加上api_url=‘’
+            # 或者使用try
+            # if i.api_url !=None:
+                # i.short_url = i.api_url.split('?')[0][:50]
+
+            try:
+                i.short_url = i.api_url.split('?')[0][:50]
+            except:
+                i.short_url = ''
+        project_hrader = DB_project_header.objects.filter(project_id=oid)
+        res = {"project": project, "apis": apis, 'project_header':project_hrader}
     if eid == 'P_cases.html':
         project = DB_project.objects.filter(id=oid)[0]
         Cases = DB_cases.objects.filter(project_id=oid)
@@ -175,7 +214,7 @@ def api_help(request):
     :param request:
     :return:
     """
-    return render(request, 'welcome.html', {"whichHTML": "help.html", "oid": ""})
+    return render(request, 'welcome.html', {"whichHTML": "help.html", "oid": "",**glodict(request)})
 
 
 def project_list(request):
@@ -184,7 +223,7 @@ def project_list(request):
     :param request:
     :return:
     """
-    return render(request, 'welcome.html', {"whichHTML": "project_list.html", "oid": ""})
+    return render(request, 'welcome.html', {"whichHTML": "project_list.html", "oid": "",**glodict(request)})
 
 
 def delete_project(request):
@@ -233,17 +272,17 @@ def open_apis(request, id):
     :return:
     """
     project_id = id
-    return render(request, 'welcome.html', {"whichHTML": "P_apis.html", "oid": project_id})
+    return render(request, 'welcome.html', {"whichHTML": "P_apis.html", "oid": project_id,**glodict(request)})
 
 
 def open_cases(request, id):
     project_id = id
-    return render(request, 'welcome.html', {"whichHTML": "P_cases.html", "oid": project_id})
+    return render(request, 'welcome.html', {"whichHTML": "P_cases.html", "oid": project_id,**glodict(request)})
 
 
 def open_project_set(request, id):
     project_id = id
-    return render(request, 'welcome.html', {"whichHTML": "P_project_set.html", "oid": project_id})
+    return render(request, 'welcome.html', {"whichHTML": "P_project_set.html", "oid": project_id,**glodict(request)})
 
 
 def save_project_set(request, id):
@@ -313,6 +352,7 @@ def Api_save(request):
     ts_host = request.GET['ts_host']
     ts_header = request.GET['ts_header']
     ts_body_method = request.GET['ts_body_method']
+    ts_project_headers = request.GET['ts_project_headers']
 
     if ts_body_method == '返回体':
         api = DB_apis.objects.filter(id=api_id)[0]
@@ -328,6 +368,7 @@ def Api_save(request):
         body_method = ts_body_method,
         api_body = ts_api_body,
         name = api_name,
+        public_header = ts_project_headers,
     )
     return HttpResponse('success')
 
@@ -389,13 +430,13 @@ def Api_send(request):
         elif ts_body_method =='form-data':
             files = []
             payload = {}
-            for i in eval(ts_api_body):
+            for i in ast.literal_eval(ts_api_body):
                 payload[i[0]] = i[1]
             response = requests.request(ts_method.upper(), url, headers=header, data=payload, files=files)
         elif ts_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
             payload = {}
-            for i in eval(ts_api_body):
+            for i in ast.literal_eval(ts_api_body):
                 payload[i[0]] = i[1]
             response = requests.request(ts_method.upper(), url, headers=header, data=payload)
         else:
@@ -475,13 +516,13 @@ def error_request(request):
         if body_method == 'form-data':
             files = []
             payload = {}
-            for i in eval(new_body):
+            for i in ast.literal_eval(new_body):
                 payload[i[0]] = i[1]
             response = requests.request(method.upper(), url, headers=header, data=payload, files=files)
         elif body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
             payload = {}
-            for i in eval(new_body):
+            for i in ast.literal_eval(new_body):
                 payload[i[0]] = i[1]
             response = requests.request(method.upper(), url, headers=header, data=payload)
         elif body_method == 'Json':
@@ -525,13 +566,13 @@ def error_requesta(request):
         if body_method == 'form-data':
             files = []
             payload = {}
-            for i in eval(new_body):
+            for i in ast.literal_eval(new_body):
                 payload[i[0]] = i[1]
             response = requests.request(method.upper(), url, headers=header, data=payload, files=files)
         elif body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
             payload = {}
-            for i in eval(new_body):
+            for i in ast.literal_eval(new_body):
                 payload[i[0]] = i[1]
             response = requests.request(method.upper(), url, headers=header, data=payload)
         elif body_method == 'Json':
@@ -596,14 +637,14 @@ def Api_send_home(request):
         elif ts_body_method == 'form-data':
             files = []
             payload = {}
-            for i in eval(ts_api_body):
+            for i in ast.literal_eval(ts_api_body):
                 payload[i[0]] = i[1]
             response = requests.request(ts_method.upper(), url, headers=header, data=payload, files=files )
 
         elif ts_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
             payload = {}
-            for i in eval(ts_api_body):
+            for i in ast.literal_eval(ts_api_body):
                 payload[i[0]] = i[1]
             response = requests.request(ts_method.upper(), url, headers=header, data=payload )
 
@@ -763,8 +804,17 @@ def save_step(request):
     step_url = request.GET['step_url']
     step_host = request.GET['step_host']
     step_header = request.GET['step_header']
+
+    mock_res = request.GET['mock_res']
     step_body_method = request.GET['step_body_method']
     step_api_body = request.GET['step_api_body']
+
+    get_path = request.GET['get_path']
+    get_zz = request.GET['get_zz']
+    assert_zz = request.GET['assert_zz']
+    assert_qz = request.GET['assert_qz']
+    assert_path = request.GET['assert_path']
+
 
     DB_step.objects.filter(id=step_id).update(name=name,
                                               index=index,
@@ -773,7 +823,14 @@ def save_step(request):
                                               api_host=step_host,
                                               api_header=step_header,
                                               api_body_method=step_body_method,
+                                              mock_res = mock_res,
                                               api_body=step_api_body,
+
+                                              get_path=get_path,
+                                              get_zz=get_zz,
+                                              assert_zz=assert_zz,
+                                              assert_qz=assert_qz,
+                                              assert_path=assert_path,
                                               )
     return HttpResponse('保存成功')
 
@@ -782,3 +839,53 @@ def step_get_api(request):
     api_id = request.GET['api_id']
     api = DB_apis.objects.filter(id=api_id).values()[0]
     return HttpResponse(json.dumps(api), content_type='application/json')
+
+
+
+def Run_Case(request):
+    """
+    运行大用例
+    :param request:
+    :return:
+    """
+    Case_id = request.GET['Case_id']
+    Case = DB_cases.objects.filter(id=Case_id)[0]
+    steps = DB_step.objects.filter(Case_id=Case_id)
+    from MyApp.run_case import run
+    run(Case_id, Case.name, steps)
+    return HttpResponse('')
+
+
+def look_report(request, eid):
+    Case_id = eid
+    return render(request, 'Reports/%s.html'%Case_id)
+
+def save_project_header(request):
+    """
+    保存项目公共请求头
+    :param request:
+    :return:
+    """
+    project_id = request.GET['project_id']
+    req_names = request.GET['req_names']
+    req_keys = request.GET['req_keys']
+    req_values = request.GET['req_values']
+    req_ids = request.GET['req_ids']
+
+    names = req_names.split(',')
+    keys = req_keys.split(',')
+    values = req_values.split(',')
+    ids = req_ids.split(',')
+
+    for i in range(len(ids)):
+        if names[i] != '':
+            if ids[i]=='new':
+                DB_project_header.objects.create(project_id=project_id, name=names[i], key=keys[i], value=values[i])
+            else:
+                DB_project_header.objects.filter(id=ids[i]).update(name=names[i], key=keys[i], value=values[i])
+        else:
+            try:
+                DB_project_header.objects.filter(id=ids[i]).delete()
+            except:
+                pass
+    return HttpResponse('')

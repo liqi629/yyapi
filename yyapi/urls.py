@@ -82,8 +82,11 @@ urlpatterns = [
     re_path('^delete_step/(?P<eid>.*)/', delete_step), # 删除小步骤接口
     path(r'get_step/', get_step), # 获取步骤得数据
     path(r'save_step/', save_step), # 保存步骤得数据
-
+    path(r'user_upload/', user_upload), # 上传头像
     path(r'step_get_api/', step_get_api), # 步骤详情页获取接口数据
+    path(r'Run_Case/', Run_Case), # 运行大用例
+    re_path(r'^look_report/(?P<eid>.*)/$', look_report), # 查看报告
+    path(r'save_project_header/', save_project_header), # 保存项目公共请求头
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]

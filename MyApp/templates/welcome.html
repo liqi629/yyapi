@@ -16,9 +16,27 @@
     <link rel="shortcut icon" href="#">
 </head>
 <body>
+
 <!--菜单选中的背景颜色设置在src文件夹内的 jquery-rvnm.css文件中的第390行。-->
 
 	<nav id="navbar" class="">
+        <div style="color: white;margin-top: 5px;margin-bottom: 5px;margin-left: 5px;text-align: center" >
+            欢迎你：<span>{{ username }}</span>
+            <br>
+            <img src="/static/user_img/{{ userimg }}" alt="" style="width: 50%" class="img-circle img-thumbnail">
+            <a href="javascript:show_upload()" class="glyphicon glyphicon-pencil"></a>
+
+        </div>
+        <form style="display: none" id="upload_file" action="/user_upload/" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileUpload" style="margin-left: 45px;width: 65px;height: 20px;font-size: xx-small;float: left"/>
+            <button onclick="upload_py()"  style="color: black;width: 64px;height: 21px;font-size: xx-small" > 上传头像 </button>
+        </form>
+        <script>
+            function show_upload() {
+                document.getElementById('upload_file').style.display='block';
+
+            }
+        </script>
             <ul>
 
 
@@ -91,7 +109,7 @@
                 var rvnMenu = $("#navbar").rvnm({
 //                    mode: 'mobile',
 //                    responsive: false,
-                    searchable: true,
+                    searchable: false,
                     theme: 'dark-lesb'
                 });
                 console.log(rvnMenu);
