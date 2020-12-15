@@ -4,13 +4,22 @@ import re, json
 import requests
 from MyApp.A_WQRFhtmlRunner import HTMLTestRunner
 
+# 添加下面代码，让本文将有数据库权限
+import sys, os, django
+path = "../yyapi"
+sys.path.append(path)
+os.environ.setdefault("DJANGO_STTFINGS_MODULE", "yyapi.settings")
+django.setup()
+from MyApp.models import *
+
+
+
 class Test(unittest.TestCase):
     '''
-    测试类13910629673
+    测试类
     '''
     def demo(self, step):
         time.sleep(3)
-
         api_method = step.api_method
         api_url = step.api_url
         api_host = step.api_host
@@ -26,11 +35,18 @@ class Test(unittest.TestCase):
 
         mock_res = step.mock_res
 
+        ts_project_headers = step.public_header.split(',') #获取公共请求头
+
         if mock_res not in ['', None, 'None']:
             res = mock_res
         else:
-
-            # 检查是否需要进行替换占位符
+            """
+            检查是否需要进行替换占位符，rlist_url/header/body。      ##参数名##
+            re.findall(pattern, string, flags=0)  通过正则表达式将符合的对象取出来 pattern-->正则表达式 string-->需要处理的字符串 flags-->说明匹配模式，如是否大小写re.I
+            replace() 方法把字符串中的 old（旧字符串） 替换成 new(新字符串)，如果指定第三个参数max，则替换不超过 max 次。str.replace(old, new[, max])
+            第一个请求 肯定不应该有 变量替换，所有此处是已经有变量获取之后的一个替换，去看 下文的  get_path  这里 将变量名设置为全局变量且已经赋值。所有这里的
+            api_url = api_url.replace("##"+i+"##", str(eval(i))) 是将提取出来的变量的值进行了替换
+            """
             rlist_url = re.findall(r'##(.+?)##', api_url)
             for i in rlist_url:
                 api_url = api_url.replace("##"+i+"##", str(eval(i)))
@@ -58,6 +74,24 @@ class Test(unittest.TestCase):
                 for i in rlist_body:
                     api_body = api_body.replace("##" + i + "##", str(eval(i)))
 
+
+
+            # 实际发送请求
+            # 处理header
+            try:
+                header = json.loads(api_header)
+            except:
+                header = eval(api_header)
+            print("自身的请求头"+header)
+            # 在这遍历公共请求头，并把其加入到header字典中
+            for i in ts_project_headers:
+                project_header = DB_project_header.objects.filter(id=i)[0]
+                header[project_header.key] = project_header.value
+            print("最终的请求头"+header)
+
+
+
+
             # 输出请求数据
             print("[apibody是：]" + api_body)
             print('[host]', api_host)
@@ -66,12 +100,6 @@ class Test(unittest.TestCase):
             print('[method]', api_method)
             print('[body_method]', api_body_method)
             print('[body]', api_body)
-
-            # 实际发送请求
-            try:
-                header = json.loads(api_header)
-            except:
-                header = eval(api_header)
             # 拼接完整的url
             if api_host[-1] == '/' and api_url[0] == '/':  # 都有/
                 url = api_host[:-1] + api_url
@@ -143,7 +171,7 @@ class Test(unittest.TestCase):
                 zz = i.split('=')[1].rstrip()
                 value = re.findall(zz, res)[0]
                 """
-                这里我们要注意一u'y下，正则提取出来的东西，我们很难确定它的值的类型，
+                这里我们要注意一下，正则提取出来的东西，我们很难确定它的值的类型，
                 因为如果真实返回值是如： "a":"1" 这时候，然后恰好用户又设置成: a":"(.*?)" 这样，
                 那我们取到的只是1 ，我们不能擅作主张的把这个1变成整形，因为这个1的确是字符串“1”，
                 而且也可能是使用者不是写错 而是故意要取出来当作整形或者字符串，所以为了避免这种纠纷，

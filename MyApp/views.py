@@ -121,7 +121,8 @@ def child_json(eid, oid='', ooid=''):
         project = DB_project.objects.filter(id=oid)[0]
         Cases = DB_cases.objects.filter(project_id=oid)
         apis = DB_apis.objects.filter(project_id=oid)
-        res = {"project":project,"Cases": Cases, "apis":apis}
+        project_hrader = DB_project_header.objects.filter(project_id=oid)
+        res = {"project":project,"Cases": Cases, "apis":apis,"project_header":project_hrader}
     if eid == 'P_project_set.html':
         project = DB_project.objects.filter(id=oid)[0]
         res = {"project": project}
@@ -804,6 +805,7 @@ def save_step(request):
     step_url = request.GET['step_url']
     step_host = request.GET['step_host']
     step_header = request.GET['step_header']
+    ts_project_headers = request.GET['ts_project_headers']
 
     mock_res = request.GET['mock_res']
     step_body_method = request.GET['step_body_method']
@@ -822,6 +824,7 @@ def save_step(request):
                                               api_url=step_url,
                                               api_host=step_host,
                                               api_header=step_header,
+                                              public_header = ts_project_headers,
                                               api_body_method=step_body_method,
                                               mock_res = mock_res,
                                               api_body=step_api_body,

@@ -236,9 +236,9 @@ function showOutput(id, name) {
     <div style="border: 1px solid #ffffff;border-radius: 10px;box-shadow: 2px 2px 12px #aeaeae;padding-left: 30px;width: 500px">
 <p class='attribute'>接口自动化测试平台提供</p>
 <p class='attribute'><strong>注意:</strong> 出现问题请联系管理员！</p>
-<p class='attribute'><strong>报告生成日期:</strong> 2020-12-01 10:35:50</p>
-<p class='attribute'><strong>用例执行时间:</strong> 0:00:06.025981秒</p>
-<p class='attribute'><strong>用例执行结果:</strong> 通过 1, 失败 1,</p>
+<p class='attribute'><strong>报告生成日期:</strong> 2020-12-15 19:28:12</p>
+<p class='attribute'><strong>用例执行时间:</strong> 0:00:06.014603秒</p>
+<p class='attribute'><strong>用例执行结果:</strong> 报错 2</p>
 <p class='attribute'><strong>执行系统:</strong> win32</p>
 
 <br>
@@ -277,23 +277,23 @@ function showOutput(id, name) {
 
 </tr>
 
-<tr class='failClass'>
+<tr class='errorClass'>
     <td>MyApp.run_case.Test</td>
     <td>2</td>
-    <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>0</td>
+    <td>2</td>
     <td><button class="wqrf_button" style="background-color: #ffd1e7"  onclick="javascript:showClassDetail('c1',2)">详细</button></td>
 
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>test_001: 我是新步骤</div></td>
+    <td class='errorCase'><div class='testcase'>test_001: 我是新步骤aaaaa</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        <button class="wqrf_button" style="width: auto">失败详情</button></a>
+        <button class="wqrf_button" style="width: auto">错误详情</button></a>
     <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
         <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
@@ -301,16 +301,12 @@ function showOutput(id, name) {
         </div>
         <pre>
         
-ft1.1: 【返回体是】{"err_no":0,"errmsg":"","queryid":"0x12c7165200d099"}
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 183, in tool
+ft1.1: Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 211, in tool
     Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 171, in demo
-    self.assertEqual(want, value, '值不等')
-AssertionError: '123456' != '0x12c7165200d099'
-- 123456
-+ 0x12c7165200d099
- : 值不等
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 85, in demo
+    print("自身的请求头"+header)
+TypeError: must be str, not dict
 
 
          <div id="div100">
@@ -322,21 +318,26 @@ AssertionError: '123456' != '0x12c7165200d099'
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_002: 调试提取返回</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_002: 调试提取返回</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        <button class="wqrf_button" style="width: auto">通过详情</button></a>
-    <div id='div_pt1.2' class="popup_window">
+    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        <button class="wqrf_button" style="width: auto">错误详情</button></a>
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: 【返回体是】aaaaaaaa
+ft1.2: Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 211, in tool
+    Test.demo(self, step)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 38, in demo
+    ts_project_headers = step.public_header.split(',') #获取公共请求头
+AttributeError: 'NoneType' object has no attribute 'split'
 
 
          <div id="div100">
@@ -351,9 +352,9 @@ pt1.2: 【返回体是】aaaaaaaa
 <tr id='total_row'>
     <td>总计</td>
     <td>2</td>
-    <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>0</td>
+    <td>2</td>
     <td><button class="wqrf_button" style="background-color: #ffc2e6" onclick='javascript:location.reload()'>刷新</button></td>
 
 </tr>

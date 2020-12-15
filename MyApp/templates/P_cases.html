@@ -123,8 +123,16 @@
     </div>
     <div class="input-group" style="margin-top: 5px;margin-left: 5%;width: 90%">
          <span class="input-group-addon">header</span>
-         <input id="step_header"  type="text" class="form-control" placeholder='header请求头:如{"Content":"application/json" }'value="">
+         <input id="step_header"  type="text" class="form-control" style="width: -webkit-calc(100% - 61px)">
+         <button type="button" onclick="ts_show_project_header()"
+                    style="height: 34px;width: 60px;"class="btn btn-default"><span >▼</span></button>
     </div>
+        <li id="ts_project_header_li" style="display: none">
+            {% for i in project_header %}
+                <label style="margin-right: 5px"><input id="checkbox_{{ i.id }}" value="{{ i.id }}" type="checkbox">{{ i.name }}</label>
+            {% endfor %}
+
+        </li>
     <ul id="myTab" class="nav nav-tabs" style="padding-left: 5%;margin-top: 5px;">
         <li class="active"><a id="click_none" href="#none" data-toggle="tab" >none</a></li>
         <li ><a href="#form-data" data-toggle="tab" >form-data</a></li>
@@ -253,15 +261,28 @@ code:200"></textarea>
             $addButton: $('#add2'),
         });
 </script>
+{#请求头相关的js函数#}
+<script>
+    function ts_show_project_header() {
+        document.getElementById('ts_project_header_li').style.display = 'block';
+    }
+</script>
 <script>
     $(document).ready(function () {
         $("#apis").change(function () {
             //这里写只要触发后要执行的代码，就是把下面输入框全部填充的代码
+            // id=apis的那个输入框 的内容change改变就会触发后面的那个funcitonn函数。
             document.getElementById('step_method').value = 'none';
             document.getElementById('step_url').value = '';
             document.getElementById('step_host').value = '';
             document.getElementById('step_header').value='{}';
             document.getElementById('mock_res').value='';
+            // 公共请求头
+            var project_headers = document.getElementById('ts_project_header_li').children;
+            for(var i=0;i<project_headers.length;i++){
+                project_headers[i].children[0].checked=false;
+            }
+            
             // 开始初始化请求体编码格式部分：
             document.getElementById('mytbody').innerHTML='<tr>\n' +
                 '                                                <td></td>\n' +
@@ -304,8 +325,17 @@ code:200"></textarea>
                         document.getElementById('step_url').value = ret.api_url;
                         document.getElementById('step_host').value = ret.api_host;
                         document.getElementById('step_header').value = ret.api_header;
+                        //公共请求头
+                        var project_headers = ret.public_header.split(',');
+                        for(var i=0;i<project_headers.length;i++){
+                            try {
+                                document.getElementById('checkbox_'+project_headers[i]).checked='checked';
+                            }catch (e) {
+                                
+                            }
+                        }
                         // 请求体编码格式
-                        var body_method = '#'+ret.body_method;
+                        var body_method = '#'+ret.api_body_method;
                         console.log(body_method)
                         $("li a[href="+body_method+"]")[0].click();
                         // 请求体显示
@@ -366,47 +396,52 @@ code:200"></textarea>
 <script>
     //初始化步骤详情页
     function clear_step(){
-    document.getElementById('step_id').innerText = '';
-    document.getElementById('step_old_name').innerText = '';
-    document.getElementById('step_method').value = 'none';
-    document.getElementById('apis').value = 'none';
-    document.getElementById('step_index').value = '';
-    document.getElementById('step_name').value = '';
-    document.getElementById('step_url').value = '';
-    document.getElementById('step_host').value = '';
-    document.getElementById('step_header').value='{}';
-    document.getElementById('mock_res').value = '';
-    // 开始初始化请求体编码格式部分：
-    {#document.getElementById('click_none').click() ; // 点击none子标签#}
-    document.getElementById('mytbody').innerHTML='<tr>\n' +
-                '                                                <td></td>\n' +
-                '                                                <td></td>\n' +
-                '                                              <td name="buttons"><div class="btn-group pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-default" onclick="rowEdit(this);"><span class="glyphicon glyphicon-pencil"> </span></button><button id="bElim" type="button" class="btn btn-sm btn-default" onclick="rowElim(this);"><span class="glyphicon glyphicon-trash"> </span></button><button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowAcep(this);"><span class="glyphicon glyphicon-ok"> </span></button><button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowCancel(this);"><span class="glyphicon glyphicon-remove"> </span></button></div></td></tr>';
-;
-    document.getElementById('mytbody2').innerHTML='<tr>\n' +
-                '                                                <td></td>\n' +
-                '                                                <td></td>\n' +
-                '                                              <td name="buttons"><div class="btn-group pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-default" onclick="rowEdit(this);"><span class="glyphicon glyphicon-pencil"> </span></button><button id="bElim" type="button" class="btn btn-sm btn-default" onclick="rowElim(this);"><span class="glyphicon glyphicon-trash"> </span></button><button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowAcep(this);"><span class="glyphicon glyphicon-ok"> </span></button><button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowCancel(this);"><span class="glyphicon glyphicon-remove"> </span></button></div></td></tr>';
-;
-    document.getElementById('mythead').innerHTML='  <tr>\n' +
+        document.getElementById('step_id').innerText = '';
+        document.getElementById('step_old_name').innerText = '';
+        document.getElementById('step_method').value = 'none';
+        document.getElementById('apis').value = 'none';
+        document.getElementById('step_index').value = '';
+        document.getElementById('step_name').value = '';
+        document.getElementById('step_url').value = '';
+        document.getElementById('step_host').value = '';
+        document.getElementById('step_header').value='{}';
+        document.getElementById('mock_res').value = '';
+        //清空公共请求头
+        var project_headers = document.getElementById('ts_project_header_li').children;
+        for(var i=0;i<project_headers.length;i++){
+            project_headers[i].children[0].checked=false;
+        }
+        // 开始初始化请求体编码格式部分：
+        {#document.getElementById('click_none').click() ; // 点击none子标签#}
+        document.getElementById('mytbody').innerHTML='<tr>\n' +
+                    '                                                <td></td>\n' +
+                    '                                                <td></td>\n' +
+                    '                                              <td name="buttons"><div class="btn-group pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-default" onclick="rowEdit(this);"><span class="glyphicon glyphicon-pencil"> </span></button><button id="bElim" type="button" class="btn btn-sm btn-default" onclick="rowElim(this);"><span class="glyphicon glyphicon-trash"> </span></button><button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowAcep(this);"><span class="glyphicon glyphicon-ok"> </span></button><button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowCancel(this);"><span class="glyphicon glyphicon-remove"> </span></button></div></td></tr>';
+    ;
+        document.getElementById('mytbody2').innerHTML='<tr>\n' +
+                    '                                                <td></td>\n' +
+                    '                                                <td></td>\n' +
+                    '                                              <td name="buttons"><div class="btn-group pull-right"><button id="bEdit" type="button" class="btn btn-sm btn-default" onclick="rowEdit(this);"><span class="glyphicon glyphicon-pencil"> </span></button><button id="bElim" type="button" class="btn btn-sm btn-default" onclick="rowElim(this);"><span class="glyphicon glyphicon-trash"> </span></button><button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowAcep(this);"><span class="glyphicon glyphicon-ok"> </span></button><button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;" onclick="rowCancel(this);"><span class="glyphicon glyphicon-remove"> </span></button></div></td></tr>';
+    ;
+        document.getElementById('mythead').innerHTML='  <tr>\n' +
+                '                        <td style="width: 30%">Key</td>\n' +
+                '                        <td style="width: 50%">Value</td>\n' +
+                '                      </tr>';
+        document.getElementById('mythead2').innerHTML='  <tr>\n' +
             '                        <td style="width: 30%">Key</td>\n' +
             '                        <td style="width: 50%">Value</td>\n' +
             '                      </tr>';
-    document.getElementById('mythead2').innerHTML='  <tr>\n' +
-        '                        <td style="width: 30%">Key</td>\n' +
-        '                        <td style="width: 50%">Value</td>\n' +
-        '                      </tr>';
-    document.getElementById('raw_Text').value = '';
-    document.getElementById('raw_JavaScript').value = '';
-    document.getElementById('raw_Json').value = '';
-    document.getElementById('raw_Html').value = '';
-    document.getElementById('raw_Xml').value = '';
-
-    document.getElementById('get_path').value ='';
-    document.getElementById('get_zz').value = '';
-    document.getElementById('assert_zz').value = '';
-    document.getElementById('assert_qz').value = '';
-    document.getElementById('assert_path').value = '';
+        document.getElementById('raw_Text').value = '';
+        document.getElementById('raw_JavaScript').value = '';
+        document.getElementById('raw_Json').value = '';
+        document.getElementById('raw_Html').value = '';
+        document.getElementById('raw_Xml').value = '';
+    
+        document.getElementById('get_path').value ='';
+        document.getElementById('get_zz').value = '';
+        document.getElementById('assert_zz').value = '';
+        document.getElementById('assert_qz').value = '';
+        document.getElementById('assert_path').value = '';
 
 }
     function show_step(step_id, step_name) {
@@ -428,7 +463,19 @@ code:200"></textarea>
         $.get('/get_step/',{
             'step_id':step_id,
         },function (ret) {
-            var ret = eval(ret)
+            var ret = eval(ret);
+            {#console.log(ret);#}
+            //公共请求头
+            if (ret.public_header != null) {
+                var project_headers = ret.public_header.split(',');
+                for (var i = 0; i < project_headers.length; i++) {
+                    try {
+                        document.getElementById('checkbox_' + project_headers[i]).checked = 'checked';
+                    } catch (e) {
+
+                    }
+                }
+            }
 
             document.getElementById('step_index').value = ret.index;
             document.getElementById('step_name').value = ret.name;
@@ -499,110 +546,124 @@ code:200"></textarea>
     }
     //关闭右侧div
     function close_right_div(which) {
-        if(which == "save"){
+        if (which == "save") {
             //这里写保存得脚本代码
             // 获取所有接口设置数据
-                var name = document.getElementById('step_name').value ;
-                var step_method = document.getElementById('step_method').value ;
-                var step_url = document.getElementById('step_url').value ;
-                var step_host = document.getElementById('step_host').value ;
-                var step_header = document.getElementById('step_header').value ;
-                var index = document.getElementById('step_index').value;
-                var mock_res = document.getElementById('mock_res').value;
-                // 判断顶部的数据是否填充完
-                if(name == ''){alert('请输入接口名字！');return}
-                if(step_method == 'null'){alert('请选择请求方式！');return}
-                if(step_url == ''){alert('请输入url！');return}
-                if(step_host == ''){alert('请输入host！');return}
-
-                //判断关键数据是否符合规则
-                if(step_host.slice(0,7) != 'http://' && step_host.slice(0,8) != 'https://'){
-                    alert('host必须以http://或https://开头！');return
+            var name = document.getElementById('step_name').value;
+            var step_method = document.getElementById('step_method').value;
+            var step_url = document.getElementById('step_url').value;
+            var step_host = document.getElementById('step_host').value;
+            var step_header = document.getElementById('step_header').value;
+            var index = document.getElementById('step_index').value;
+            var mock_res = document.getElementById('mock_res').value;
+            // 公共请求头
+            var project_headers = document.getElementById('ts_project_header_li').children;
+            var ts_project_headers = [];
+            for (var i = 0; i < project_headers.length; i++) {
+                if (project_headers[i].children[0].checked == true) {
+                    ts_project_headers.push(project_headers[i].children[0].value)
                 }
-                {#if(step_header != ''){#}
-                {#    try {#}
-                {#        JSON.parse(step_header)#}
-                {#    }catch (e) {#}
-                {#        alert('header请求头不符合json规范！');#}
-                {#        return#}
-                {#    }#}
-                {#}#}
-                var step_body_method = $('ul#myTab li[class="active"]')[0].innerText;
-                if(step_body_method == 'none'){
-                    var step_api_body = ''
-                }
-                if(step_body_method == 'form-data'){
-                    var step_api_body = []; //新建这个空列表用来存放后续的数据
-                    var tbody_ = $("table#mytable tbody")[0]; //获取该表格的内容部分
-                    var trlist = tbody_.children ; //获取下面所有tr，每个tr就是一个键值对实际上
-                    for(var i=0;i<trlist.length;i++) {
-                        var tdarr = trlist[i].children; // 获取tr下的俩个td
-                        var key = tdarr[0].innerText; // 获取key
-                        var value = tdarr[1].innerText; // 获取value
-                        step_api_body.push([key, value]);// 作为一个数组，存放到这个大数组里。
-                    }
-                    step_api_body = JSON.stringify(step_api_body);
-                }
-                if(step_body_method == 'x-www-form-urlencoded'){
-                    var step_api_body = []; //新建这个空列表用来存放后续的数据
-                    var tbody_ = $("table#mytable2 tbody")[0]; //获取该表格的内容部分
-                    var trlist = tbody_.children ; //获取下面所有tr，每个tr就是一个键值对实际上
-                    for(var i=0;i<trlist.length;i++) {
-                        var tdarr = trlist[i].children; // 获取tr下的俩个td
-                        var key = tdarr[0].innerText; // 获取key
-                        var value = tdarr[1].innerText; // 获取value
-                        step_api_body.push([key, value]);// 作为一个数组，存放到这个大数组里。
-                    }
-                    step_api_body = JSON.stringify(step_api_body);
-                }
-                if(step_body_method == 'Text'){
-                    var step_api_body = document.getElementById('raw_Text').value;
-                }
-                if(step_body_method == 'JavaScript'){
-                    var step_api_body = document.getElementById('raw_JavaScript').value;
-                }
-                if(step_body_method == 'Json'){
-                    var step_api_body = document.getElementById('raw_Json').value;
+            }
 
+            // 判断顶部的数据是否填充完
+            if (name == '') {
+                alert('请输入接口名字！');
+                return
+            }
+            if (step_method == 'null') {
+                alert('请选择请求方式！');
+                return
+            }
+            if (step_url == '') {
+                alert('请输入url！');
+                return
+            }
+            if (step_host == '') {
+                alert('请输入host！');
+                return
+            }
+
+            //判断关键数据是否符合规则
+            if (step_host.slice(0, 7) != 'http://' && step_host.slice(0, 8) != 'https://') {
+                alert('host必须以http://或https://开头！');
+                return
+            }
+
+            var step_body_method = $('ul#myTab li[class="active"]')[0].innerText;
+            if (step_body_method == 'none') {
+                var step_api_body = ''
+            }
+            if (step_body_method == 'form-data') {
+                var step_api_body = []; //新建这个空列表用来存放后续的数据
+                var tbody_ = $("table#mytable tbody")[0]; //获取该表格的内容部分
+                var trlist = tbody_.children; //获取下面所有tr，每个tr就是一个键值对实际上
+                for (var i = 0; i < trlist.length; i++) {
+                    var tdarr = trlist[i].children; // 获取tr下的俩个td
+                    var key = tdarr[0].innerText; // 获取key
+                    var value = tdarr[1].innerText; // 获取value
+                    step_api_body.push([key, value]);// 作为一个数组，存放到这个大数组里。
                 }
-                if(step_body_method == 'Html'){
-                    var step_api_body = document.getElementById('raw_Html').value;
-
+                step_api_body = JSON.stringify(step_api_body);
+            }
+            if (step_body_method == 'x-www-form-urlencoded') {
+                var step_api_body = []; //新建这个空列表用来存放后续的数据
+                var tbody_ = $("table#mytable2 tbody")[0]; //获取该表格的内容部分
+                var trlist = tbody_.children; //获取下面所有tr，每个tr就是一个键值对实际上
+                for (var i = 0; i < trlist.length; i++) {
+                    var tdarr = trlist[i].children; // 获取tr下的俩个td
+                    var key = tdarr[0].innerText; // 获取key
+                    var value = tdarr[1].innerText; // 获取value
+                    step_api_body.push([key, value]);// 作为一个数组，存放到这个大数组里。
                 }
-                if(step_body_method == 'Xml'){
-                    var step_api_body = document.getElementById('raw_Xml').value;
-                }
-                var step_id = document.getElementById('step_id').innerText ; //获取到了接口id
+                step_api_body = JSON.stringify(step_api_body);
+            }
+            if (step_body_method == 'Text') {
+                var step_api_body = document.getElementById('raw_Text').value;
+            }
+            if (step_body_method == 'JavaScript') {
+                var step_api_body = document.getElementById('raw_JavaScript').value;
+            }
+            if (step_body_method == 'Json') {
+                var step_api_body = document.getElementById('raw_Json').value;
 
-                $.get('/save_step/',{
-                    'step_id':step_id,
-                    'name':name,
-                    'index':index,
-                    'step_method':step_method,
-                    'step_url':step_url,
-                    'step_host':step_host,
-                    'step_header':step_header,
-                    'mock_res':mock_res,
-                    'step_body_method':step_body_method,
-                    'step_api_body':step_api_body,
+            }
+            if (step_body_method == 'Html') {
+                var step_api_body = document.getElementById('raw_Html').value;
 
-                    'get_path':$("#get_path").val(),
-                    'get_zz':$("#get_zz").val(),
-                    'assert_zz':$("#assert_zz").val(),
-                    'assert_qz':$("#assert_qz").val(),
-                    'assert_path':$("#assert_path").val(),
+            }
+            if (step_body_method == 'Xml') {
+                var step_api_body = document.getElementById('raw_Xml').value;
+            }
+            var step_id = document.getElementById('step_id').innerText; //获取到了接口id
 
-                },function (ret) {
-                     alert(ret);
-                     case_id = document.getElementById('Case_id').innerText;
-                     refresh_left_div(case_id)
-                })
-         }
+            $.get('/save_step/', {
+                'step_id': step_id,
+                'name': name,
+                'index': index,
+                'step_method': step_method,
+                'step_url': step_url,
+                'step_host': step_host,
+                'step_header': step_header,
+                'mock_res': mock_res,
+                'step_body_method': step_body_method,
+                'step_api_body': step_api_body,
 
-           $("#right_div").animate({left:'100%'},'fast');
-           $("#right_div").css("display","none");
+                'get_path': $("#get_path").val(),
+                'get_zz': $("#get_zz").val(),
+                'assert_zz': $("#assert_zz").val(),
+                'assert_qz': $("#assert_qz").val(),
+                'assert_path': $("#assert_path").val(),
+                'ts_project_headers': ts_project_headers.toString(),
 
+            }, function (ret) {
+                alert(ret);
+                case_id = document.getElementById('Case_id').innerText;
+                refresh_left_div(case_id)
+            })
+        }
 
+        $("#right_div").animate({left: '100%'}, 'fast');
+        $("#right_div").css("display", "none");
 
     }
 </script>

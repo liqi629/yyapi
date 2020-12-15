@@ -114,6 +114,7 @@ class DB_step(models.Model):
     assert_qz = models.CharField(max_length=500, null=True)  # 断言返回值-全文检索存在
     assert_path = models.CharField(max_length=500, null=True)  # 断言返回值-路径法
     mock_res = models.CharField(max_length=1000,null=True) # mock返回值
+    public_header = models.CharField(max_length=1000,null=True) # 全局变量-请求头
 
 
     def __str__(self):
