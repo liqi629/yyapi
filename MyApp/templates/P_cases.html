@@ -319,8 +319,9 @@ code:200"></textarea>
                     "api_id":$("#apis").val()
                 },function (ret) {
                     //拿到数据开始填充
+
                         var ret = eval(ret);
-                        {#console.log(ret);#}
+                        console.log(ret);
                         document.getElementById('step_method').value = ret.api_method;
                         document.getElementById('step_url').value = ret.api_url;
                         document.getElementById('step_host').value = ret.api_host;
@@ -336,25 +337,26 @@ code:200"></textarea>
                         }
                         // 请求体编码格式
                         var body_method = '#'+ret.api_body_method;
-                        console.log(body_method)
-                        $("li a[href="+body_method+"]")[0].click();
+
+
+                        $("li a[href=" + body_method + "]")[0].click();
                         // 请求体显示
-                        if(ret.body_method == 'Text'){
+                        if(ret.api_body_method == 'Text'){
                             document.getElementById('raw_Text').value = ret.api_body;
                         }
-                        if(ret.body_method == 'JavaScript'){
+                        if(ret.api_body_method == 'JavaScript'){
                             document.getElementById('raw_JavaScript').value = ret.api_body;
                         }
-                        if(ret.body_method == 'Json'){
+                        if(ret.api_body_method == 'Json'){
                             document.getElementById('raw_Json').value = ret.api_body;
                         }
-                        if(ret.body_method == 'Html'){
+                        if(ret.api_body_method == 'Html'){
                             document.getElementById('raw_Html').value = ret.api_body;
                         }
-                        if(ret.body_method == 'Xml'){
+                        if(ret.api_body_method == 'Xml'){
                             document.getElementById('raw_Xml').value = ret.api_body;
                         }
-                        if(ret.body_method == 'form-data'){
+                        if(ret.api_body_method == 'form-data'){
                             var tbody = document.getElementById('mytbody'); // 定位表格中的tbody部分
                             body = eval(ret.api_body); //把这个像列表的字符串请求体变成真正的列表
                             for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
@@ -370,7 +372,7 @@ code:200"></textarea>
                                 }
                             }
                         }
-                        if(ret.body_method == 'x-www-form-urlencoded'){
+                        if(ret.api_body_method == 'x-www-form-urlencoded'){
                             var tbody = document.getElementById('mytbody2'); // 定位表格中的tbody部分
                             body = eval(ret.api_body); //把这个像列表的字符串请求体变成真正的列表
                             for(var i=0;i<body.length;i++){ // 遍历这个请求体列表
@@ -464,7 +466,7 @@ code:200"></textarea>
             'step_id':step_id,
         },function (ret) {
             var ret = eval(ret);
-            {#console.log(ret);#}
+            console.log(ret);
             //公共请求头
             if (ret.public_header != null) {
                 var project_headers = ret.public_header.split(',');
@@ -491,6 +493,7 @@ code:200"></textarea>
 
 
             var body_method = '#'+ret.api_body_method;
+            console.log(ret.api_body_method);
             $("li a[href="+body_method+"]")[0].click();
             // 请求体显示
             if(ret.api_body_method == 'Text'){
