@@ -83,10 +83,11 @@ urlpatterns = [
     path(r'get_step/', get_step), # 获取步骤得数据
     path(r'save_step/', save_step), # 保存步骤得数据
     path(r'user_upload/', user_upload), # 上传头像
-    path(r'step_get_api/', step_get_api), # 步骤详情页获取接口数据
+    path(r'step_get_api/', step_get_api), # 步骤详情页获取接口数据。即步骤详情页选择接口，然后获取接口的数据
     path(r'Run_Case/', Run_Case), # 运行大用例
     re_path(r'^look_report/(?P<eid>.*)/$', look_report), # 查看报告
     path(r'save_project_header/', save_project_header), # 保存项目公共请求头
+    path(r'save_case_name/', save_case_name), # 保存用例名称，用例库页面左侧栏
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]

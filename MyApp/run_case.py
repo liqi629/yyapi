@@ -82,12 +82,12 @@ class Test(unittest.TestCase):
                 header = json.loads(api_header)
             except:
                 header = eval(api_header)
-            print("自身的请求头"+header)
+
             # 在这遍历公共请求头，并把其加入到header字典中
             for i in ts_project_headers:
                 project_header = DB_project_header.objects.filter(id=i)[0]
                 header[project_header.key] = project_header.value
-            print("最终的请求头"+header)
+
 
 
 
@@ -96,7 +96,7 @@ class Test(unittest.TestCase):
             print("[apibody是：]" + api_body)
             print('[host]', api_host)
             print('[url]', api_url)
-            print('[header]', api_header)
+            print('[header]', header)
             print('[method]', api_method)
             print('[body_method]', api_body_method)
             print('[body]', api_body)
