@@ -133,3 +133,23 @@ class DB_project_header(models.Model):
 
     def __str__(self):
         return self.name
+
+class DB_host(models.Model):
+    """
+    域名表
+    """
+    host = models.CharField(max_length=100,null=True) #域名内容
+    des =  models.CharField(max_length=100,null=True) #域名描述
+    def __str__(self):
+        return self.host
+
+class DB_project_host(models.Model):
+    """
+    公共域名
+    """
+    project_id = models.CharField(max_length=10,null=True) #所属项目id
+    name = models.CharField(max_length=20,null=True) # 域名别名
+    host =  models.CharField(max_length=20,null=True) #域名内容
+
+    def __str__(self):
+        return self.name

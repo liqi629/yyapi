@@ -4,6 +4,7 @@ import re, json
 import requests
 from MyApp.A_WQRFhtmlRunner import HTMLTestRunner
 
+
 # 添加下面代码，让本文将有数据库权限
 import sys, os, django
 path = "../yyapi"
@@ -11,6 +12,7 @@ sys.path.append(path)
 os.environ.setdefault("DJANGO_STTFINGS_MODULE", "yyapi.settings")
 django.setup()
 from MyApp.models import *
+
 
 
 
@@ -124,7 +126,16 @@ class Test(unittest.TestCase):
                 for i in eval(api_body):
                     payload[i[0]] = i[1]
                 response = requests.request(api_method.upper(), url, headers=header, data=payload)
-
+            elif api_body_method == 'GraphQL':
+                header['Content-Type'] = 'application/json'
+                query=api_body.split('*WQRF*')[0]
+                graphql=api_body.split('*WQRF*')[1]
+                try:
+                    eval(graphql)
+                except:
+                    graphql = '{}'
+                payload = '{"query":"s%","variables":s%}' % (query,graphql)
+                response = requests.request(api_method.upper(),url,headers=header,data=payload)
             else:  # 这时肯定是raw的五个子选项：
                 if api_body_method == 'Text':
                     header['Content-Type'] = 'text/plain'
@@ -143,6 +154,7 @@ class Test(unittest.TestCase):
                 response = requests.request(api_method.upper(), url, headers=header, data=api_body.encode('utf-8'))
             response.encoding = "utf-8"
             res = response.text
+            DB_host.objects.update_or_create(host=api_host)
         print("【返回体是】"+res)
 
         # 对返回值res进行提取：
@@ -209,7 +221,7 @@ class Test(unittest.TestCase):
 def make_defself(step):
     def tool(self):
         Test.demo(self, step)
-    setattr(tool, "__doc__", u"%s"%step.name)
+    setattr(tool, "__doc__", u"%s"%step.name)   #__doc__：获取到注释内容，这里通过setattr函数将测试用例中的步骤名称设置为注释内容
     return tool
 
 
@@ -220,17 +232,24 @@ def make_def(steps):
     :return:
     """
     for i in range(len(steps)):
-        setattr(Test, 'test_'+str(steps[i].index).zfill(3), make_defself(steps[i]))
+        setattr(Test, 'test_'+str(steps[i].index).zfill(3), make_defself(steps[i]))    #index执行步骤的序号
+        # 设置Test类，test_001(举例) ，test_001的内容 使用后面的make_defself填充
+
+        #make_defself（steps[i]），将第一个步骤的内容传到make_defself，在这个函数中，使用步骤名称做了一个注释，返回返回了 Test.demo
+        # Test.demo传入的步骤内容，通过demo函数，解析内容，发起request请求
+
 
 
 
 
 def run(Case_id, Case_name, steps):
-    make_def(steps)
-    suit = unittest.makeSuite(Test)
-    filename = 'MyApp/templates/Reports/%s.html'%Case_id
+    make_def(steps)   #将所有测试用例的步骤，构造成Test类中的 test_001  test_002等
+    # suite = unittest.makeSuite(Test) # 将所有步骤放在一个suit集合里
+    #升级到Python3后，发现makeSuite没有啦！其实是被下面这段代码取代了
+    suite = unittest.TestLoader().loadTestsFromTestCase(Test)
+    filename = 'MyApp/templates/Reports/%s.html'%Case_id #设置测试报告存储
     fp = open(filename, 'wb')
     runner = HTMLTestRunner(fp,title='接口测试平台测试报告:%s'%Case_name,description='用例描述')
-    runner.run(suit)
+    runner.run(suite)# 运行测试集合
 if __name__ == '__main__':
     unittest.main()

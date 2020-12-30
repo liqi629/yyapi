@@ -480,3 +480,467 @@ django.utils.datastructures.MultiValueDictKeyError: 'ts-project_headers'
 [2020-12-17 13:54:19,680][MainThread:18512][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
 [2020-12-17 13:54:41,337][MainThread:18512][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
 [2020-12-17 13:54:42,679][MainThread:19908][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-19 11:02:44,830][MainThread:4568][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-19 11:02:47,969][Thread-6:7724][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-19 11:02:48,137][Thread-6:7724][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-21 13:59:10,734][MainThread:2656][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-21 13:59:12,690][Thread-6:2028][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-21 13:59:12,862][Thread-6:2028][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-21 14:22:33,133][MainThread:2656][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2020-12-21 14:22:34,490][MainThread:16224][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-21 14:23:17,303][MainThread:16224][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2020-12-21 14:23:18,570][MainThread:13888][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-21 14:23:59,155][MainThread:13888][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\admin.py changed, reloading.]
+[2020-12-21 14:24:00,501][MainThread:2824][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-21 14:26:18,037][MainThread:2824][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-21 14:26:19,333][MainThread:5760][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-21 14:26:35,734][MainThread:5760][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-21 14:26:37,001][MainThread:15484][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 10:15:28,163][MainThread:14468][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 10:15:53,581][Thread-6:6368][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-22 10:15:53,761][Thread-6:6368][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-22 10:21:35,746][MainThread:14468][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 10:21:37,074][MainThread:1408][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 10:26:02,943][MainThread:1408][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 10:26:04,339][MainThread:4004][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 10:29:48,241][MainThread:4004][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\admin.py changed, reloading.]
+[2020-12-22 10:29:49,474][MainThread:6668][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 10:35:38,137][MainThread:6668][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\yyapi\urls.py changed, reloading.]
+[2020-12-22 10:35:39,510][MainThread:5672][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 15:51:20,482][Thread-35:1720][task_id:django.request][log.py:230][ERROR][Internal Server Error: /save_project_host/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'req_host'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 918, in save_project_host
+    req_hosts = request.GET['req_host']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'req_host'
+[2020-12-22 15:52:33,966][MainThread:5672][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 15:52:35,339][MainThread:16964][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 15:52:48,271][Thread-6:13316][task_id:django.request][log.py:230][ERROR][Internal Server Error: /save_project_host/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 928, in save_project_host
+    DB_project_header.objects.create(project_id=project_id, name=names[i], host=hosts[i])
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 445, in create
+    obj = self.model(**kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\base.py", line 501, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: DB_project_header() got an unexpected keyword argument 'host'
+[2020-12-22 15:58:36,898][Thread-7:17156][task_id:django.request][log.py:230][ERROR][Internal Server Error: /save_project_host/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 928, in save_project_host
+    DB_project_header.objects.create(project_id=project_id, name=names[i], host=hosts[i])
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 445, in create
+    obj = self.model(**kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\base.py", line 501, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: DB_project_header() got an unexpected keyword argument 'host'
+[2020-12-22 15:59:56,064][Thread-7:17156][task_id:django.request][log.py:230][ERROR][Internal Server Error: /save_project_host/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 928, in save_project_host
+    DB_project_header.objects.create(project_id=project_id, name=names[i], host=hosts[i])
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 445, in create
+    obj = self.model(**kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\base.py", line 501, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: DB_project_header() got an unexpected keyword argument 'host'
+[2020-12-22 16:01:44,327][MainThread:16964][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:01:45,631][MainThread:6388][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:01:54,345][Thread-6:560][task_id:django.request][log.py:230][ERROR][Internal Server Error: /save_project_host/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 929, in save_project_host
+    DB_project_header.objects.create(project_id=project_id, name=names[i], host=hosts[i])
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 445, in create
+    obj = self.model(**kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\base.py", line 501, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: DB_project_header() got an unexpected keyword argument 'host'
+[2020-12-22 16:03:01,352][MainThread:6388][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:03:02,600][MainThread:8600][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:17:48,002][MainThread:8600][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2020-12-22 16:17:49,243][MainThread:5496][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:21:20,516][MainThread:5496][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:21:21,940][MainThread:7420][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:26:29,519][MainThread:7420][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:26:30,833][MainThread:16716][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:29:45,824][MainThread:16716][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:29:47,068][MainThread:8596][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:32:13,707][MainThread:8596][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:32:14,961][MainThread:16456][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:33:13,110][Thread-6:14460][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '搜狗'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '搜狗'.
+[2020-12-22 16:33:49,605][Thread-9:10468][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '百度'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '百度'.
+[2020-12-22 16:34:03,206][Thread-9:10468][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '百度'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '百度'.
+[2020-12-22 16:34:04,894][Thread-9:10468][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '百度'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '百度'.
+[2020-12-22 16:34:47,171][Thread-9:10468][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '百度'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '百度'.
+[2020-12-22 16:38:33,353][Thread-11:16792][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '百度'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 412, in Api_send
+    ts_host = DB_project_host.objects.filter(id=prject_host_id)[0].host
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got '百度'.
+[2020-12-22 16:51:25,384][MainThread:16456][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:51:26,673][MainThread:17196][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 16:51:44,259][Thread-6:1716][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 408, in Api_send
+    ts_project_headers = request.GET['ts_project_headers'].split(',') #获取公共请求头
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_project_headers'
+[2020-12-22 16:51:53,762][Thread-6:1716][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 408, in Api_send
+    ts_project_headers = request.GET['ts_project_headers'].split(',') #获取公共请求头
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_project_headers'
+[2020-12-22 16:52:08,530][Thread-6:1716][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_project_headers'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 408, in Api_send
+    ts_project_headers = request.GET['ts_project_headers'].split(',') #获取公共请求头
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_project_headers'
+[2020-12-22 16:58:16,697][MainThread:17196][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 16:58:18,042][MainThread:11396][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-22 17:03:16,005][MainThread:11396][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-22 17:03:17,270][MainThread:10540][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-28 10:08:25,325][MainThread:14264][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-28 10:08:38,465][Thread-6:11028][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-28 10:08:38,659][Thread-6:11028][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-28 10:08:46,292][Thread-6:11028][task_id:django.request][log.py:230][WARNING][Not Found: /projects/]
+[2020-12-28 10:08:50,738][Thread-6:11028][task_id:django.request][log.py:230][WARNING][Not Found: /projects/]
+[2020-12-28 10:29:49,055][MainThread:14264][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-28 10:29:50,452][MainThread:12220][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-28 10:31:01,760][MainThread:12220][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-28 10:31:03,014][MainThread:9572][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-30 14:54:10,253][MainThread:14744][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-30 14:54:17,585][Thread-6:14316][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2020-12-30 14:54:17,756][Thread-6:14316][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2020-12-30 14:54:23,229][Thread-6:14316][task_id:django.request][log.py:230][WARNING][Not Found: /projects/]
+[2020-12-30 14:57:56,528][Thread-10:13944][task_id:django.request][log.py:230][ERROR][Internal Server Error: /look_report/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 899, in look_report
+    return render(request, 'Reports/%s.html'%Case_id)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loaders\base.py", line 24, in get_template
+    contents = self.get_contents(origin)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\template\loaders\filesystem.py", line 24, in get_contents
+    return fp.read()
+  File "D:\Python\Python36\lib\codecs.py", line 321, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x90 in position 15680: invalid start byte
+[2020-12-30 15:22:39,631][MainThread:14744][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-30 15:22:40,883][MainThread:14972][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2020-12-30 15:22:45,129][Thread-6:7072][task_id:django.request][log.py:230][ERROR][Internal Server Error: /child/P_cases.html/1//]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 70, in child
+    res = child_json(eid, oid, ooid)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 129, in child_json
+    res = {"project":project,"Cases": Cases, "apis":apis,"project_header":project_hrader,'hosts':hosts,'project_host':project_host}
+UnboundLocalError: local variable 'project_host' referenced before assignment
+[2020-12-30 15:23:08,013][MainThread:14972][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2020-12-30 15:23:09,279][MainThread:10640][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]

@@ -56,11 +56,11 @@ boeder:1px solid #e7e7e7">
 {#            新增接口，这里没有设计弹窗，直接在接口列表新增的None#}
             <button type="button" class="btn btn-primary" onclick="document.location.href='/project_api_add/{{ project.id }}/'">新增接口</button>
             <button type="button" onclick="project_header_div_show()" class="btn btn-default">全局请求头</button>
-            <button type="button" class="btn btn-default">全局域名</button>
+            <button type="button" onclick="project_host_div_show()" class="btn btn-default">全局域名</button>
             <button type="button" class="btn btn-default">接口文档导入</button>
             <button type="button" class="btn btn-default">抓包导入</button>
             <button type="button" class="btn btn-default">加密算法</button>
-            <button type="button" class="btn btn-default">登录态接口</button>
+            <button type="button" class="btn btn-default" onclick="login_show()">登录态接口</button>
             <button type="button" class="btn btn-default">备用</button>
         </div>
 
@@ -138,7 +138,16 @@ color: white;padding-left: 10px">
     <br><br><br>
     <ul class="nav navbar-nav"style="width: 98%">
         <li style="width: -webkit-calc(100% - 63px)">
-            <input id="ts_host" style=" color: black;padding-left: 10px;width: 100%;height: 40px" type="text" placeholder="host:如http(s)://www.baidu.com" value="">
+            <datalist id="datalist_1">
+                {% for i in project_host %}
+                    <option id="host_{{ i.id }}" value="全局域名-{{ i.id }}">{{ i.name }}：{{ i.host }}</option>
+                {% endfor %}
+                {% for i in hosts %}
+                    <option id="host_{{ i.id }}" value="{{ i.host }}">{{ i.host }}</option>
+                {% endfor %}
+
+            </datalist>
+            <input list="datalist_1" autocomplete="off" id="ts_host" style=" color: black;padding-left: 10px;width: 100%;height: 40px" type="text" placeholder="host:如http(s)://www.baidu.com" value="">
 
         </li>
         <li>
@@ -180,6 +189,7 @@ color: white;padding-left: 10px">
                 <li><a href="#Xml" tabindex="-1"data-toggle="tab">Xml</a></li>
             </ul>
         </li>
+        <li><a href="#GraphQL" data-toggle="tab">GraphQL</a></li>
         <li><a href="#response"  data-toggle="tab" >返回体</a></li>
     </ul>
     {#    刚刚写的那些按钮的中的 href属性，利用锚点技术，href=“#None” 那么你新建的小div 的id写成None ,即可让二者联系起来。#}
@@ -261,6 +271,23 @@ color: white;padding-left: 10px">
         </div>
         <div class="tab-pane " id="response" >
             <textarea name="" id="ts_response_body" disabled="disabled" style=" background-color: #cce5a3;color: black;width: 98%;height: 300px " ></textarea>
+        </div>
+        <div class="tab-pane fade" id="GraphQL">
+            <table style="width: 98%">
+                <theade>
+                    <tr>
+                        <td style="width: 55%"><span>QUERY</span></td>
+                        <td style="width: 40%"><span>GRAPHQL VARIABLES</span></td>
+                    </tr>
+                </theade>
+                <tbody style="color: black">
+                    <tr>
+                        <td><textarea  id="body_plan_G_Q"  rows="14" style="padding-left: 3px;border-radius: 5px;width: 99%"></textarea></td>
+                        <td><textarea  id="body_plan_G_G"  rows="14" style="padding-left: 3px;border-radius: 5px;width: 100%"></textarea></td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <br>
@@ -377,7 +404,103 @@ padding-left: 10px;background-color: white">
     }
 </script>
 
+{#全局域名#}
+<div id="project_host_div" style="display: none;border-radius:5px;width: 70%;height: 70%;
+position: absolute;left: 15%;top: 15%;box-shadow: 4px 4px 8px grey;
+padding-left: 10px;background-color: white">
+    <div class="btn-group" style="float: right">
+        <button onclick="project_host_save()" type="button" class="btn btn-success">保存</button>
+        <button onclick="project_host_close()" type="button" class="btn btn-default">取消</button>
+    </div>
 
+    <h4>请设置本项目的全局公共请求头：</h4>
+    <div id="host_plan">
+        {% for i in project_host %}
+            <input type="text" name="host_id" value="{{ i.id }}" style="display: none">
+            <input type="text" name="host_name" value="{{ i.name }}" style="width: 20%;margin-top: 3px" placeholder="name"> ="
+            <input type="text" name="host_host" value="{{ i.host }}" style="width: 70%;" placeholder="host"> "
+
+
+        {% endfor %}
+    </div>
+    <br>
+    <button onclick="add_project_host()">新增</button>
+
+
+</div>
+<script>
+    function project_host_div_show() {
+        document.getElementById('project_host_div').style.display = 'block';
+    }
+    function project_host_close() {
+        document.location.reload()
+    }
+    function project_host_save() {
+        var names = document.getElementsByName('host_name');
+        var hosts = document.getElementsByName('host_host');
+        var ids = document.getElementsByName('host_id')
+        var req_names= [];
+        var req_hosts=[];
+        var req_ids =[];
+        for(var i=0;i<names.length;i++){
+
+                req_names.push(names[i].value);
+                req_hosts.push(hosts[i].value);
+                req_ids.push(ids[i].value)
+
+        }
+
+        $.get('/save_project_host/',{
+            "project_id":"{{ project.id }}",
+            "req_names":req_names.toString(),
+            "req_hosts":req_hosts.toString(),
+            "req_ids":req_ids.toString()
+        },function (ret) {
+            document.location.reload();
+        })
+    }
+    function add_project_host() {
+        var host_plan = document.getElementById('host_plan');
+        var i0 = document.createElement('input');
+        i0.name = 'host_id'
+        i0.value ='new';
+        i0.style.display ='none';
+
+        var i1 = document.createElement('input');
+        i1.style='width:20%;margin-top:3px';
+        i1.placeholder='name';
+        i1.name='host_name';
+        var i2 = document.createElement('input');
+        i2.style='width:70%';
+        i2.placeholder='host';
+        i2.name='host_host';
+
+        host_plan.appendChild(i0);
+        host_plan.appendChild(i1);
+        host_plan.appendChild(document.createTextNode(' =" '));
+        host_plan.appendChild(i2);
+        host_plan.appendChild(document.createTextNode(' " '));
+        host_plan.appendChild(document.createElement("br"));
+
+
+
+    }
+</script>
+
+{# 登录态接口#}
+<div id="loin_set_div">
+
+</div>
+<script>
+    function login_show() {
+        //显示蒙层，并设置好蒙层的层级关系，让其在调试层之下，其他元素之上
+        document.getElementById('mengceng').style.display='block';
+        document.getElementById('mengceng').style.zIndex='998';
+        document.getElementById('loin_set_div').style.zIndex='999';
+        document.getElementById('loin_set_div').style.display='block';
+
+    }
+</script>
 
 <input type="text" style="display: none" id="error_api_body">
 <script>
@@ -518,10 +641,10 @@ padding-left: 10px;background-color: white">
         {#添加到我们的空列表：ts_project_headers 中，等全部遍历完，就把这个列表转成字符串，#}
         {#和其他接口字段一起传递个后台函数。#}
         var project_headers = document.getElementById('ts_project_header_li').children;
-        var ts_project_header = [];
+        var ts_project_headers = [];
         for(var i=0;i<project_headers.length;i++){
             if (project_headers[i].children[0].checked==true){
-                ts_project_header.push(project_headers[i].children[0].value)
+                ts_project_headers.push(project_headers[i].children[0].value)
             }
         }
 
@@ -535,7 +658,7 @@ padding-left: 10px;background-color: white">
         {#字符串.slice(0,7) 是截取字符串的意思，0,7 就代表要前7个字符，和python的切片类似。代码含义判断这个host开头是不是http或https。#}
         {#!= 和python一样就是不等于的意思。&&是且的意思，相当于python的and#}
         {#后面必须加return，这样js函数就会终止，不会再运行下去了，不然它虽然提示了错误，但是仍然会继续走代码而保存成功。#}
-        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://'){
+        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://' && ts_host.slice(0,4) != '全局域名' ){
             alert('host必须以http://或https://开头！');return;
         }
         if(ts_header !=''){
@@ -602,7 +725,7 @@ padding-left: 10px;background-color: white">
             'ts_header':ts_header,
             'ts_body_method':ts_body_method,
             'ts_api_body':ts_api_body,
-            'ts_project_headers':ts_project_header.toString(),
+            'ts_project_headers':ts_project_headers.toString(),
         },function (ret) {
             document.location.reload()
         })
@@ -618,7 +741,13 @@ padding-left: 10px;background-color: white">
         var ts_url = document.getElementById('ts_url').value;
         var ts_host = document.getElementById('ts_host').value;
         var ts_header = document.getElementById('ts_header').value;
-
+        var project_headers = document.getElementById('ts_project_header_li').children;
+        var ts_project_headers = [];
+        for(var i=0;i<project_headers.length;i++){
+            if (project_headers[i].children[0].checked==true){
+                ts_project_headers.push(project_headers[i].children[0].value)
+            }
+        }
          // 判断顶部的数据是否填充完
         if(api_name == ''){alert('请输入接口名字！');return}
         if(ts_method == 'none'){alert('请选择请求方式！');return}
@@ -626,7 +755,7 @@ padding-left: 10px;background-color: white">
         if(ts_host == ''){alert('请输入host！');return}
 
         // 判断关键数据是否符合规则
-        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://'){
+        if(ts_host.slice(0,7) !='http://' && ts_host.slice(0,8) != 'https://' && ts_host.slice(0,4) != '全局域名'){
             alert('host必须以http://或https://开头！');return;
         }
         if(ts_header !=''){
@@ -695,6 +824,7 @@ padding-left: 10px;background-color: white">
             'ts_header':ts_header,
             'ts_body_method':ts_body_method,
             'ts_api_body':ts_api_body,
+            'ts_project_headers':ts_project_headers.toString(),
         },function (ret) {
             $("li a[href=#response]")[0].click(); //发送请求后，点击返回体
             document.getElementById('ts_response_body').value = ret; //把请求返回的数据放在返回体
