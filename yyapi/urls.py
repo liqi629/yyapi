@@ -88,7 +88,11 @@ urlpatterns = [
     re_path(r'^look_report/(?P<eid>.*)/$', look_report), # 查看报告
     path(r'save_project_header/', save_project_header), # 保存项目公共请求头
     path(r'save_case_name/', save_case_name), # 保存用例名称，用例库页面左侧栏
-    path(r'save_project_host/', save_project_host),  # 保存项目域名
+    path(r'project_get_login/', project_get_login),  # 获取项目登录态接口
+    path(r'project_login_save/', project_login_save),  # 保存项目登录态接口
+    path(r'project_login_send/',project_login_send) # 调试登录态接口
+
+
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]

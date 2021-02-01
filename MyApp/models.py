@@ -115,6 +115,7 @@ class DB_step(models.Model):
     assert_path = models.CharField(max_length=500, null=True)  # 断言返回值-路径法
     mock_res = models.CharField(max_length=1000,null=True) # mock返回值
     public_header = models.CharField(max_length=1000,null=True) # 全局变量-请求头
+    api_login = models.CharField(max_length=10,null=True) #是否带登录态
 
 
     def __str__(self):
@@ -128,7 +129,7 @@ class DB_project_header(models.Model):
     """
     project_id = models.CharField(max_length=10,null=True) #所属项目id
     name = models.CharField(max_length=20,null=True) #请求头变量名字
-    key =  models.CharField(max_length=20,null=True) #请求头header的 key
+    key =  models.CharField(max_length=20,null=True,default='') #请求头header的 key
     value = models.TextField(null=True) #请求头的value，因为有可能cookie较大，达到几千字符，所以采用大文本方式存储
 
     def __str__(self):
@@ -153,3 +154,18 @@ class DB_project_host(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class DB_login(models.Model):
+    project_id = models.CharField(max_length=10, null=True)  # 项目id
+    api_method = models.CharField(max_length=10, null=True)  # 请求方式
+    api_url = models.CharField(max_length=1000, null=True)  # url
+    api_host = models.CharField(max_length=100, null=True)  # host
+    api_header = models.CharField(max_length=1000, null=True)  # 请求头
+    body_method = models.CharField(max_length=10, null=True)  # 请求体编码类型
+    api_body = models.CharField(max_length=10, null=True)  # 请求体
+    sign = models.CharField(max_length=10,null=True) #是否验签
+    set = models.CharField(max_length=300,null=True)#提取设置
+
+    def __str__(self):
+        return self.project_id

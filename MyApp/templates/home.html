@@ -9,18 +9,50 @@
 <body>
 
 <h2 style="margin-left: 400px;color: #03c9fb;">欢迎使用 接口测试平台</h2>
+<div id="heng" style="width: 310px;height: 1px;background-color: #e0ddde;position: absolute;left:15px ;bottom: 310px">&nbsp;
+</div>
+{#<h3>&#12288;您的请求记录：</h3>#}
 
-<h3>&#12288;您的请求记录：</h3>
 
-<div id="home_log_plan" style="padding-left: 20px;overflow-y: scroll;width: 320px">
+<div id="home_log_plan" style="padding-left: 20px;overflow-y: scroll;width: 320px;position: absolute;bottom: 10px">
+    <br>
     {% for i in home_log %}
-{#        <a href="javascript:home_log_show('{{ i.id }}')" style="text-decoration: none"  class="log" >#}
-            <a href="/home_log/{{ i.id }}" style="text-decoration: none"  class="log" >
-            <span style="font-size: large;color: black">{{ i.api_method }}</span> -
+        <div style="background-color: #eefaff;margin-bottom: 3px;border-radius: 5px;padding: 1px">
+        <a href="/home_log/{{ i.id }}/" style=";text-decoration: none"  class="log" >
+            <span style="font-size: large;color: black">{{ i.api_method }}</span>
             {{ i.api_host }}{{ i.api_url }}
-        </a> <br>
+        </a>
+        </div>
     {% endfor %}
 </div>
+<div id="shu" style="width: 2px;background-color: #e0ddde;position: absolute;top: 70px;left: 340px">
+
+</div>
+<h5>&nbsp;&nbsp;&nbsp; 您的项目如下：</h5>
+<div  style="height: 400px;overflow-y: scroll;margin-left: 15px;width: 300px;" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+    {% for i in user_projects %}
+         <div class="panel panel-default" >
+            <div class="panel-heading" role="tab" id="heading{{ i.id }}">
+                <h4 class="panel-title">
+                    <a class="collapsed" style="text-decoration: none" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ i.id }}" aria-expanded="false" aria-controls="collapse{{ i.id }}">
+                        <span style="color: #01a2cb"> {{ i.name }} </span>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ i.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ i.id }}">
+                <div style="padding-left: 10px;font-size: xx-small">
+                   备注：{{ i.remark }} <br>
+                   其他管理员：{{ i.other_user }} <br>
+                    <a href="/apis/{{ i.id }}/" style="background-color: #47ba04;color: white;font-size: large;border-radius: 5px">&nbsp;立即进入&nbsp;</a> &nbsp;
+                    <a href="#" onclick="" style="background-color: #e92f6c;color: white;font-size: large;border-radius: 5px">&nbsp;保存请求&nbsp;</a> <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 <div style="position: absolute;top: 100px;left: 380px;width: -webkit-calc(100% - 390px);">
     {# 调试弹层及函数 #}
         <ul class="nav navbar-nav" style="width: 98%">
@@ -235,6 +267,12 @@
                 }
             }
         }
+        if("{{ log.body_method }}" =='GraphQL'){
+            body_plan_G_Q = "{{ log.api_body }}".split('*WQRF')[0];
+            body_plan_G_G = "{{ log.api_body }}".split('*WQRF')[1];
+            document.getElementById('body_plan_G_Q').value = body_plan_G_Q;
+            document.getElementById('body_plan_G_G').value = body_plan_G_G;
+        }
     }
     </script>
     <script>
@@ -342,6 +380,7 @@
                     }
                 }
 
+
             })
 
         }
@@ -426,6 +465,12 @@
         }
     </script>
 </div>
+
+<script>
+    var h =document.documentElement.clientHeight;
+    document.getElementById('shu').style.height=(h-85).toString()+'px';
+    document.getElementById('home_log_plan').style.maxHeight='300px';
+</script>
 
 </body>
 </html>

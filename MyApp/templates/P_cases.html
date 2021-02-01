@@ -114,9 +114,15 @@
                 <option value="delete">DELETD</option>
             </select>
         </li>
-        <li style="width: -webkit-calc(100% - 105px)">
+        <li style="width: -webkit-calc(100% - 225px)">
             <input id="step_url" style=" border-radius: 4px ;border: 1px solid #cccccc;
             padding-left: 10px;width: 100%;height: 35px;" type="text" placeholder="url:如 /project/names" >
+        </li>
+        <li>
+          <select name="step_login" id="step_login" style="height:35px" class="form-control">
+             <option value="no" id="step_login_no">不加登录态</option>
+             <option value="yes" id="tstep_login_yes">加登录态</option>
+          </select>
         </li>
     </ul>
     <div class="input-group" style="margin-top: 45px;margin-left: 5%;width: 90%">
@@ -436,6 +442,7 @@ code:200"></textarea>
         document.getElementById('step_host').value = '';
         document.getElementById('step_header').value='{}';
         document.getElementById('mock_res').value = '';
+        document.getElementById('step_login').value = 'no';
         //清空公共请求头
         var project_headers = document.getElementById('ts_project_header_li').children;
         for(var i=0;i<project_headers.length;i++){
@@ -521,6 +528,9 @@ code:200"></textarea>
             document.getElementById('assert_zz').value = ret.assert_zz;
             document.getElementById('assert_qz').value = ret.assert_qz;
             document.getElementById('assert_path').value = ret.assert_path;
+            if(ret.api_login != null && ret.api_login !=''){
+                document.getElementById('step_login').value = ret.api_login;
+            }
 
 
             var body_method = '#'+ret.api_body_method;
@@ -596,6 +606,7 @@ code:200"></textarea>
             var step_header = document.getElementById('step_header').value;
             var index = document.getElementById('step_index').value;
             var mock_res = document.getElementById('mock_res').value;
+            var step_login = document.getElementById('step_login').value;
             // 公共请求头
             var project_headers = document.getElementById('ts_project_header_li').children;
             var ts_project_headers = [];
@@ -699,6 +710,7 @@ code:200"></textarea>
                 'assert_qz': $("#assert_qz").val(),
                 'assert_path': $("#assert_path").val(),
                 'ts_project_headers': ts_project_headers.toString(),
+                'step_login':step_login
 
             }, function (ret) {
                 alert(ret);
