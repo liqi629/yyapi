@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边界值生成工具</title>
+</head>
+<body>
+<div style="width: 90%;background-color: #f9f9f9;box-shadow: 1px 2px 5px grey;
+margin-left: 5%;padding: 10px;">
+    <h2 style="text-align: center">欢迎使用边界值小工具</h2>
+    <div id="input_div">
+        <div class="input-group" id="input_g">
+            <span class="input-group-addon">中文字符最大长度</span>
+            <input id="max" style="width: 10%" type="number" class="form-control" placeholder="请输入">
+
+        </div>
+
+    </div>
+
+    <br>
+{#        <button onclick="add()" type="button" class="btn btn-default btn-lg">添加</button>#}
+          <button onclick="play()" type="button" class="btn btn-default btn-lg">运行</button>
+{#        <button onclick="excel()" style="float: right" type="button" class="btn btn-default btn-lg">导出excel</button>#}
+
+    <br>
+    <br>
+
+    <div id="res_div">
+
+    </div>
+    <br>
+    <div id="res_div2">
+
+    </div>
+</div>
+
+<script>
+    function add() {
+        var input_div = document.getElementById('input_div');
+        var ig = document.getElementById('input_g').cloneNode(true);
+        ig.children[1].value='';
+        ig.children[2].value='';
+
+        input_div.appendChild(ig)
+
+    }
+    function play() {
+
+        var max_zn = document.getElementById("max").value;
+        console.log(max_zn);
+        $.get('/bianjie_play/',{
+
+            "max_zn": max_zn,
+        },function (ret) {
+            ret = eval(ret);
+            {#声明准备填充的位置#}
+            var res_div = document.getElementById('res_div');
+            res_div.innerHTML = '';
+
+            w = '80%'; //计算输入框宽度
+
+
+            var div_group = document.createElement('div'); //创建div
+            div_group.className = 'input-group'; //f赋予属性
+            var s = document.createElement('span'); //添加span标签
+            s.className = 'input-group-addon';
+            s.innerText = '数据长度：'+max_zn;
+            div_group.appendChild(s);//appendChild() 方法向节点添加最后一个子节点。
+
+            var input = document.createElement('input');
+            input.id='input'
+            input.className = 'form-control';
+            input.type="text" ;
+            input.style = 'width: -webkit-calc('+w+')';
+            input.disable = 'disabled';
+            input.value = ret.res;
+            div_group.appendChild(input);
+
+
+            var button_copy = document.createElement('copy');
+            button_copy.className ='btn btn-default';
+            button_copy.innerText ='复制';
+            button_copy.onclick= function () {
+                var content = document.getElementById('input');
+                content.select();
+                document.execCommand('Copy');
+                alert('复制成功');
+
+            };
+            div_group.appendChild(button_copy);
+
+
+            res_div.appendChild(div_group);
+
+
+            var res_div2 = document.getElementById('res_div2');
+            res_div2.innerHTML = '';
+
+            w = '80%'; //计算输入框宽度
+
+
+            var div_group2 = document.createElement('div');
+            div_group2.className = 'input-group';
+            var s2 = document.createElement('span');
+            s2.className = 'input-group-addon';
+            s2.innerText = '数据长度：'+(parseInt(max_zn)+1);
+            div_group2.appendChild(s2);
+
+            var input2 = document.createElement('input');
+            input2.id='input2'
+            input2.className = 'form-control';
+            input2.type="text" ;
+            input2.style = 'width: -webkit-calc('+w+')';
+            input2.disable = 'disabled';
+            input2.value = ret.res_add_1;
+            div_group2.appendChild(input2);
+
+            var button_copy2 = document.createElement('copy');
+
+            button_copy2.className ='btn btn-default';
+            button_copy2.innerText ='复制';
+            button_copy2.onclick= function () {
+                var content = document.getElementById('input2');
+                content.select();
+                document.execCommand('Copy');
+                alert('复制成功');
+
+            };
+            div_group2.appendChild(button_copy2);
+            res_div2.appendChild(div_group2);
+
+
+        })
+
+    }
+    function excel() {
+        var keys = document.getElementsByName("keys");
+        var values = document.getElementsByName("values");
+        var end_keys =[];
+        var end_values =[];
+        for(var i=0;i<keys.length;i++){
+            if(values[i].value !=''){
+                end_keys.push(keys[i].value);
+                end_values.push(values[i].value);
+            }
+        }
+        $.get('/zhengjiao_excel/',{
+            "end_keys":end_keys.toString(),
+            "end_values":end_values.toString(),
+        },function (ret) {
+            document.location.href='/static/tmp_zhengjiao.xls'
+
+        })
+
+
+    }
+    function copy() {
+
+
+    }
+</script>
+</body>
+</html>

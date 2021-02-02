@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, re_path
 
 from MyApp.views import *
+from MyApp.views_tools import *
 
 
 """
@@ -90,7 +91,15 @@ urlpatterns = [
     path(r'save_case_name/', save_case_name), # 保存用例名称，用例库页面左侧栏
     path(r'project_get_login/', project_get_login),  # 获取项目登录态接口
     path(r'project_login_save/', project_login_save),  # 保存项目登录态接口
-    path(r'project_login_send/',project_login_send) # 调试登录态接口
+    path(r'project_login_send/',project_login_send), # 调试登录态接口
+
+    #-----------------小工具------------------------
+    path(r'tools_zhengjiao/',zhengjiao), # 进入小工具-正交生成
+    path(r'zhengjiao_play/',zhengjiao_play), # 正交生成
+    path(r'zhengjiao_excel/',zhengjiao_excel), # 正交生成excel
+    path(r'tools_bianjie/',bianjie), # 进入小工具-正交生成
+    path(r'bianjie_play/',bianjie_play), # 正交生成
+
 
 
 
