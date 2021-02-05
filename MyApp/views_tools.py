@@ -124,7 +124,7 @@ def bianjie_play(request):
         res_2 = res+'哈'
 
 
-    # 正好是最大值
+    # 二维码-正好是最大值
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -146,17 +146,11 @@ def bianjie_play(request):
     qr_2.add_data(res_2)
     qr_2.make(fit=True)
 
-    data_zn_img_2 = qr.make_image(fill_color="black", back_color="white")
+    data_zn_img_2 = qr_2.make_image(fill_color="black", back_color="white")
     data_zn_img_2.save('MyApp/static/zn_img_2.png')
-
 
     zn_img ='zn_img.png'
     zn_img_2='zn_img_2.png'
     d = {"res": res, "res_add_1": res_2,"zn_img":zn_img,"zn_img_2":zn_img_2,}
-    print(d)
     return HttpResponse(json.dumps(d),content_type="application/json")
 
-# def glodict(request):
-#     userimg = str(request.user.id)+'.png' #写死png后缀，上传强制转成png
-#     res = {"username":request.user.username, "userimg":userimg}
-#     return res

@@ -77,7 +77,7 @@ margin-left: 5%;padding: 10px;">
             s.innerText = '数据长度：'+max_zn;
             div_group.appendChild(s);//appendChild() 方法向节点添加最后一个子节点。
 
-            var input = document.createElement('input');
+            var input = document.createElement('textarea'); //input 换成textarea 前端文字自动换行
             input.id='input'
             input.className = 'form-control';
             input.type="text" ;
@@ -124,7 +124,7 @@ margin-left: 5%;padding: 10px;">
             s2.innerText = '数据长度：'+(parseInt(max_zn)+1);
             div_group2.appendChild(s2);
 
-            var input2 = document.createElement('input');
+            var input2 = document.createElement('textarea');
             input2.id='input2'
             input2.className = 'form-control';
             input2.type="text" ;
