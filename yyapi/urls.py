@@ -72,6 +72,8 @@ urlpatterns = [
     path(r'copy_api/', copy_api),  # 复制接口
     path(r'error_request/', error_request), # 调用异常测试接口
     re_path(r"^Api_send_home/$", Api_send_home), # 首页发送请求
+    re_path(r"^Home_save_api/$", Home_save_api), # 首页发送请求
+
     path('get_home_log/', get_home_log), # 获取最新请求记录
     path('get_api_log_home/',get_api_log_home ), # 获取完整得单一得请求记录数据
     re_path(r'^home_log/(?P<log_id>.*)/$', home), # 再次进入首页，这次带着记录

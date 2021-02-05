@@ -24,15 +24,25 @@ margin-left: 5%;padding: 10px;">
 
     <br>
     <br>
-
+    
     <div id="res_div">
 
+
+
+
     </div>
+
+
     <br>
     <div id="res_div2">
 
     </div>
+    
+    
 </div>
+
+
+
 
 <script>
     function add() {
@@ -47,7 +57,7 @@ margin-left: 5%;padding: 10px;">
     function play() {
 
         var max_zn = document.getElementById("max").value;
-        console.log(max_zn);
+
         $.get('/bianjie_play/',{
 
             "max_zn": max_zn,
@@ -71,7 +81,7 @@ margin-left: 5%;padding: 10px;">
             input.id='input'
             input.className = 'form-control';
             input.type="text" ;
-            input.style = 'width: -webkit-calc('+w+')';
+            input.style = 'width: -webkit-calc('+w+');height:150px';
             input.disable = 'disabled';
             input.value = ret.res;
             div_group.appendChild(input);
@@ -88,6 +98,14 @@ margin-left: 5%;padding: 10px;">
 
             };
             div_group.appendChild(button_copy);
+
+            var img_1 = document.createElement('img');
+            var zn_img = ret.zn_img;
+
+            img_1.src = '/static/'+zn_img;
+            img_1.style='width:150px;height:150px';
+
+            div_group.appendChild(img_1);
 
 
             res_div.appendChild(div_group);
@@ -110,7 +128,7 @@ margin-left: 5%;padding: 10px;">
             input2.id='input2'
             input2.className = 'form-control';
             input2.type="text" ;
-            input2.style = 'width: -webkit-calc('+w+')';
+            input2.style = 'width: -webkit-calc('+w+');height:150px';
             input2.disable = 'disabled';
             input2.value = ret.res_add_1;
             div_group2.appendChild(input2);
@@ -127,6 +145,16 @@ margin-left: 5%;padding: 10px;">
 
             };
             div_group2.appendChild(button_copy2);
+
+            var img_2 = document.createElement('img');
+            var zn_img_2 = ret.zn_img_2;
+
+            img_2.src = '/static/'+zn_img_2;
+
+            img_2.style='width:150px;height:150px';
+
+            div_group2.appendChild(img_2);
+
             res_div2.appendChild(div_group2);
 
 

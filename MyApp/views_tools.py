@@ -3,6 +3,7 @@ import xlwt
 from xlutils import copy
 import os
 import random
+import qrcode
 
 
 from django.shortcuts import render
@@ -111,6 +112,7 @@ def bianjie(request):
 
 # 边界工具运行-随机中文
 def bianjie_play(request):
+
     max_zn = request.GET['max_zn']
     res =''
     for i in range(int(max_zn)):
@@ -119,7 +121,42 @@ def bianjie_play(request):
         val = f'{head:x} {body:x}'
         str = bytes.fromhex(val).decode('gb2312')
         res = res+str
+        res_2 = res+'哈'
 
-    d = {"res": res,"res_add_1":res+'哈'}
+
+    # 正好是最大值
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(res)
+    qr.make(fit=True)
+
+    data_zn_img = qr.make_image(fill_color="black", back_color="white")
+    data_zn_img.save('MyApp/static/zn_img.png')
+    # 比最大值多一个
+    qr_2 = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr_2.add_data(res_2)
+    qr_2.make(fit=True)
+
+    data_zn_img_2 = qr.make_image(fill_color="black", back_color="white")
+    data_zn_img_2.save('MyApp/static/zn_img_2.png')
+
+
+    zn_img ='zn_img.png'
+    zn_img_2='zn_img_2.png'
+    d = {"res": res, "res_add_1": res_2,"zn_img":zn_img,"zn_img_2":zn_img_2,}
     print(d)
     return HttpResponse(json.dumps(d),content_type="application/json")
+
+# def glodict(request):
+#     userimg = str(request.user.id)+'.png' #写死png后缀，上传强制转成png
+#     res = {"username":request.user.username, "userimg":userimg}
+#     return res

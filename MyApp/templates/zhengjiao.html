@@ -69,12 +69,12 @@ margin-left: 5%;padding: 10px;">
                 s.innerText = '用例：'+(j+1).toString();
                 div_group.appendChild(s);
                 for(var i=0;i<end_keys.length;i++){
-                    var input = document.createElement('input');
+                    var input = document.createElement('span'); //由input改成span，注释掉下面的disabled。可以多行多列复制
                     input.className = 'form-control';
                     input.type="text" ;
                     input.style = 'width: -webkit-calc('+w+')';
-                    input.disable = 'disabled';
-                    input.value = end_keys[i]+' : '+ret.res[j][i];
+                    {#input.disable = 'disabled';#}
+                    input.innerText = end_keys[i]+' : '+ret.res[j][i];
                     div_group.appendChild(input);
                 }
                 res_div.appendChild(div_group);
