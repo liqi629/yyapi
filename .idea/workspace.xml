@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ceee109f-da8e-4855-9d65-2f219864735a" name="Default Changelist" comment="">
+    <list default="true" id="ceee109f-da8e-4855-9d65-2f219864735a" name="Default Changelist" comment="8月5号">
+      <change afterPath="$PROJECT_DIR$/MyApp/templates/P_global_data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyApp/run_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/run_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApp/templates/P_apis.html" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/templates/P_apis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyApp/templates/P_cases.html" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/templates/P_cases.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyApp/templates/Reports/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/templates/Reports/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyApp/templates/P_project_set.html" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/templates/P_project_set.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/xxx_err.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/xxx_err.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/xxx_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/xxx_info.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yyapi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/yyapi/urls.py" afterDir="false" />
+    </list>
+    <list id="7d64dc0d-be2c-4c29-ace8-b88c359d172c" name="Revert &quot;登录态，提取和cookie持久化（session）&quot;" comment="边界值  二维码生成。有bug，二维码图片没有刷新">
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +54,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -36,14 +67,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HttpRunnerManager-master" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PycharmProjects\yyapi\MyApp\static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PycharmProjects\yyapi\static\bingxingtu" />
       <recent name="E:\PycharmProjects\yyapi\MyApp" />
       <recent name="E:\PycharmProjects\yyapi\MyApp\static\user_img" />
     </key>
@@ -79,13 +116,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="yyapi.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="E:\PycharmProjects\yyapi\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
+      <option name="port" value="8008" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
@@ -110,6 +147,11 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django Server.yyapi" />
+      <item itemvalue="Python.ahah" />
+      <item itemvalue="Python tests.Unittests in run_case.py" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Unittests in run_case.py" />
@@ -157,66 +199,206 @@
       <workItem from="1607945143366" duration="7314000" />
       <workItem from="1608030745387" duration="3297000" />
       <workItem from="1608039583060" duration="3282000" />
-      <workItem from="1608116171979" duration="5605000" />
+      <workItem from="1608116171979" duration="6235000" />
+      <workItem from="1608346949989" duration="1212000" />
+      <workItem from="1608530318841" duration="2143000" />
+      <workItem from="1608603217644" duration="15825000" />
+      <workItem from="1609120622587" duration="3807000" />
+      <workItem from="1609246140630" duration="3534000" />
+      <workItem from="1609311080853" duration="2605000" />
+      <workItem from="1609379986099" duration="10632000" />
+      <workItem from="1609936979027" duration="33000" />
+      <workItem from="1610798968212" duration="4205000" />
+      <workItem from="1611301111146" duration="3532000" />
+      <workItem from="1611539389720" duration="12597000" />
+      <workItem from="1611625471495" duration="542000" />
+      <workItem from="1611799471582" duration="7023000" />
+      <workItem from="1612143546900" duration="17237000" />
+      <workItem from="1612230427692" duration="25446000" />
+      <workItem from="1612403174123" duration="5927000" />
+      <workItem from="1612512303806" duration="7398000" />
+      <workItem from="1613959695424" duration="7685000" />
+      <workItem from="1614044975722" duration="4335000" />
+      <workItem from="1614134917736" duration="1387000" />
+      <workItem from="1614564325990" duration="1577000" />
+      <workItem from="1615772751644" duration="8993000" />
+      <workItem from="1615875814079" duration="689000" />
+      <workItem from="1615889143702" duration="103000" />
+      <workItem from="1618218542454" duration="625000" />
+      <workItem from="1618229625569" duration="606000" />
+      <workItem from="1622773500492" duration="4962000" />
+      <workItem from="1622786002255" duration="2909000" />
+      <workItem from="1623134639312" duration="52000" />
+      <workItem from="1623138033519" duration="36000" />
+      <workItem from="1623400953917" duration="4989000" />
+      <workItem from="1623412947437" duration="2042000" />
+      <workItem from="1623723023816" duration="2703000" />
+      <workItem from="1623820061071" duration="11632000" />
+      <workItem from="1623896185519" duration="16793000" />
+      <workItem from="1624006697204" duration="4139000" />
+      <workItem from="1624117530404" duration="2881000" />
+      <workItem from="1624631118497" duration="13000" />
+      <workItem from="1625193089088" duration="2739000" />
+      <workItem from="1625449925664" duration="9000" />
+      <workItem from="1625550354707" duration="3190000" />
+      <workItem from="1625649350935" duration="1260000" />
+      <workItem from="1626333812985" duration="3636000" />
+      <workItem from="1626401176102" duration="3740000" />
+      <workItem from="1626663597116" duration="2038000" />
+      <workItem from="1626749540119" duration="2786000" />
+      <workItem from="1627538100935" duration="1140000" />
+      <workItem from="1627637991323" duration="1352000" />
+      <workItem from="1628062927692" duration="2301000" />
+      <workItem from="1628150367245" duration="4289000" />
     </task>
+    <task id="LOCAL-00001" summary="修复 用例库，全局host 的bug">
+      <created>1609313077686</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609313077686</updated>
+    </task>
+    <task id="LOCAL-00002" summary="登录态，提取和cookie持久化（session）">
+      <created>1612174475144</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1612174475144</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加小工具 正交 边界值">
+      <created>1612262581256</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612262581256</updated>
+    </task>
+    <task id="LOCAL-00004" summary="登录态，提取和cookie持久化（session）">
+      <created>1612517501735</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612517501735</updated>
+    </task>
+    <task id="LOCAL-00005" summary="登录态，提取和cookie持久化（session）">
+      <created>1612517581274</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612517581274</updated>
+    </task>
+    <task id="LOCAL-00006" summary="边界工具页面，生成的内容自动换行。将input换成textarea &#10;修复bug：两个图片内容一样&#10;遗留bug：图片会获取到之前生成的。建议刷新后使用">
+      <created>1612519303300</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612519303300</updated>
+    </task>
+    <task id="LOCAL-00007" summary="8月5号">
+      <created>1628150427506</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1628150427506</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修复 用例库，全局host 的bug" />
+    <MESSAGE value="添加小工具 正交 边界值" />
+    <MESSAGE value="登录态，提取和cookie持久化（session）" />
+    <MESSAGE value="边界工具页面，生成的内容自动换行。将input换成textarea &#10;修复bug：两个图片内容一样&#10;遗留bug：图片会获取到之前生成的。建议刷新后使用" />
+    <MESSAGE value="8月5号" />
+    <option name="LAST_COMMIT_MESSAGE" value="8月5号" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1219" y="266" key="FileChooserDialogImpl" timestamp="1606464758515">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="1176" y="394" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623897605083">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
-    <state x="1219" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1606464758515" />
-    <state width="1254" height="258" key="GridCell.Tab.0.bottom" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="1176" y="394" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3840.2130@0.0.3840.2130" timestamp="1623897605083" />
+    <state x="2379" y="789" key="CommitChangelistDialog2" timestamp="1628150462256">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.0.center" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2379" y="789" key="CommitChangelistDialog2/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628150462256" />
+    <state width="1747" height="181" key="GridCell.Tab.0.bottom" timestamp="1628154273548">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.0.left" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="386" key="GridCell.Tab.0.bottom/-1920.0.1920.1032/0.0.3840.2112@-1920.0.1920.1032" timestamp="1628073018644" />
+    <state width="1747" height="181" key="GridCell.Tab.0.bottom/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628154273548" />
+    <state width="1747" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.3840.2160@0.0.1920.1032" timestamp="1625563091515" />
+    <state width="1747" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.3840.2160@1920.0.3840.2160" timestamp="1626431512430" />
+    <state width="1532" height="429" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1623996486431" />
+    <state width="1747" height="386" key="GridCell.Tab.0.bottom/0.0.3840.2112@0.0.3840.2112" timestamp="1626674682382" />
+    <state width="1747" height="268" key="GridCell.Tab.0.bottom/0.0.3840.2130@0.0.3840.2130" timestamp="1624014044547" />
+    <state width="1747" height="181" key="GridCell.Tab.0.center" timestamp="1628154273548">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.0.right" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="386" key="GridCell.Tab.0.center/-1920.0.1920.1032/0.0.3840.2112@-1920.0.1920.1032" timestamp="1628073018644" />
+    <state width="1747" height="181" key="GridCell.Tab.0.center/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628154273548" />
+    <state width="1747" height="197" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.3840.2160@0.0.1920.1032" timestamp="1625563091514" />
+    <state width="1747" height="197" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.3840.2160@1920.0.3840.2160" timestamp="1626431512430" />
+    <state width="1532" height="429" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1623996486431" />
+    <state width="1747" height="386" key="GridCell.Tab.0.center/0.0.3840.2112@0.0.3840.2112" timestamp="1626674682382" />
+    <state width="1747" height="268" key="GridCell.Tab.0.center/0.0.3840.2130@0.0.3840.2130" timestamp="1624014044546" />
+    <state width="1747" height="181" key="GridCell.Tab.0.left" timestamp="1628154273548">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.1.bottom" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="386" key="GridCell.Tab.0.left/-1920.0.1920.1032/0.0.3840.2112@-1920.0.1920.1032" timestamp="1628073018644" />
+    <state width="1747" height="181" key="GridCell.Tab.0.left/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628154273548" />
+    <state width="1747" height="197" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.3840.2160@0.0.1920.1032" timestamp="1625563091514" />
+    <state width="1747" height="197" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.3840.2160@1920.0.3840.2160" timestamp="1626431512429" />
+    <state width="1532" height="429" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1623996486431" />
+    <state width="1747" height="386" key="GridCell.Tab.0.left/0.0.3840.2112@0.0.3840.2112" timestamp="1626674682382" />
+    <state width="1747" height="268" key="GridCell.Tab.0.left/0.0.3840.2130@0.0.3840.2130" timestamp="1624014044546" />
+    <state width="1747" height="181" key="GridCell.Tab.0.right" timestamp="1628154273548">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.1.center" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="386" key="GridCell.Tab.0.right/-1920.0.1920.1032/0.0.3840.2112@-1920.0.1920.1032" timestamp="1628073018644" />
+    <state width="1747" height="181" key="GridCell.Tab.0.right/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628154273548" />
+    <state width="1747" height="197" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.3840.2160@0.0.1920.1032" timestamp="1625563091514" />
+    <state width="1747" height="197" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.3840.2160@1920.0.3840.2160" timestamp="1626431512430" />
+    <state width="1532" height="429" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1623996486431" />
+    <state width="1747" height="386" key="GridCell.Tab.0.right/0.0.3840.2112@0.0.3840.2112" timestamp="1626674682382" />
+    <state width="1747" height="268" key="GridCell.Tab.0.right/0.0.3840.2130@0.0.3840.2130" timestamp="1624014044546" />
+    <state x="2535" y="873" key="SettingsEditor" timestamp="1622775216918">
+      <screen x="1920" y="0" width="3840" height="2130" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.1.left" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2535" y="873" key="SettingsEditor/0.0.1920.1050/1920.0.3840.2130@1920.0.3840.2130" timestamp="1622775216918" />
+    <state x="2452" y="976" key="Vcs.Push.Dialog.v2" timestamp="1628151391671">
+      <screen x="0" y="0" width="3840" height="2112" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state width="1254" height="258" key="GridCell.Tab.1.right" timestamp="1608184206175">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2452" y="976" key="Vcs.Push.Dialog.v2/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628151391671" />
+    <state x="2287" y="985" width="1179" height="934" key="find.popup" timestamp="1624012546861">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
-    <state width="1254" height="258" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1608184206175" />
-    <state x="461" y="169" key="SettingsEditor" timestamp="1605753464600">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1605753464600" />
-    <state x="984" y="253" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1608040922407">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="984" y="253" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1050@0.0.1920.1050" timestamp="1608040922407" />
-    <state x="445" y="0" width="1057" height="682" key="dock-window-1" timestamp="1605147408823">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="445" y="0" width="1057" height="682" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1605147408823" />
-    <state x="1381" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1605665858559">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="1381" y="248" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1605665858559" />
+    <state x="2287" y="985" width="1179" height="934" key="find.popup/0.0.3840.2130@0.0.3840.2130" timestamp="1624012546861" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -228,7 +410,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/yyapi$Unittests_in_run_case_py.coverage" NAME="Unittests in run_case.py Coverage Results" MODIFIED="1605749930582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyApp" />
+    <SUITE FILE_PATH="coverage/yyapi$Unittests_in_run_case_py.coverage" NAME="Unittests in run_case.py Coverage Results" MODIFIED="1609311088732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyApp" />
     <SUITE FILE_PATH="coverage/yyapi$ahah.coverage" NAME="ahah Coverage Results" MODIFIED="1605147659385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

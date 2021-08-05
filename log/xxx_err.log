@@ -705,3 +705,917 @@ Traceback (most recent call last):
   File "E:\PycharmProjects\yyapi\MyApp\views.py", line 129, in child_json
     res = {"project":project,"Cases": Cases, "apis":apis,"project_header":project_hrader,'hosts':hosts,'project_host':project_host}
 UnboundLocalError: local variable 'project_host' referenced before assignment
+[2020-12-31 10:04:22,040][Thread-9:15780][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:04:27,812][Thread-9:15780][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:07:23,200][Thread-17:17180][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:07:34,876][Thread-17:17180][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:08:57,482][Thread-18:20152][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:08:58,015][Thread-18:20152][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:09:32,520][Thread-19:3036][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:10:25,766][Thread-19:3036][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:22:51,407][Thread-6:18112][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:22:52,339][Thread-6:18112][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:22:52,885][Thread-6:18112][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:22:53,133][Thread-6:18112][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:22:53,335][Thread-6:18112][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:23:33,911][Thread-6:19232][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:23:35,191][Thread-6:19232][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:23:35,415][Thread-6:19232][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send_home/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'ts_api_body'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 632, in Api_send_home
+    ts_api_body = request.GET['ts_api_body']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'ts_api_body'
+[2020-12-31 10:25:18,052][Thread-14:20336][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:25:26,653][Thread-14:20336][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:25:40,806][Thread-14:20336][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:33:45,762][Thread-19:14872][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:37:22,020][Thread-23:652][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:41:22,959][Thread-25:16616][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2020-12-31 10:41:44,400][Thread-25:16616][task_id:django.request][log.py:230][ERROR][Internal Server Error: /Api_send/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 433, in Api_send
+    project_header = DB_project_header.objects.filter(id=i)[0]
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2021-01-25 11:15:56,809][Thread-6:10036][task_id:django.request][log.py:230][ERROR][Internal Server Error: /project_get_login/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 980, in project_get_login
+    return HttpResponse(json.dumps(login),content_type='application/json')
+  File "D:\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[2021-01-25 11:16:39,350][Thread-8:11652][task_id:django.request][log.py:230][ERROR][Internal Server Error: /project_get_login/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 980, in project_get_login
+    return HttpResponse(json.dumps(login),content_type='application/json')
+  File "D:\Python\Python36\lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "D:\Python\Python36\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "D:\Python\Python36\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Python\Python36\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'QuerySet' is not JSON serializable
+[2021-02-02 10:59:48,434][Thread-6:12808][task_id:django.request][log.py:230][ERROR][Internal Server Error: /zhengjiao_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 31, in zhengjiao_play
+    for i in AllPairs(new_values):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 61, in __init__
+    self.__validate_parameter(parameters)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 170, in __validate_parameter
+    raise ValueError("must provide more than one option")
+ValueError: must provide more than one option
+[2021-02-02 15:08:13,954][Thread-6:10304][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 119, in bianjie_play
+    for i in range(min):
+TypeError: 'str' object cannot be interpreted as an integer
+[2021-02-02 15:09:12,511][Thread-6:13352][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 119, in bianjie_play
+    for i in range(int(min)):
+ValueError: invalid literal for int() with base 10: '[object NodeList]'
+[2021-02-02 15:20:55,751][Thread-16:3852][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'min'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    min = request.GET['min']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'min'
+[2021-02-02 15:21:52,533][Thread-21:11396][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'min'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    min = request.GET['min']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'min'
+[2021-02-02 15:29:20,727][Thread-31:12168][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'min'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    min = request.GET['min']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'min'
+[2021-02-02 15:30:05,968][Thread-6:15460][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'min_zn'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    min_zn = request.GET['min_zn']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'min_zn'
+[2021-02-02 15:37:38,286][Thread-17:17300][task_id:django.request][log.py:230][ERROR][Internal Server Error: /zhengjiao_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 37, in zhengjiao_play
+    for i in AllPairs(new_values):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 61, in __init__
+    self.__validate_parameter(parameters)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 170, in __validate_parameter
+    raise ValueError("must provide more than one option")
+ValueError: must provide more than one option
+[2021-02-02 15:41:52,882][Thread-18:16260][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'min_zn'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    min_zn = request.GET['min_zn']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'min_zn'
+[2021-02-02 15:43:08,311][Thread-18:16260][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 119, in bianjie_play
+    for i in range(min_zn):
+TypeError: 'str' object cannot be interpreted as an integer
+[2021-02-02 15:43:33,595][Thread-24:17336][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 119, in bianjie_play
+    for i in range(min_zn):
+TypeError: 'str' object cannot be interpreted as an integer
+[2021-02-02 15:54:45,118][Thread-17:2096][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 119, in bianjie_play
+    for i in range(int(max_zn)):
+ValueError: invalid literal for int() with base 10: ''
+[2021-02-02 15:56:09,812][Thread-22:16928][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 123, in bianjie_play
+    str = bytes.fromhex(val).decode('gb2312')
+UnicodeDecodeError: 'gb2312' codec can't decode byte 0xd7 in position 0: illegal multibyte sequence
+[2021-02-05 16:09:39,785][Thread-6:10576][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\image\pil.py", line 6, in <module>
+    from PIL import Image, ImageDraw
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 134, in bianjie_play
+    data_zn_img = qr.make_image(fill_color="black", back_color="white")
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\main.py", line 289, in make_image
+    from qrcode.image.pil import PilImage
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\image\pil.py", line 8, in <module>
+    import Image
+ModuleNotFoundError: No module named 'Image'
+[2021-02-05 16:09:40,466][Thread-6:10576][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\image\pil.py", line 6, in <module>
+    from PIL import Image, ImageDraw
+ModuleNotFoundError: No module named 'PIL'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 134, in bianjie_play
+    data_zn_img = qr.make_image(fill_color="black", back_color="white")
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\main.py", line 289, in make_image
+    from qrcode.image.pil import PilImage
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\qrcode\image\pil.py", line 8, in <module>
+    import Image
+ModuleNotFoundError: No module named 'Image'
+[2021-02-05 16:30:18,731][Thread-14:4068][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 117, in bianjie_play
+    for i in range(int(max_zn)):
+ValueError: invalid literal for int() with base 10: ''
+[2021-02-05 16:44:48,630][Thread-62:14296][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 117, in bianjie_play
+    for i in range(int(max_zn)):
+ValueError: invalid literal for int() with base 10: ''
+[2021-02-05 17:17:59,345][Thread-23:14256][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 121, in bianjie_play
+    str = bytes.fromhex(val).decode('gb2312')
+UnicodeDecodeError: 'gb2312' codec can't decode byte 0xd7 in position 0: illegal multibyte sequence
+[2021-02-05 17:23:17,944][Thread-6:7560][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    os.remove('static/zn_img.png')
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'static/zn_img.png'
+[2021-02-05 17:23:22,336][Thread-6:7560][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 115, in bianjie_play
+    os.remove('static/zn_img.png')
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'static/zn_img.png'
+[2021-02-05 17:25:22,114][Thread-6:3608][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 116, in bianjie_play
+    os.remove('static/zn_img.png')
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'static/zn_img.png'
+[2021-02-05 17:25:36,611][Thread-6:3608][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 116, in bianjie_play
+    os.remove('static/zn_img.png')
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。: 'static/zn_img.png'
+[2021-02-05 17:55:02,865][Thread-18:16468][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 122, in bianjie_play
+    str = bytes.fromhex(val).decode('gb2312')
+UnicodeDecodeError: 'gb2312' codec can't decode byte 0xd7 in position 0: illegal multibyte sequence
+[2021-02-05 17:55:19,416][Thread-19:6940][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 122, in bianjie_play
+    str = bytes.fromhex(val).decode('gb2312')
+UnicodeDecodeError: 'gb2312' codec can't decode byte 0xd7 in position 0: illegal multibyte sequence
+[2021-02-22 10:13:16,548][Thread-11:3384][task_id:django.request][log.py:230][ERROR][Internal Server Error: /bianjie_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 146, in bianjie_play
+    qr_2.add_data(res_2)
+UnboundLocalError: local variable 'res_2' referenced before assignment
+[2021-06-18 10:13:00,988][Thread-3:8020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /zhengjiao_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 38, in zhengjiao_play
+    for i in AllPairs(new_values):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 61, in __init__
+    self.__validate_parameter(parameters)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 170, in __validate_parameter
+    raise ValueError("must provide more than one option")
+ValueError: must provide more than one option
+[2021-06-18 10:13:02,938][Thread-3:8020][task_id:django.request][log.py:230][ERROR][Internal Server Error: /zhengjiao_play/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views_tools.py", line 38, in zhengjiao_play
+    for i in AllPairs(new_values):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 61, in __init__
+    self.__validate_parameter(parameters)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\allpairspy\allpairs.py", line 170, in __validate_parameter
+    raise ValueError("must provide more than one option")
+ValueError: must provide more than one option
