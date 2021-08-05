@@ -26,6 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ceee109f-da8e-4855-9d65-2f219864735a" name="Default Changelist" comment="8月5号">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="7d64dc0d-be2c-4c29-ace8-b88c359d172c" name="Revert &quot;登录态，提取和cookie持久化（session）&quot;" comment="边界值  二维码生成。有bug，二维码图片没有刷新" />
@@ -236,7 +238,7 @@
       <workItem from="1627538100935" duration="1140000" />
       <workItem from="1627637991323" duration="1352000" />
       <workItem from="1628062927692" duration="2301000" />
-      <workItem from="1628150367245" duration="5315000" />
+      <workItem from="1628150367245" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="修复 用例库，全局host 的bug">
       <created>1609313077686</created>
@@ -390,6 +392,10 @@
       <screen x="0" y="0" width="3840" height="2112" />
     </state>
     <state x="2452" y="976" key="Vcs.Push.Dialog.v2/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628155871697" />
+    <state x="2635" y="1150" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1628156687694">
+      <screen x="0" y="0" width="3840" height="2112" />
+    </state>
+    <state x="2635" y="1150" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1032/0.0.3840.2112@0.0.3840.2112" timestamp="1628156687694" />
     <state x="2287" y="985" width="1179" height="934" key="find.popup" timestamp="1624012546861">
       <screen x="0" y="0" width="3840" height="2130" />
     </state>
