@@ -160,6 +160,13 @@ def child_json(eid, oid='', ooid=''):
     if eid == 'P_project_set.html':
         project = DB_project.objects.filter(id=oid)[0]
         res = {"project": project}
+
+    if eid == 'P_global_data.html':
+        from django.contrib.auth.models import User
+        project = DB_project.objects.filter(id=oid)[0]
+        global_data = DB_global_data.objects.filter(user_id=project.user_id)
+        res = {"project":project,"global_data":global_data}
+        print(res)
     return res
 
 
@@ -292,7 +299,7 @@ def add_project(request):
     :return:
     """
     project_name = request.GET['project_name']
-    DB_project.objects.create(name=project_name, remark='', user=request.user.username, other_user='')
+    DB_project.objects.create(name=project_name, remark='', user=request.user.username,user_id=request.user.id ,other_user='')
     return HttpResponse('')
 
 
@@ -1252,6 +1259,9 @@ def project_login_send_for_other(project_id):
         url = login_host+ '/' + login_url
     else: #肯定有一个有/
         url = login_host + login_url
+
+
+
     try:
         if login_body_method == 'none':
             # 先判断是否需要cookie持久化
@@ -1359,3 +1369,8 @@ def search (request):
 
     res = {"results": plist + alist}
     return HttpResponse(json.dumps(res), content_type='application/json')
+
+
+def global_data(request,id):
+    project_id = id
+    return render(request, 'welcome.html', {"whichHTML": "P_global_data.html", "oid": project_id,**glodict(request)})

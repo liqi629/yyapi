@@ -40,6 +40,7 @@ class DB_project(models.Model):
     name = models.CharField(max_length=100, null=True)  # 项目的名字
     remark = models.CharField(max_length=1000, null=True)  # 项目备注
     user = models.CharField(max_length=15, null=True)  # 项目创建者的名字
+    user_id = models.CharField(max_length=10,null=True) #项目创建者id
     other_user = models.CharField(max_length=200, null=True)  # 项目其他的创建者
 
     def __str__(self):
@@ -169,3 +170,13 @@ class DB_login(models.Model):
 
     def __str__(self):
         return self.project_id
+
+
+# 全局变量
+class DB_global_data(models.Model):
+    name = models.CharField(max_length=20, null=True) #名字
+    user_id = models.CharField(max_length=10, null=True)#所属用户id
+    data = models.TextField(null=True) #存储的所有数据
+
+    def __str__(self):
+        return self.name

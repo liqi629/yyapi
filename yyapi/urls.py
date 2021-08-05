@@ -103,6 +103,7 @@ urlpatterns = [
     path(r'bianjie_play/',bianjie_play), # 正交生成
     re_path(r'^search/$',search),#首页搜索功能
 
+    re_path('^global_data/(?P<id>.*)/', global_data), # 进入全局变量
 
 
 
