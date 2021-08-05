@@ -236,9 +236,9 @@ function showOutput(id, name) {
     <div style="border: 1px solid #ffffff;border-radius: 10px;box-shadow: 2px 2px 12px #aeaeae;padding-left: 30px;width: 500px">
 <p class='attribute'>接口自动化测试平台提供</p>
 <p class='attribute'><strong>注意:</strong> 出现问题请联系管理员！</p>
-<p class='attribute'><strong>报告生成日期:</strong> 2020-12-30 14:58:01</p>
-<p class='attribute'><strong>用例执行时间:</strong> 0:00:14.597119秒</p>
-<p class='attribute'><strong>用例执行结果:</strong> 通过 3, 报错 1</p>
+<p class='attribute'><strong>报告生成日期:</strong> 2021-07-02 10:46:17</p>
+<p class='attribute'><strong>用例执行时间:</strong> 0:00:09.800554秒</p>
+<p class='attribute'><strong>用例执行结果:</strong> 通过 1, 报错 2</p>
 <p class='attribute'><strong>执行系统:</strong> win32</p>
 
 <br>
@@ -279,11 +279,11 @@ function showOutput(id, name) {
 
 <tr class='errorClass'>
     <td>MyApp.run_case.Test</td>
-    <td>4</td>
     <td>3</td>
-    <td>0</td>
     <td>1</td>
-    <td><button class="wqrf_button" style="background-color: #ffd1e7"  onclick="javascript:showClassDetail('c1',4)">详细</button></td>
+    <td>0</td>
+    <td>2</td>
+    <td><button class="wqrf_button" style="background-color: #ffd1e7"  onclick="javascript:showClassDetail('c1',3)">详细</button></td>
 
 </tr>
 
@@ -308,7 +308,9 @@ pt1.1: [apibody是：]
 [method] get
 [body_method] none
 [body] 
-【返回体是】{"err_no":0,"errmsg":"","queryid":"0x160ef8735ebe0f"}
+未调用过
+&lt;requests.sessions.Session object at 0x000001B1CCE7C908&gt;
+【返回体是】{"err_no":0,"errmsg":"","queryid":"0x3332fe20b6c42a"}
 
 
          <div id="div100">
@@ -320,35 +322,43 @@ pt1.1: [apibody是：]
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_002: 我是新步骤112有头有公共</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_002: 我是新步骤112有头有公共</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        <button class="wqrf_button" style="width: auto">通过详情</button></a>
-    <div id='div_pt1.2' class="popup_window">
+    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        <button class="wqrf_button" style="width: auto">错误详情</button></a>
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: [apibody是：][["name","zxc"],["pwd","sdfasdf"]]
-[host] https://www.baidu.com
-[url] /hhh/asd
-[header] {'asd': 'asd', 'a': 'a', 'fgh': '23'}
-[method] post
-[body_method] form-data
-[body] [["name","zxc"],["pwd","sdfasdf"]]
-【返回体是】&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
-&lt;html&gt;&lt;head&gt;
-&lt;title&gt;404 Not Found&lt;/title&gt;
-&lt;/head&gt;&lt;body&gt;
-&lt;h1&gt;Not Found&lt;/h1&gt;
-&lt;p&gt;The requested URL /hhh/asd was not found on this server.&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;
-
+ft1.2: [apibody是：]{"a":"aas"}
+[host] 全局域名-4
+[url] /sugrec?prod=pc_his&amp;from=pc_web&amp;js
+[header] {'a': 'jhj', 'fgh': '23'}
+[method] get
+[body_method] Json
+[body] {"a":"aas"}
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 279, in tool
+    Test.demo(self, step)
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 208, in demo
+    response = requests.request(api_method.upper(), url, headers=header, data=api_body.encode('utf-8'))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 516, in request
+    prep = self.prepare_request(req)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 459, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_url(url, params)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\models.py", line 388, in prepare_url
+    raise MissingSchema(error)
+requests.exceptions.MissingSchema: Invalid URL '全局域名-4/sugrec?prod=pc_his&amp;from=pc_web&amp;js': No schema supplied. Perhaps you meant http://全局域名-4/sugrec?prod=pc_his&amp;from=pc_web&amp;js?
 
 
          <div id="div100">
@@ -361,7 +371,7 @@ pt1.2: [apibody是：][["name","zxc"],["pwd","sdfasdf"]]
 </tr>
 
 <tr id='ft1.3' class='none'>
-    <td class='errorCase'><div class='testcase'>test_003: {"id": 57, "Case_id": "1", "name</div></td>
+    <td class='errorCase'><div class='testcase'>test_003: 我是新步骤</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -374,104 +384,12 @@ pt1.2: [apibody是：][["name","zxc"],["pwd","sdfasdf"]]
         </div>
         <pre>
         
-ft1.3: [apibody是：]"asdasd"
-[host] https://asd/asdssssssaaa
-[url] /hhh/asd
-[header] {'a': '2222', 'fgh': '23'}
-[method] post
-[body_method] Text
-[body] "asdasd"
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
-    (self._dns_host, self.port), self.timeout, **extra_kw
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\util\connection.py", line 61, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "D:\Python\Python36\lib\socket.py", line 745, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno 11001] getaddrinfo failed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
-    chunked=chunked,
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connectionpool.py", line 381, in _make_request
-    self._validate_conn(conn)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connectionpool.py", line 978, in _validate_conn
-    conn.connect()
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connection.py", line 309, in connect
-    conn = self._new_conn()
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
-    self, "Failed to establish a new connection: %s" % e
-urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPSConnection object at 0x000002140A0EAF98&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\adapters.py", line 449, in send
-    timeout=timeout
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
-    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\urllib3\util\retry.py", line 446, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='asd', port=443): Max retries exceeded with url: /asdssssssaaa/hhh/asd (Caused by NewConnectionError('&lt;urllib3.connection.HTTPSConnection object at 0x000002140A0EAF98&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 223, in tool
+ft1.3: Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 279, in tool
     Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 154, in demo
-    response = requests.request(api_method.upper(), url, headers=header, data=api_body.encode('utf-8'))
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\api.py", line 61, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 530, in request
-    resp = self.send(prep, **send_kwargs)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 643, in send
-    r = adapter.send(request, **kwargs)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\adapters.py", line 516, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='asd', port=443): Max retries exceeded with url: /asdssssssaaa/hhh/asd (Caused by NewConnectionError('&lt;urllib3.connection.HTTPSConnection object at 0x000002140A0EAF98&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_004: 我是新步骤112有头有公共</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
-        <button class="wqrf_button" style="width: auto">通过详情</button></a>
-    <div id='div_pt1.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.4: [apibody是：][["name","zxc"],["pwd","sdfasdf"]]
-[host] https://www.baidu.com
-[url] /hhh/asd
-[header] {'asd': 'asd', 'a': 'a', 'fgh': '23'}
-[method] post
-[body_method] form-data
-[body] [["name","zxc"],["pwd","sdfasdf"]]
-【返回体是】&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
-&lt;html&gt;&lt;head&gt;
-&lt;title&gt;404 Not Found&lt;/title&gt;
-&lt;/head&gt;&lt;body&gt;
-&lt;h1&gt;Not Found&lt;/h1&gt;
-&lt;p&gt;The requested URL /hhh/asd was not found on this server.&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;
-
+  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
+    ts_project_headers = step.public_header.split(',') #获取公共请求头
+AttributeError: 'NoneType' object has no attribute 'split'
 
 
          <div id="div100">
@@ -485,10 +403,10 @@ pt1.4: [apibody是：][["name","zxc"],["pwd","sdfasdf"]]
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>4</td>
     <td>3</td>
-    <td>0</td>
     <td>1</td>
+    <td>0</td>
+    <td>2</td>
     <td><button class="wqrf_button" style="background-color: #ffc2e6" onclick='javascript:location.reload()'>刷新</button></td>
 
 </tr>

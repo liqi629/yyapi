@@ -2,13 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/bingxingtu/css/progresscircle.css">
     <style>
-
+		.circlechart {
+		 	float: left;
+			padding: 20px;
+            width: 90px;
+		}
+        .search_input {
+            width:100%;
+            height:42px;
+            padding-left:13px;
+        }
+        .search_button {
+            height:42px;
+            /*width:42px;*/
+            cursor:pointer;
+            position:absolute;
+        }
+        .bar input {
+            border:3px solid #66defd;
+            border-radius:5px;
+            background:transparent;
+            top:0;
+            right:0;
+        }
+        .bar button {
+            background-color: #66defd;;
+            /*background: linear-gradient(to right, #be0063, #ffcbd4);*/
+            border-radius:0 5px 5px 0;
+            width:160px;
+            top:0;
+            right:0;
+            color: white;
+        }
+        .bar button:before {
+            font-size:13px;
+            color:#a7eded;
+        }
+        button {
+            border:none;
+            outline:none;
+        }
     </style>
 </head>
 <body>
 
-<h2 style="margin-left: 400px;color: #03c9fb;">欢迎使用 接口测试平台</h2>
+<div class="search bar" style="position: absolute;top: 10px; left: 490px;width: -webkit-calc(100% - 980px)">
+    <div id="search_button"   >
+        <strong>
+        <input class="search_input" id="search_input" placeholder="输入搜索关键词" name="keys" type="text" value="{{keys}}">
+        </strong>
+        <button class="search_button" id="search_submit"  onclick="search()" style="width: 100px"> <strong><font size="5">搜 索</font></strong> </button>
+    </div>
+</div>
+<div id="search_result"  style="display:none;z-index: 999;position: absolute;top: 80px;left: 15%;width: 70%;min-height: 200px;
+            background:linear-gradient(to bottom,#b8eafd,#e8ffdb) ;opacity:0.8;padding: 5px;
+            border-radius: 2px;box-shadow: 4px 4px 8px #bcbcbc">
+</div>
+<button id="search_close"  onclick="search_close()" style="display:none;z-index: 999;position: absolute;
+top: 80px;right: 15%;background-color: black;color: white;border-radius: 2px">close</button>
 <div id="heng" style="width: 310px;height: 1px;background-color: #e0ddde;position: absolute;left:15px ;bottom: 310px">&nbsp;
 </div>
 {#<h3>&#12288;您的请求记录：</h3>#}
@@ -79,6 +132,7 @@
             <li style=" width: -webkit-calc(100% - 63px)">
                 <datalist id="datalist_1">
                 {% for i in hosts %}
+
                     <option id="host_{{ i.id }}" value="{{ i.host }}">{{ i.host }}</option>
                 {% endfor %}
 
@@ -293,6 +347,7 @@
                 console.log(ret);
                 var res = eval(ret);
                 var all_logs = res.all_logs;
+                console.log('文字信息');
                 for(var i=0; i<all_logs.length;i++) {
                     var a = document.createElement('a');//创建a标签
                     {#a.href = "javascript:home_log_show("+all_logs[i].id.toString()+")"; // 点击函数#}
@@ -469,6 +524,67 @@
     &nbsp;
 
 </div>
+
+<div style="background-color: #eefaff;min-height: 100px;width:-webkit-calc(100% - 340px);
+            margin-left: 342px;position: fixed;bottom: 0px;box-shadow: -4px -4px 8px #e3e3e3;padding: 10px">
+    <div style="width: 120px;height: 80px;background-color: #105f72;border-radius: 5px;color: white;padding: 3px;font-size: small">
+        当前项目数: <span>{{ count_project }}</span> <br>
+        当前接口数: <span>{{ count_api }}</span> <br>
+        当前用例数: <span>{{ count_case }}</span> <br>
+        当前报告数: <span>{{ count_report }}</span>
+    </div>
+
+    <div id="demo" style="position: fixed;bottom:3px;left: 470px">
+      <div class="circlechart" data-percentage="{{ ziyuan }}"></div>
+      <div class="circlechart" data-percentage="30">30%</div>
+      <div class="circlechart" data-percentage="85"></div>
+        <span style="position: fixed;bottom: 5px;left: 500px;font-size: xx-small;color: #105f72">资源比</span>
+        <span style="position: fixed;bottom: 5px;left: 688px;font-size: xx-small;color: #105f72">待定</span>
+        <span style="position: fixed;bottom: 5px;left: 598px;font-size: xx-small;color: #105f72">待定</span>
+
+    </div>
+
+</div>
+
+<script>
+    function search() {
+        // 获取输入内容
+        key = document.getElementById('search_input').value;
+        // 清空 搜索结果
+        document.getElementById('search_result').innerHTML='';
+        // 判读是否进行
+        if(key == ''|| key == ' '){
+            return
+        }
+        //发送请求给后台
+        $.get('/search/',{
+            'key':key
+        },function (ret) {
+            //把结果显示
+            document.getElementById('search_close').style.display= 'block';
+            var d = document.getElementById('search_result');
+            d.style.display = 'block';
+            results = ret.results;//ret.results 是返回结果为列表
+            for(var i=0;i<results.length;i++){
+                var a =document.createElement('a');
+                a.href = results[i].url;
+                a.target = '__blank';
+                a.innerText =  '【'+results[i].type+'】：'+results[i].text;
+
+                d.appendChild(a);
+                d.appendChild(document.createElement('br'))
+            }
+
+        })
+
+    }
+    function search_close() {
+        document.getElementById('search_result').style.display='none';
+        document.getElementById('search_close').style.display='none';
+
+
+    }
+</script>
 <script>
     var h =document.documentElement.clientHeight;
     document.getElementById('shu').style.height=(h-85).toString()+'px';
@@ -560,6 +676,11 @@
             alert('保存成功！')
         })
     }
+</script>
+
+<script src="/static/bingxingtu/js/progresscircle.js"></script>
+<script>
+    $('.circlechart').circlechart(); // Initialization
 </script>
 </body>
 </html>

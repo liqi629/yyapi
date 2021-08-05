@@ -94,11 +94,37 @@ def child_json(eid, oid='', ooid=''):
         hosts = DB_host.objects.all()
         from django.contrib.auth.models import User
         user_projects = DB_project.objects.filter(user=User.objects.filter(id=oid)[0].username)
+
+        # 个人数据看板
+        count_project = len(user_projects)
+        count_api = sum([len(DB_apis.objects.filter(project_id=i.id)) for i in user_projects])
+        count_case = sum([len(DB_cases.objects.filter(project_id=i.id)) for i in user_projects])
+
+        ziyuan_all = len(DB_project.objects.all()) + len(DB_apis.objects.all()) + len(DB_cases.objects.all())
+        ziyuan_user = count_project + count_api + count_case
+        ziyuan = ziyuan_user / ziyuan_all * 100
+        # 如果要进行精度控制，可以使用格式
+        #
+        # '%.2f' % a
+        #
+        # 或者float('%.2f' % a)
+        ziyuan = float('%.2f' % ziyuan)
+
+        new_res = {
+            "count_project": count_project,
+            "count_api": count_api,
+            "count_case": count_case,
+            "count_report": '',
+            "ziyuan": ziyuan,
+        }
+
         if ooid == '':
             res = {"hrefs": date, "home_log": home_log, "hosts": hosts, "user_projects": user_projects}
         else:
             log = DB_apis_log.objects.filter(id=ooid)[0]
             res = {"hrefs": date, "home_log": home_log, "log": log, "hosts": hosts, "user_projects": user_projects}
+
+        res.update(new_res)
 
     if eid == 'project_list.html':
         data = DB_project.objects.all()
@@ -1320,3 +1346,16 @@ def project_login_send_for_other(project_id):
         return get_res
     except Exception as e:
         return {}
+
+
+def search (request):
+    key = request.GET['key']
+    # 项目名搜哦所
+    projects = DB_project.objects.filter(name__contains=key)  # 获取name包含key的所有项目
+    plist = [{"url": "/apis/%s/"%i.id, "text": i.name, "type": "project"} for i in projects]
+    # 接口名搜索
+    apis = DB_apis.objects.filter(name__contains=key)  # 获取name包含key的所有接口
+    alist = [{"url": "/apis/%s/"%i.project_id, "text": i.name, "type": "api"} for i in apis]
+
+    res = {"results": plist + alist}
+    return HttpResponse(json.dumps(res), content_type='application/json')

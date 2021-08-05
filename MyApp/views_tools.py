@@ -29,7 +29,7 @@ def zhengjiao(request):
 
 # 正交工具运行
 def zhengjiao_play(request):
-
+    print(request.GET['end_values'])
     end_values = request.GET['end_values'].split(',')
 
     new_values = [i.split('/') for i in end_values ]
@@ -39,6 +39,7 @@ def zhengjiao_play(request):
         res.append(i)
 
     d={"res":res}
+    print(d)
     return HttpResponse(json.dumps(d),content_type="application/json")
 
 # 正交工具导出excel

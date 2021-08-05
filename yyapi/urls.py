@@ -101,6 +101,7 @@ urlpatterns = [
     path(r'zhengjiao_excel/',zhengjiao_excel), # 正交生成excel
     path(r'tools_bianjie/',bianjie), # 进入小工具-正交生成
     path(r'bianjie_play/',bianjie_play), # 正交生成
+    re_path(r'^search/$',search),#首页搜索功能
 
 
 
