@@ -25,11 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ceee109f-da8e-4855-9d65-2f219864735a" name="Default Changelist" comment="8月5号">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ceee109f-da8e-4855-9d65-2f219864735a" name="Default Changelist" comment="8月5号" />
     <list id="7d64dc0d-be2c-4c29-ace8-b88c359d172c" name="Revert &quot;登录态，提取和cookie持久化（session）&quot;" comment="边界值  二维码生成。有bug，二维码图片没有刷新" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +234,7 @@
       <workItem from="1627538100935" duration="1140000" />
       <workItem from="1627637991323" duration="1352000" />
       <workItem from="1628062927692" duration="2301000" />
-      <workItem from="1628150367245" duration="7056000" />
+      <workItem from="1628150367245" duration="7358000" />
     </task>
     <task id="LOCAL-00001" summary="修复 用例库，全局host 的bug">
       <created>1609313077686</created>
