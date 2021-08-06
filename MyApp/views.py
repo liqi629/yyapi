@@ -516,9 +516,10 @@ def Api_send(request):
                 response = login_res.request(ts_method.upper(), url, headers=header, data={})
         elif ts_body_method =='form-data':
             files = []
-            payload = {}
-            for i in ast.literal_eval(ts_api_body):
-                payload[i[0]] = i[1]
+            payload = ()
+            for i in eval(ts_api_body):
+                payload += ((i[0],i[1]),)
+            print(payload)
             if type(login_res) == dict:
                 for i in login_res.keys():
                     payload[i] = login_res[i]
@@ -527,15 +528,29 @@ def Api_send(request):
                 response = login_res.request(ts_method.upper(), url, headers=header, data=payload, files=files)
         elif ts_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
-            payload = {}
-            for i in ast.literal_eval(ts_api_body):#ast模块就是帮助Python应用来处理抽象的语法解析的。而该模块下的literal_eval()函数：则会判断需要计算的内容计算后是不是合法的python类型，如果是则进行运算，否则就不进行运算。
-                payload[i[0]] = i[1]
+            # payload = {}
+            # for i in ast.literal_eval(ts_api_body):#ast模块就是帮助Python应用来处理抽象的语法解析的。而该模块下的literal_eval()函数：则会判断需要计算的内容计算后是不是合法的python类型，如果是则进行运算，否则就不进行运算。
+            #     payload[i[0]] = i[1]
+            # if type(login_res) == dict:
+            #     for i in login_res.keys():
+            #         payload[i] = login_res[i]
+            #     response = requests.request(ts_method.upper(), url, headers=header, data=payload)
+            # else:
+            #     response = login_res.request(ts_method.upper(), url, headers=header, data=payload)
+
+            # 解决参数中key同名的问题，因为字典中不能重名，所以改成元组,多元元组
+            #多元元组的添加元素写法，后面都有个小逗号，千万千万别忘了写！
+            payload = ()
+            for i in eval(ts_api_body):
+                payload +=((i[0],i[1]),)
+
             if type(login_res) == dict:
                 for i in login_res.keys():
-                    payload[i] = login_res[i]
+                    payload += ((i,login_res[i]),)
                 response = requests.request(ts_method.upper(), url, headers=header, data=payload)
             else:
                 response = login_res.request(ts_method.upper(), url, headers=header, data=payload)
+
         elif ts_body_method == 'GraphQL':
             header['Content-Type'] = 'application/json'
             query=ts_body_method.split('*WQRF*')[0]
@@ -564,6 +579,7 @@ def Api_send(request):
                 header['Content-Type'] = 'text/plan'
             if ts_body_method == 'Xml':
                 header['Content-Type'] = 'text/plan'
+
             if type(login_res) == dict:
                 response = requests.request(ts_method.upper(), url, headers=header, data=ts_api_body.encode('utf-8'))
             else:
@@ -637,15 +653,21 @@ def error_request(request):
 
         if body_method == 'form-data':
             files = []
-            payload = {}
-            for i in ast.literal_eval(new_body):
-                payload[i[0]] = i[1]
+            # payload = {}
+            # for i in ast.literal_eval(new_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
+            for i in eval(new_body):
+                payload += ((i[0],i[1]),)
             response = requests.request(method.upper(), url, headers=header, data=payload, files=files)
         elif body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
-            payload = {}
-            for i in ast.literal_eval(new_body):
-                payload[i[0]] = i[1]
+            # payload = {}
+            # for i in ast.literal_eval(new_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
+            for i in eval(new_body):
+                payload += ((i[0],i[1]),)
             response = requests.request(method.upper(), url, headers=header, data=payload)
         elif body_method == 'Json':
             header['Content-Type'] = 'text/plain'
@@ -761,16 +783,22 @@ def Api_send_home(request):
 
         elif ts_body_method == 'form-data':
             files = []
-            payload = {}
-            for i in ast.literal_eval(ts_api_body):
-                payload[i[0]] = i[1]
+            # payload = {}
+            # for i in ast.literal_eval(ts_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
+            for i in eval(ts_api_body):
+                payload += ((i[0],i[1]),)
             response = requests.request(ts_method.upper(), url, headers=header, data=payload, files=files )
 
         elif ts_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
-            payload = {}
-            for i in ast.literal_eval(ts_api_body):
-                payload[i[0]] = i[1]
+            # payload = {}
+            # for i in ast.literal_eval(ts_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
+            for i in eval(ts_api_body):
+                payload += ((i[0],i[1]),)
             response = requests.request(ts_method.upper(), url, headers=header, data=payload )
         elif ts_body_method == 'GraphQL':
             header['Content-Type'] = 'application/json'
@@ -1159,16 +1187,22 @@ def project_login_send(request):
             response = requests.request(login_method.upper(), url, headers=header, data={})
         elif login_body_method == 'form-data':
             files = []
-            payload = {}
+            # payload = {}
+            # for i in eval(login_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
             for i in eval(login_api_body):
-                payload[i[0]] = i[1]
+                payload += ((i[0], i[1]),)
             response = requests.request(login_method.upper(), url, headers=header, data=payload, files=files)
 
         elif login_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
-            payload = {}
+            # payload = {}
+            # for i in eval(login_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
             for i in eval(login_api_body):
-                payload[i[0]] = i[1]
+                payload += ((i[0], i[1]),)
             response = requests.request(login_method.upper(), url, headers=header, data=payload)
 
         elif login_body_method == 'GraphQL':
@@ -1273,9 +1307,12 @@ def project_login_send_for_other(project_id):
                 response = requests.request(login_method.upper(), url, headers=header, data={} )
         elif login_body_method == 'form-data':
             files = []
-            payload = {}
+            # payload = {}
+            # for i in eval(login_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
             for i in eval(login_api_body):
-                payload[i[0]] = i[1]
+                payload += ((i[0], i[1]),)
             # 先判断是否需要cookie持久化
             if login_response_set == 'cookie':
                 a = requests.session()
@@ -1286,9 +1323,12 @@ def project_login_send_for_other(project_id):
 
         elif login_body_method == 'x-www-form-urlencoded':
             header['Content-Type'] = 'application/x-www-form-urlencoded'
-            payload = {}
+            # payload = {}
+            # for i in eval(login_api_body):
+            #     payload[i[0]] = i[1]
+            payload = ()
             for i in eval(login_api_body):
-                payload[i[0]] = i[1]
+                payload += ((i[0], i[1]),)
             # 先判断是否需要cookie持久化
             if login_response_set == 'cookie':
                 a = requests.session()
