@@ -20,5 +20,33 @@
         </ul>
     </div>
 </nav>
+
+
+
+
+<div style="padding-left: 100px ;margin-top: 50px">
+
+    {% for i in global_data %}
+         <button class="btn-danger">删除</button>
+        <button onclick="show('{{ i.id }}','{{ i.name }}','{{ i.data }}')" class="btn-default" style="margin-top: 5px;width: 200px">{{ i.name }}</button> <br>
+
+    {% endfor %}
+    <br>
+    <button class="btn-primary">新增</button>
+    <button class="btn-success" style="width: 150px">保存当前</button>
+</div>
+<div style="position: absolute;left: 400px;top: 65px">
+    <input id="name" type="text" style="width: 500px" placeholder="输入变量套的名字"> <br>
+    <textarea id="data" style="width: 500px;height: 500px;" placeholder="输入json格式的变量套内容"></textarea>
+</div>
+
+
+<script>
+    function show(id,name,data) {
+        document.getElementById('name').value = name;
+        document.getElementById('data').value = data;
+
+    }
+</script>
 </body>
 </html>
