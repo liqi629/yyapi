@@ -102,7 +102,7 @@ def child_json(eid, oid='', ooid=''):
 
         ziyuan_all = len(DB_project.objects.all()) + len(DB_apis.objects.all()) + len(DB_cases.objects.all())
         ziyuan_user = count_project + count_api + count_case
-        ziyuan = ziyuan_user / ziyuan_all * 100
+        ziyuan = int(ziyuan_user / ziyuan_all * 100) #个人看板的数据中，如果小数位过多，会被判断成很大的数据：
         # 如果要进行精度控制，可以使用格式
         #
         # '%.2f' % a
@@ -1414,3 +1414,41 @@ def search (request):
 def global_data(request,id):
     project_id = id
     return render(request, 'welcome.html', {"whichHTML": "P_global_data.html", "oid": project_id,**glodict(request)})
+
+
+def global_data_add(request):
+    """
+    新增一个全局变量
+    :param request:
+    :return:
+    """
+    project_id = request.GET['project_id']
+    user_id = DB_project.objects.filter(id=project_id)[0].user_id
+    DB_global_data.objects.create(name='新变量',data='',user_id=user_id)
+    return HttpResponse('')
+
+def global_data_delete(request):
+    """
+    删除一个全局变量
+    :param request:
+    :return:
+    """
+    id = request.GET['id']
+
+    DB_global_data.objects.filter(id=id).delete()
+    return HttpResponse('')
+
+
+def global_data_save(request):
+    """
+    保存一个全局变量
+    :param request:
+    :return:
+    """
+
+    global_id = request.GET['global_id']
+    global_name =request.GET['global_name']
+    global_data = request.GET['global_data']
+
+    DB_global_data.objects.filter(id=global_id).update(name=global_name,data=global_data)
+    return HttpResponse('')

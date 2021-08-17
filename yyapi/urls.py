@@ -104,7 +104,9 @@ urlpatterns = [
     re_path(r'^search/$',search),#首页搜索功能
 
     re_path('^global_data/(?P<id>.*)/', global_data), # 进入全局变量
-
+    path(r'global_data_add/',global_data_add), # 增加一个全局变量
+    path(r'global_data_delete/',global_data_delete), # 删除全局变量
+    path(r'global_data_save/',global_data_save), # 删除全局变量
 
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
