@@ -89,6 +89,8 @@ class Test(unittest.TestCase):
 
             # 在这遍历公共请求头，并把其加入到header字典中
             for i in ts_project_headers:
+                if i == '': #如果没有勾选任何公共请求头，那么这个ts_project_headers 就是[""] ，里面有个空字符的元素，然后这个空字符去数据库搜索对应的请求头内容的时候，搜不到报错。
+                    continue
 
                 project_header = DB_project_header.objects.filter(id=i)[0]
                 header[project_header.key] = project_header.value
@@ -296,9 +298,15 @@ def make_defself(step):
 def make_def(steps):
     """
     Python zfill() 方法返回指定长度的字符串，原字符串右对齐，前面填充0。
+    dir(Test):获取子方法列表
+     delattr：可以删除类的子方法
     :param steps:
     :return:
     """
+    # 在每个用例运行前，都检查一下该Test类，把其中的不属于原始状态的方法即 test_开头的 都删除即可
+    for fun in dir(Test):
+        if 'test_' in fun:
+            delattr(Test,fun)
     for i in range(len(steps)):
         setattr(Test, 'test_'+str(steps[i].index).zfill(3), make_defself(steps[i]))    #index执行步骤的序号
         # 设置Test类，test_001(举例) ，test_001的内容 使用后面的make_defself填充

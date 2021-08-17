@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>接口测试平台测试报告:我是第一个aa</title>
+    <title>接口测试平台测试报告:aaaa</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <link rel="shortcut icon" href=" /static/images/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -236,9 +236,9 @@ function showOutput(id, name) {
     <div style="border: 1px solid #ffffff;border-radius: 10px;box-shadow: 2px 2px 12px #aeaeae;padding-left: 30px;width: 500px">
 <p class='attribute'>接口自动化测试平台提供</p>
 <p class='attribute'><strong>注意:</strong> 出现问题请联系管理员！</p>
-<p class='attribute'><strong>报告生成日期:</strong> 2021-08-17 17:44:38</p>
-<p class='attribute'><strong>用例执行时间:</strong> 0:00:24.584136秒</p>
-<p class='attribute'><strong>用例执行结果:</strong> 通过 1, 报错 7</p>
+<p class='attribute'><strong>报告生成日期:</strong> 2021-08-17 17:46:00</p>
+<p class='attribute'><strong>用例执行时间:</strong> 0:00:06.108241秒</p>
+<p class='attribute'><strong>用例执行结果:</strong> 通过 2,</p>
 <p class='attribute'><strong>执行系统:</strong> win32</p>
 
 <br>
@@ -277,18 +277,18 @@ function showOutput(id, name) {
 
 </tr>
 
-<tr class='errorClass'>
+<tr class='passClass'>
     <td>MyApp.run_case.Test</td>
-    <td>8</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
-    <td>7</td>
-    <td><button class="wqrf_button" style="background-color: #ffd1e7"  onclick="javascript:showClassDetail('c1',8)">详细</button></td>
+    <td>0</td>
+    <td><button class="wqrf_button" style="background-color: #ffd1e7"  onclick="javascript:showClassDetail('c1',2)">详细</button></td>
 
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_001: 我是新步骤aaaaa</div></td>
+    <td class='none'><div class='testcase'>test_001: 我是新步骤1</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -301,158 +301,7 @@ function showOutput(id, name) {
         </div>
         <pre>
         
-pt1.1: [apibody是：]
-[host] https://www.baidu.com
-[url] /sugrec?prod=pc_his&amp;from=pc_web&amp;js
-[header] {'ahahs': 'asdasd', 'fgh': '23'}
-[method] get
-[body_method] none
-[body] 
-未调用过
-&lt;requests.sessions.Session object at 0x0000023934B80E80&gt;
-【返回体是】{"err_no":0,"errmsg":"","queryid":"0x5fb08366a53c19"}
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.2' class='none'>
-    <td class='errorCase'><div class='testcase'>test_002: 我是新步骤112有头有公共</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.2: [apibody是：]{"a":"aas"}
-[host] 全局域名-4
-[url] /sugrec?prod=pc_his&amp;from=pc_web&amp;js
-[header] {'a': 'jhj', 'fgh': '23'}
-[method] get
-[body_method] Json
-[body] {"a":"aas"}
-Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 222, in demo
-    response = requests.request(api_method.upper(), url, headers=header, data=api_body.encode('utf-8'))
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\api.py", line 61, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 516, in request
-    prep = self.prepare_request(req)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\sessions.py", line 459, in prepare_request
-    hooks=merge_hooks(request.hooks, self.hooks),
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\models.py", line 314, in prepare
-    self.prepare_url(url, params)
-  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\requests\models.py", line 388, in prepare_url
-    raise MissingSchema(error)
-requests.exceptions.MissingSchema: Invalid URL '全局域名-4/sugrec?prod=pc_his&amp;from=pc_web&amp;js': No schema supplied. Perhaps you meant http://全局域名-4/sugrec?prod=pc_his&amp;from=pc_web&amp;js?
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.3' class='none'>
-    <td class='errorCase'><div class='testcase'>test_003: 我是新步骤</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.3: Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
-    ts_project_headers = step.public_header.split(',') #获取公共请求头
-AttributeError: 'NoneType' object has no attribute 'split'
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.4' class='none'>
-    <td class='errorCase'><div class='testcase'>test_004: 我是新步骤4</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.4: Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 210, in demo
-    api_body = json.loads(api_body)
-  File "D:\Python\Python36\lib\json\__init__.py", line 354, in loads
-    return _default_decoder.decode(s)
-  File "D:\Python\Python36\lib\json\decoder.py", line 339, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "D:\Python\Python36\lib\json\decoder.py", line 357, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.5' class='none'>
-    <td class='errorCase'><div class='testcase'>test_005: 我是新步骤</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.5' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
+pt1.1: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
 [host] http://127.0.0.1:8008
 [url] /register_action/
 [header] {}
@@ -628,7 +477,7 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;Server time:&lt;/th&gt;
-      &lt;td&gt;Tue, 17 Aug 2021 09:44:50 +0000&lt;/td&gt;
+      &lt;td&gt;Tue, 17 Aug 2021 09:46:03 +0000&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
 &lt;/div&gt;
@@ -648,43 +497,43 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py&lt;/code&gt;, line 76, in __getitem__
 
           
-            &lt;div class="context" id="c2444721122888"&gt;
+            &lt;div class="context" id="c3195284475720"&gt;
               
-                &lt;ol start="69" class="pre-context" id="pre2444721122888"&gt;
+                &lt;ol start="69" class="pre-context" id="pre3195284475720"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;    def __getitem__(self, key):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;    def __getitem__(self, key):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="76" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='77' class="post-context" id="post2444721122888"&gt;
+                &lt;ol start='77' class="post-context" id="post3195284475720"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122888', 'post2444721122888')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475720', 'post3195284475720')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -694,10 +543,10 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721122888')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195284475720')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721122888"&gt;
+            &lt;table class="vars" id="v3195284475720"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -737,43 +586,43 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py&lt;/code&gt;, line 47, in inner
 
           
-            &lt;div class="context" id="c2444723824008"&gt;
+            &lt;div class="context" id="c3195284474056"&gt;
               
-                &lt;ol start="40" class="pre-context" id="pre2444723824008"&gt;
+                &lt;ol start="40" class="pre-context" id="pre3195284474056"&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;                response = await sync_to_async(response_for_exception)(request, exc)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;                response = await sync_to_async(response_for_exception)(request, exc)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;    else:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;    else:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;        @wraps(get_response)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;        @wraps(get_response)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;        def inner(request):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;        def inner(request):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="47" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;                response = get_response(request)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;                response = get_response(request)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='48' class="post-context" id="post2444723824008"&gt;
+                &lt;ol start='48' class="post-context" id="post3195284474056"&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;            except Exception as exc:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;            except Exception as exc:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;                response = response_for_exception(request, exc)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;                response = response_for_exception(request, exc)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824008', 'post2444723824008')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474056', 'post3195284474056')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -783,10 +632,10 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444723824008')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195284474056')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444723824008"&gt;
+            &lt;table class="vars" id="v3195284474056"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -802,7 +651,7 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;get_response&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;bound method BaseHandler._get_response of &amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002393369DB38&amp;gt;&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;bound method BaseHandler._get_response of &amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002E7F4774A20&amp;gt;&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
@@ -820,43 +669,43 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py&lt;/code&gt;, line 179, in _get_response
 
           
-            &lt;div class="context" id="c2444723824520"&gt;
+            &lt;div class="context" id="c3195284474440"&gt;
               
-                &lt;ol start="172" class="pre-context" id="pre2444723824520"&gt;
+                &lt;ol start="172" class="pre-context" id="pre3195284474440"&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;        if response is None:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;        if response is None:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;            wrapped_callback = self.make_view_atomic(callback)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;            wrapped_callback = self.make_view_atomic(callback)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;            # If it is an asynchronous view, run it in a subthread.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;            # If it is an asynchronous view, run it in a subthread.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;            if asyncio.iscoroutinefunction(wrapped_callback):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;            if asyncio.iscoroutinefunction(wrapped_callback):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;                wrapped_callback = async_to_sync(wrapped_callback)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;                wrapped_callback = async_to_sync(wrapped_callback)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="179" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;                response = wrapped_callback(request, *callback_args, **callback_kwargs)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;                response = wrapped_callback(request, *callback_args, **callback_kwargs)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='180' class="post-context" id="post2444723824520"&gt;
+                &lt;ol start='180' class="post-context" id="post3195284474440"&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;            except Exception as e:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;            except Exception as e:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;                response = self.process_exception_by_middleware(e, request)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;                response = self.process_exception_by_middleware(e, request)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;                if response is None:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;                if response is None:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;                    raise&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;                    raise&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723824520', 'post2444723824520')"&gt;&lt;pre&gt;        # Complain if the view returned None (a common error).&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474440', 'post3195284474440')"&gt;&lt;pre&gt;        # Complain if the view returned None (a common error).&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -866,10 +715,10 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444723824520')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195284474440')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444723824520"&gt;
+            &lt;table class="vars" id="v3195284474440"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -880,7 +729,7 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;callback&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x00000239346C2AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x000002E7F5842AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
@@ -905,12 +754,12 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;self&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002393369DB38&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002E7F4774A20&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
                     &lt;td&gt;wrapped_callback&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x00000239346C2AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x000002E7F5842AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
               &lt;/tbody&gt;
@@ -923,43 +772,43 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\MyApp\views.py&lt;/code&gt;, line 215, in register_action
 
           
-            &lt;div class="context" id="c2444723825672"&gt;
+            &lt;div class="context" id="c3195284475848"&gt;
               
-                &lt;ol start="208" class="pre-context" id="pre2444723825672"&gt;
+                &lt;ol start="208" class="pre-context" id="pre3195284475848"&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    从这个django.contrib/auth.models 库里倒入里User方法。(其实User是orm方式操作用户表的实例)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    从这个django.contrib/auth.models 库里倒入里User方法。(其实User是orm方式操作用户表的实例)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    然后我们直接用User.objects.create_user方法生成一个用户，参数为用户名和密码。然后保存这个生成的用户 就是注册成功了&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    然后我们直接用User.objects.create_user方法生成一个用户，参数为用户名和密码。然后保存这个生成的用户 就是注册成功了&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    但是如果用户表中已存在这个用户名，那么，这个生成语句就会报错。所以我们用try来捕获这个异常，如果发送错误那就是“用户已经存在”，如实给用户返回这句话。如果没问题，那么就返回 注册成功&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    但是如果用户表中已存在这个用户名，那么，这个生成语句就会报错。所以我们用try来捕获这个异常，如果发送错误那就是“用户已经存在”，如实给用户返回这句话。如果没问题，那么就返回 注册成功&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    :param request:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    :param request:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    :return:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    :return:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="215" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    u_name = request.GET[&amp;#x27;username&amp;#x27;]&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    u_name = request.GET[&amp;#x27;username&amp;#x27;]&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='216' class="post-context" id="post2444723825672"&gt;
+                &lt;ol start='216' class="post-context" id="post3195284475848"&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    p_word = request.GET[&amp;#x27;password&amp;#x27;]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    p_word = request.GET[&amp;#x27;password&amp;#x27;]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    # 开始 联通 django 用户库，查看用户名密码是否正确&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    # 开始 联通 django 用户库，查看用户名密码是否正确&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    from django.contrib.auth.models import User&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    from django.contrib.auth.models import User&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;    try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;    try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;        user = User.objects.create_user(username=u_name, password=p_word)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;        user = User.objects.create_user(username=u_name, password=p_word)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825672', 'post2444723825672')"&gt;&lt;pre&gt;        user.save()&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284475848', 'post3195284475848')"&gt;&lt;pre&gt;        user.save()&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -969,10 +818,10 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444723825672')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195284475848')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444723825672"&gt;
+            &lt;table class="vars" id="v3195284475848"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -996,43 +845,43 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py&lt;/code&gt;, line 78, in __getitem__
 
           
-            &lt;div class="context" id="c2444723825608"&gt;
+            &lt;div class="context" id="c3195284474568"&gt;
               
-                &lt;ol start="71" class="pre-context" id="pre2444723825608"&gt;
+                &lt;ol start="71" class="pre-context" id="pre3195284474568"&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="78" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='79' class="post-context" id="post2444723825608"&gt;
+                &lt;ol start='79' class="post-context" id="post3195284474568"&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444723825608', 'post2444723825608')"&gt;&lt;pre&gt;    def __setitem__(self, key, value):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195284474568', 'post3195284474568')"&gt;&lt;pre&gt;    def __setitem__(self, key, value):&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -1042,10 +891,10 @@ ft1.5: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444723825608')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195284474568')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444723825608"&gt;
+            &lt;table class="vars" id="v3195284474568"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -1585,7 +1434,7 @@ Exception Value: &amp;#x27;username&amp;#x27;
       
         &lt;tr&gt;
           &lt;td&gt;wsgi.errors&lt;/td&gt;
-          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;MyApp.A_WQRFhtmlRunner.OutputRedirector object at 0x0000023934C0F7F0&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;MyApp.A_WQRFhtmlRunner.OutputRedirector object at 0x000002E7F5E41F98&amp;gt;&lt;/pre&gt;&lt;/td&gt;
         &lt;/tr&gt;
       
         &lt;tr&gt;
@@ -1595,7 +1444,7 @@ Exception Value: &amp;#x27;username&amp;#x27;
       
         &lt;tr&gt;
           &lt;td&gt;wsgi.input&lt;/td&gt;
-          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.LimitedStream object at 0x0000023934E81A20&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.LimitedStream object at 0x000002E7F5CCC2B0&amp;gt;&lt;/pre&gt;&lt;/td&gt;
         &lt;/tr&gt;
       
         &lt;tr&gt;
@@ -2587,12 +2436,6 @@ Exception Value: &amp;#x27;username&amp;#x27;
 &lt;/body&gt;
 &lt;/html&gt;
 
-.Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
-    ts_project_headers = step.public_header.split(',') #获取公共请求头
-AttributeError: 'NoneType' object has no attribute 'split'
 
 
          <div id="div100">
@@ -2604,21 +2447,21 @@ AttributeError: 'NoneType' object has no attribute 'split'
     </td>
 </tr>
 
-<tr id='ft1.6' class='none'>
-    <td class='errorCase'><div class='testcase'>test_007: 我是新步骤</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002: 我是新步骤2</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.6' class="popup_window">
+    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        <button class="wqrf_button" style="width: auto">通过详情</button></a>
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
+pt1.2: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
 [host] http://127.0.0.1:8008
 [url] /register_action/
 [header] {}
@@ -2794,7 +2637,7 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;Server time:&lt;/th&gt;
-      &lt;td&gt;Tue, 17 Aug 2021 09:44:53 +0000&lt;/td&gt;
+      &lt;td&gt;Tue, 17 Aug 2021 09:46:06 +0000&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
 &lt;/div&gt;
@@ -2814,43 +2657,43 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py&lt;/code&gt;, line 76, in __getitem__
 
           
-            &lt;div class="context" id="c2444721122760"&gt;
+            &lt;div class="context" id="c3195286707656"&gt;
               
-                &lt;ol start="69" class="pre-context" id="pre2444721122760"&gt;
+                &lt;ol start="69" class="pre-context" id="pre3195286707656"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;    def __getitem__(self, key):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;    def __getitem__(self, key):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="76" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='77' class="post-context" id="post2444721122760"&gt;
+                &lt;ol start='77' class="post-context" id="post3195286707656"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721122760', 'post2444721122760')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707656', 'post3195286707656')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -2860,10 +2703,10 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721122760')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195286707656')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721122760"&gt;
+            &lt;table class="vars" id="v3195286707656"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -2903,43 +2746,43 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py&lt;/code&gt;, line 47, in inner
 
           
-            &lt;div class="context" id="c2444721543752"&gt;
+            &lt;div class="context" id="c3195286707528"&gt;
               
-                &lt;ol start="40" class="pre-context" id="pre2444721543752"&gt;
+                &lt;ol start="40" class="pre-context" id="pre3195286707528"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;                response = await sync_to_async(response_for_exception)(request, exc)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;                response = await sync_to_async(response_for_exception)(request, exc)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;    else:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;    else:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;        @wraps(get_response)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;        @wraps(get_response)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;        def inner(request):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;        def inner(request):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="47" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;                response = get_response(request)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;                response = get_response(request)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='48' class="post-context" id="post2444721543752"&gt;
+                &lt;ol start='48' class="post-context" id="post3195286707528"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;            except Exception as exc:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;            except Exception as exc:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;                response = response_for_exception(request, exc)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;                response = response_for_exception(request, exc)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;            return response&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;        return inner&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721543752', 'post2444721543752')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707528', 'post3195286707528')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -2949,10 +2792,10 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721543752')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195286707528')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721543752"&gt;
+            &lt;table class="vars" id="v3195286707528"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -2968,7 +2811,7 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;get_response&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;bound method BaseHandler._get_response of &amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002393369DB38&amp;gt;&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;bound method BaseHandler._get_response of &amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002E7F4774A20&amp;gt;&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
@@ -2986,43 +2829,43 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py&lt;/code&gt;, line 179, in _get_response
 
           
-            &lt;div class="context" id="c2444721542664"&gt;
+            &lt;div class="context" id="c3195286707912"&gt;
               
-                &lt;ol start="172" class="pre-context" id="pre2444721542664"&gt;
+                &lt;ol start="172" class="pre-context" id="pre3195286707912"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;        if response is None:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;        if response is None:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;            wrapped_callback = self.make_view_atomic(callback)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;            wrapped_callback = self.make_view_atomic(callback)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;            # If it is an asynchronous view, run it in a subthread.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;            # If it is an asynchronous view, run it in a subthread.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;            if asyncio.iscoroutinefunction(wrapped_callback):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;            if asyncio.iscoroutinefunction(wrapped_callback):&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;                wrapped_callback = async_to_sync(wrapped_callback)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;                wrapped_callback = async_to_sync(wrapped_callback)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;            try:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="179" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;                response = wrapped_callback(request, *callback_args, **callback_kwargs)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;                response = wrapped_callback(request, *callback_args, **callback_kwargs)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='180' class="post-context" id="post2444721542664"&gt;
+                &lt;ol start='180' class="post-context" id="post3195286707912"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;            except Exception as e:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;            except Exception as e:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;                response = self.process_exception_by_middleware(e, request)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;                response = self.process_exception_by_middleware(e, request)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;                if response is None:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;                if response is None:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;                    raise&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;                    raise&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721542664', 'post2444721542664')"&gt;&lt;pre&gt;        # Complain if the view returned None (a common error).&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707912', 'post3195286707912')"&gt;&lt;pre&gt;        # Complain if the view returned None (a common error).&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -3032,10 +2875,10 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721542664')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195286707912')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721542664"&gt;
+            &lt;table class="vars" id="v3195286707912"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -3046,7 +2889,7 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;callback&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x00000239346C2AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x000002E7F5842AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
@@ -3071,12 +2914,12 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
                 
                   &lt;tr&gt;
                     &lt;td&gt;self&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002393369DB38&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.WSGIHandler object at 0x000002E7F4774A20&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
                   &lt;tr&gt;
                     &lt;td&gt;wrapped_callback&lt;/td&gt;
-                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x00000239346C2AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+                    &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;function register_action at 0x000002E7F5842AE8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
                   &lt;/tr&gt;
                 
               &lt;/tbody&gt;
@@ -3089,43 +2932,43 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\MyApp\views.py&lt;/code&gt;, line 215, in register_action
 
           
-            &lt;div class="context" id="c2444721545096"&gt;
+            &lt;div class="context" id="c3195286707720"&gt;
               
-                &lt;ol start="208" class="pre-context" id="pre2444721545096"&gt;
+                &lt;ol start="208" class="pre-context" id="pre3195286707720"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    从这个django.contrib/auth.models 库里倒入里User方法。(其实User是orm方式操作用户表的实例)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    从这个django.contrib/auth.models 库里倒入里User方法。(其实User是orm方式操作用户表的实例)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    然后我们直接用User.objects.create_user方法生成一个用户，参数为用户名和密码。然后保存这个生成的用户 就是注册成功了&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    然后我们直接用User.objects.create_user方法生成一个用户，参数为用户名和密码。然后保存这个生成的用户 就是注册成功了&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    但是如果用户表中已存在这个用户名，那么，这个生成语句就会报错。所以我们用try来捕获这个异常，如果发送错误那就是“用户已经存在”，如实给用户返回这句话。如果没问题，那么就返回 注册成功&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    但是如果用户表中已存在这个用户名，那么，这个生成语句就会报错。所以我们用try来捕获这个异常，如果发送错误那就是“用户已经存在”，如实给用户返回这句话。如果没问题，那么就返回 注册成功&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    :param request:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    :param request:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    :return:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    :return:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="215" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    u_name = request.GET[&amp;#x27;username&amp;#x27;]&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    u_name = request.GET[&amp;#x27;username&amp;#x27;]&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='216' class="post-context" id="post2444721545096"&gt;
+                &lt;ol start='216' class="post-context" id="post3195286707720"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    p_word = request.GET[&amp;#x27;password&amp;#x27;]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    p_word = request.GET[&amp;#x27;password&amp;#x27;]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    # 开始 联通 django 用户库，查看用户名密码是否正确&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    # 开始 联通 django 用户库，查看用户名密码是否正确&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    from django.contrib.auth.models import User&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    from django.contrib.auth.models import User&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;    try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;    try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;        user = User.objects.create_user(username=u_name, password=p_word)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;        user = User.objects.create_user(username=u_name, password=p_word)&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721545096', 'post2444721545096')"&gt;&lt;pre&gt;        user.save()&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707720', 'post3195286707720')"&gt;&lt;pre&gt;        user.save()&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -3135,10 +2978,10 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721545096')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195286707720')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721545096"&gt;
+            &lt;table class="vars" id="v3195286707720"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -3162,43 +3005,43 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           &lt;code class="fname"&gt;E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py&lt;/code&gt;, line 78, in __getitem__
 
           
-            &lt;div class="context" id="c2444721544904"&gt;
+            &lt;div class="context" id="c3195286707784"&gt;
               
-                &lt;ol start="71" class="pre-context" id="pre2444721544904"&gt;
+                &lt;ol start="71" class="pre-context" id="pre3195286707784"&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        Return the last data value for this key, or [] if it&amp;#x27;s an empty list;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        raise KeyError if not found.&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;            list_ = super().__getitem__(key)&lt;/pre&gt;&lt;/li&gt;
                 
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        except KeyError:&lt;/pre&gt;&lt;/li&gt;
                 
                 &lt;/ol&gt;
               
               &lt;ol start="78" class="context-line"&gt;
-                &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+                &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;            raise MultiValueDictKeyError(key)&lt;/pre&gt; &lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
               &lt;/ol&gt;
               
-                &lt;ol start='79' class="post-context" id="post2444721544904"&gt;
+                &lt;ol start='79' class="post-context" id="post3195286707784"&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        try:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;            return list_[-1]&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;        except IndexError:&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;            return []&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/li&gt;
                   
-                  &lt;li onclick="toggle('pre2444721544904', 'post2444721544904')"&gt;&lt;pre&gt;    def __setitem__(self, key, value):&lt;/pre&gt;&lt;/li&gt;
+                  &lt;li onclick="toggle('pre3195286707784', 'post3195286707784')"&gt;&lt;pre&gt;    def __setitem__(self, key, value):&lt;/pre&gt;&lt;/li&gt;
                   
               &lt;/ol&gt;
               
@@ -3208,10 +3051,10 @@ ft1.6: [apibody是：][["username","aaaaaa"],["password","aaaaaa"]]
           
             &lt;div class="commands"&gt;
                 
-                    &lt;a href="#" onclick="return varToggle(this, '2444721544904')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
+                    &lt;a href="#" onclick="return varToggle(this, '3195286707784')"&gt;&lt;span&gt;&amp;#x25b6;&lt;/span&gt; Local vars&lt;/a&gt;
                 
             &lt;/div&gt;
-            &lt;table class="vars" id="v2444721544904"&gt;
+            &lt;table class="vars" id="v3195286707784"&gt;
               &lt;thead&gt;
                 &lt;tr&gt;
                   &lt;th&gt;Variable&lt;/th&gt;
@@ -3751,7 +3594,7 @@ Exception Value: &amp;#x27;username&amp;#x27;
       
         &lt;tr&gt;
           &lt;td&gt;wsgi.errors&lt;/td&gt;
-          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;MyApp.A_WQRFhtmlRunner.OutputRedirector object at 0x0000023934C0F7F0&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;MyApp.A_WQRFhtmlRunner.OutputRedirector object at 0x000002E7F5E41F98&amp;gt;&lt;/pre&gt;&lt;/td&gt;
         &lt;/tr&gt;
       
         &lt;tr&gt;
@@ -3761,7 +3604,7 @@ Exception Value: &amp;#x27;username&amp;#x27;
       
         &lt;tr&gt;
           &lt;td&gt;wsgi.input&lt;/td&gt;
-          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.LimitedStream object at 0x0000023934E86C50&amp;gt;&lt;/pre&gt;&lt;/td&gt;
+          &lt;td class="code"&gt;&lt;pre&gt;&amp;lt;django.core.handlers.wsgi.LimitedStream object at 0x000002E7F5E7F6D8&amp;gt;&lt;/pre&gt;&lt;/td&gt;
         &lt;/tr&gt;
       
         &lt;tr&gt;
@@ -4753,81 +4596,6 @@ Exception Value: &amp;#x27;username&amp;#x27;
 &lt;/body&gt;
 &lt;/html&gt;
 
-.Traceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
-    ts_project_headers = step.public_header.split(',') #获取公共请求头
-AttributeError: 'NoneType' object has no attribute 'split'
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.7' class='none'>
-    <td class='errorCase'><div class='testcase'>test_008: 我是新步骤</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.7' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.7: ETraceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
-    ts_project_headers = step.public_header.split(',') #获取公共请求头
-AttributeError: 'NoneType' object has no attribute 'split'
-
-
-         <div id="div100">
-        </div>
-        </pre>
-    </div> <br>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.8' class='none'>
-    <td class='errorCase'><div class='testcase'>test_009: 我是新步骤</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_liznk" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
-        <button class="wqrf_button" style="width: auto">错误详情</button></a>
-    <div id='div_ft1.8' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.8: [apibody是：]
-[host] 全局域名-4
-[url] /a/
-[header] {}
-[method] post
-[body_method] Json
-[body] 
-ETraceback (most recent call last):
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 293, in tool
-    Test.demo(self, step)
-  File "E:\PycharmProjects\yyapi\MyApp\run_case.py", line 40, in demo
-    ts_project_headers = step.public_header.split(',') #获取公共请求头
-AttributeError: 'NoneType' object has no attribute 'split'
 
 
          <div id="div100">
@@ -4841,10 +4609,10 @@ AttributeError: 'NoneType' object has no attribute 'split'
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>8</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
-    <td>7</td>
+    <td>0</td>
     <td><button class="wqrf_button" style="background-color: #ffc2e6" onclick='javascript:location.reload()'>刷新</button></td>
 
 </tr>
