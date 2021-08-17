@@ -2,6 +2,8 @@ import ast
 import json
 import requests
 
+
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -148,7 +150,30 @@ def child_json(eid, oid='', ooid=''):
         project_hrader = DB_project_header.objects.filter(project_id=oid)
         hosts = DB_host.objects.all()
         project_host = DB_project_host.objects.filter(project_id=oid)
-        res = {"project": project, "apis": apis, 'project_header':project_hrader,'hosts':hosts,'project_host':project_host}
+        # 把apis进行包装后
+        # 变成了P_apis，并且是异步加载
+        # 每页最多15条。
+        #
+        # 而具体页码我们则是
+        # 通过前端传入参数page, 如果第一次进入没有页码那么就默认为第一页，然后P_apis
+        # 根据具体页码
+        # 再次变身，成真正的该页码下所有的数据即接口列表。 然后把这些数据传给前端，仍然叫apis的字段就可以了。
+        #
+        # 但是这里我们
+        # 需要想办法给这个
+        # page变成真正的具体页码，还记得我们child_json如果想带上
+        # 页码参数
+        # 要怎么做了么？就是利用好ooid那个参数。这个备用参数，此时再次显现作用。
+        P_apis = Paginator(apis,10,1)
+        page = ooid
+        try:
+            P_apis = P_apis.page(page)
+        except PageNotAnInteger:
+            P_apis = P_apis.page(1)
+        except EmptyPage:
+            P_apis = P_apis.page(P_apis.num_pages)
+
+        res = {"project": project, "apis": P_apis, 'project_header':project_hrader,'hosts':hosts,'project_host':project_host}
     if eid == 'P_cases.html':
         project = DB_project.objects.filter(id=oid)[0]
         Cases = DB_cases.objects.filter(project_id=oid)
@@ -314,8 +339,9 @@ def open_apis(request, id):
     :return:
     """
     project_id = id
-    return render(request, 'welcome.html', {"whichHTML": "P_apis.html", "oid": project_id,**glodict(request)})
-
+    #这个参数 从前端获取，代码如上，具体怎么获取现在先不要管，我们赶紧回到child_json函数中把这个ooid 接收用起来。
+    page = request.GET.get('page')
+    return render(request, 'welcome.html', {"whichHTML": "P_apis.html", "oid": project_id,**glodict(request), "ooid":page})
 
 def open_cases(request, id):
     project_id = id
@@ -1447,8 +1473,27 @@ def global_data_save(request):
     """
 
     global_id = request.GET['global_id']
+    if global_id == '':
+        return HttpResponse('error')
     global_name =request.GET['global_name']
     global_data = request.GET['global_data']
+    # 检查重名
+    datas = DB_global_data.objects.filter(name=global_name)
+    if len(datas) >0: #大于0 说明查到了数据，但是要看下是不是自己本身，而且最大肯定只有一个
+        if datas[0].id != global_id:# 发现这一个和本身id不同，那就是重名
+            return HttpResponse('error')
 
     DB_global_data.objects.filter(id=global_id).update(name=global_name,data=global_data)
+    return HttpResponse('')
+
+
+def global_data_change_check(request):
+    """
+    更改项目的生效变量组
+    :param request:
+    :return:
+    """
+    project_id = request.GET['project_id']
+    global_datas = request.GET['global_datas']
+    DB_project.objects.filter(id=project_id).update(global_datas=global_datas)
     return HttpResponse('')

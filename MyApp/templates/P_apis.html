@@ -50,6 +50,30 @@
         {% endfor %}
     </tbody>
 </table>
+<div style="text-align: center">
+    <div class="pagination" >
+    <span class="step-links">
+        {% if apis.has_previous %}
+            <a href="?page={{ apis.previous_page_number }}" aria-labe="Previous">
+                <span aria-hidden="true">&laquo;上一页</span>
+            </a>&nbsp;&nbsp;
+        {% endif %}
+        {% for pg in apis.paginator.page_range %}
+            {% if apis.number == pg  %}
+                <a href="?page={{ pg }}">第{{ pg }}页</a>&nbsp;&nbsp;&nbsp;
+            {% else %}
+                <a href="?page={{ pg }}">{{ pg }}</a>&nbsp;&nbsp;
+            {% endif %}
+        {% endfor %}
+        {% if apis.has_next %}
+            <a href="?page={{ apis.next_page_number }}" aria-label="Next">
+                &nbsp;&nbsp;<span>下一页&raquo;</span>
+            </a>
+        {% endif %}
+    </span>
+</div>
+</div>
+
 <div style="position: fixed;bottom:0px;
 width:100%;background-color: #f8f8f8;text-align: center;
 boeder:1px solid #e7e7e7">

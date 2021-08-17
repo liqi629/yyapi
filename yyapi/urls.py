@@ -108,6 +108,7 @@ urlpatterns = [
     path(r'global_data_delete/',global_data_delete), # 删除全局变量
     path(r'global_data_save/',global_data_save), # 删除全局变量
 
+    path(r'global_data_change_check/',global_data_change_check), # 更改项目的生效变量组
 
     # url(r'save_project_set/(?P<id>.*)/$', save_project_set),  # 保存项目设置
 ]

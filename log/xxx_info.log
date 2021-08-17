@@ -4052,3 +4052,260 @@ Traceback (most recent call last):
   File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'username'
+[2021-08-17 17:50:59,604][Thread-6:23516][task_id:django.request][log.py:230][ERROR][Internal Server Error: /global_data_save/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 1453, in global_data_save
+    DB_global_data.objects.filter(id=global_id).update(name=global_name,data=global_data)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1380, in _add_q
+    split_subq=split_subq, check_filterable=check_filterable,
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\sql\query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\db\models\fields\__init__.py", line 1778, in get_prep_value
+    ) from e
+ValueError: Field 'id' expected a number but got ''.
+[2021-08-17 17:51:56,676][MainThread:4092][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 17:51:57,536][MainThread:13708][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 17:56:37,106][MainThread:13708][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 17:56:37,948][MainThread:11420][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:03:38,321][MainThread:11420][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2021-08-17 18:03:38,981][MainThread:19448][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:03:54,588][MainThread:19448][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\models.py changed, reloading.]
+[2021-08-17 18:03:55,250][MainThread:14972][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:15:39,431][MainThread:14972][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\yyapi\urls.py changed, reloading.]
+[2021-08-17 18:15:40,255][MainThread:12136][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:23:21,174][MainThread:12136][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:23:21,888][MainThread:12216][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:25:29,165][MainThread:12216][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:25:29,913][MainThread:18972][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:25:59,856][MainThread:18972][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:26:00,665][MainThread:12976][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:27:03,414][MainThread:12976][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:27:04,122][MainThread:10936][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:27:18,775][MainThread:10936][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:27:19,477][MainThread:9796][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:27:44,429][MainThread:9796][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:27:45,170][MainThread:5108][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:27:55,519][Thread-1:2332][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:27:58,312][Thread-1:2332][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:27:59,015][Thread-1:2332][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:27:59,678][Thread-1:2332][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:28:30,763][Thread-2:8612][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:30:02,265][Thread-4:24776][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:30:07,164][Thread-4:24776][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:31:01,010][MainThread:5108][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:31:01,846][MainThread:5348][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:31:02,242][Thread-1:22152][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:31:04,576][Thread-1:22152][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET['page']
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+[2021-08-17 18:33:44,822][MainThread:5348][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:33:45,874][MainThread:6524][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:33:46,756][Thread-1:11188][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET.get['page']
+TypeError: 'method' object is not subscriptable
+[2021-08-17 18:33:47,510][Thread-1:11188][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET.get['page']
+TypeError: 'method' object is not subscriptable
+[2021-08-17 18:33:49,684][Thread-1:11188][task_id:django.request][log.py:230][ERROR][Internal Server Error: /apis/1/]
+Traceback (most recent call last):
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\PycharmProjects\yyapi\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\PycharmProjects\yyapi\MyApp\views.py", line 343, in open_apis
+    page = request.GET.get['page']
+TypeError: 'method' object is not subscriptable
+[2021-08-17 18:34:07,781][MainThread:6524][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:34:08,745][MainThread:16784][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-17 18:34:33,092][MainThread:16784][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
+[2021-08-17 18:34:34,014][MainThread:7976][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
