@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from MyApp.models import *
+from MyApp.global_def import *
 
 
 # Create your views here.
@@ -464,11 +465,15 @@ def Api_send(request):
     :return:
     """
     api_id = request.GET['api_id']
+    project_id = DB_apis.objects.filter(id=api_id)[0].project_id
     api_name = request.GET['api_name']
     ts_method = request.GET['ts_method']
-    ts_url = request.GET['ts_url']
-    ts_host = request.GET['ts_host']
-    ts_header = request.GET['ts_header']
+    ts_url = request.GET['ts_url'] #需要全局变量替换
+    ts_url = global_datas_replace(project_id,ts_url)
+    ts_host = request.GET['ts_host']#需要全局变量替换
+    ts_host = global_datas_replace(project_id,ts_host)
+    ts_header = request.GET['ts_header'] #需要全局变量替换
+    ts_header = global_datas_replace(project_id,ts_header)
     ts_body_method = request.GET['ts_body_method']
     ts_project_headers = request.GET['ts_project_headers'].split(',') #获取公共请求头
     ts_login = request.GET['ts_login']
@@ -490,7 +495,8 @@ def Api_send(request):
         if ts_body_method in ['', None, 'none']:
             return HttpResponse('请先选择请求体编码格式和请求头，再点击Send按钮发送请求！')
     else:
-        ts_api_body = request.GET['ts_api_body']
+        ts_api_body = request.GET['ts_api_body'] # 需要替换全局变量
+        ts_api_body = global_datas_replace(project_id,ts_api_body)
         api = DB_apis.objects.filter(id=api_id)
         api.update(last_body_method=ts_body_method, last_api_body=ts_api_body)
     # 发送请求获取返回值
@@ -1141,14 +1147,16 @@ def save_project_host(request):
                 pass
     return HttpResponse('')
 
-
+# 获取登录态接口
 def project_get_login(request):
     # 获取登录态接口
     project_id = request.GET['project_id']
     try:
         login = DB_login.objects.filter(project_id=project_id).values()[0]
     except:
-        login = {'api_method':'none','api_url':'','api_host':'','api_header':'','set':''}
+        login = {"project_id": project_id, "api_method": "none", "api_url": "", "api_header": "{}", "api_host": "",
+                 "body_method": "none",
+                 "api_body": "","set":""}
     return HttpResponse(json.dumps(login),content_type='application/json')
 
 
@@ -1165,15 +1173,20 @@ def project_login_save(request):
     login_body_method = request.GET['login_body_method']
     login_api_body = request.GET['login_api_body']
     login_response_set = request.GET['login_response_set']
-    # 保存数据
-    DB_login.objects.filter(project_id=project_id).update(
-        api_method=login_method,
-        api_url = login_url,
-        api_header = login_header,
-        api_host = login_host,
-        body_method = login_body_method,
-        api_body = login_api_body,
-        set = login_response_set
+    # 保存数据更新或新建 upate_or_create
+    #
+    # 意思就是 如果存在就更新，不存在就创建。
+    DB_login.objects.update_or_create(
+        defaults={
+            "api_method": login_method,
+            "api_url": login_url,
+            "api_header": login_header,
+            "api_host": login_host,
+            "body_method": login_body_method,
+            "api_body": login_api_body,
+            "set": login_response_set,
+        },
+        project_id=project_id
     )
     # 返回
     return HttpResponse('success')
@@ -1185,12 +1198,17 @@ def project_login_send(request):
     :return:
     """
     # 第一步，获取前端数据
+    project_id = request.GET['project_id']
     login_method = request.GET['login_method']
     login_url = request.GET['login_url']
+    login_url = global_datas_replace(project_id,login_url)
     login_host = request.GET['login_host']
+    login_host = global_datas_replace(project_id,login_host)
     login_header = request.GET['login_header']
+    login_header = global_datas_replace(project_id, login_header)
     login_body_method = request.GET['login_body_method']
     login_api_body = request.GET['login_api_body']
+    login_api_body = global_datas_replace(project_id, login_api_body)
     login_response_set = request.GET['login_response_set']
     if login_header =='':
         login_header='{}'
@@ -1263,7 +1281,11 @@ def project_login_send(request):
         # 把返回值传递给前端页面
         response.encoding = "utf-8"
         DB_host.objects.update_or_create(host=login_host)
-        res = response.json()
+        try:
+            res = response.json()
+        except:
+            end_res = {"response":response.text, "get_res": '只能提取json格式'}
+            return HttpResponse(json.dumps(end_res), content_type='application/json')
 
         # 第三步，对返回值进行提取
 
@@ -1299,10 +1321,14 @@ def project_login_send_for_other(project_id):
     login_api= DB_login.objects.filter(project_id=project_id)[0]
     login_method = login_api.api_method
     login_url = login_api.api_url
+    login_url = global_datas_replace(project_id,login_url)
     login_host = login_api.api_host
+    login_host = global_datas_replace(project_id, login_host)
     login_header = login_api.api_header
+    login_header = global_datas_replace(project_id, login_header)
     login_body_method = login_api.body_method
     login_api_body = login_api.api_body
+    login_api_body = global_datas_replace(project_id, login_api_body)
     login_response_set = login_api.set
     if login_header =='':
         login_header ='{}'

@@ -946,6 +946,7 @@ token=/data/token"></textarea>
     }
 
      $.get('/project_login_send/',{
+         'project_id':'{{ project.id }}',
         'login_method':login_method,
         'login_url':login_url,
         'login_host':login_host,
