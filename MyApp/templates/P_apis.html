@@ -6,15 +6,15 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation" style="position: absolute;top: 0px;left: 80px;width: -webkit-calc(100% - 200px);z-index: 1">
+<nav class="navbar navbar-default" role="navigation" style="background-color: white;box-shadow:4px 4px 6px darkgrey;border-image:linear-gradient(to right,#ff8cd0,#77a4cb,#ff8cd0,#fff5d3) 1 10;position: absolute;top: 0px;left: 80px;width: -webkit-calc(100% - 200px);z-index: 1">
     <div class="container-fluid">
     <div class="navbar-header"></div>
         <span style="font-size: xx-small" class="navbar-brand">项目名称：{{ project.name }}</span>
         <a class="navbar-brand" href="/project_list/">返回项目列表</a>
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/apis/{{project.id}}/">接口库</a></li>
-            <li><a href="/cases/{{project.id}}/">用例库</a></li>
+            <li class="active"><a href="/apis/{{project.id}}/" style="background:linear-gradient(to right,#a7e2ff,white,#ffd7e1);">接口库</a></li>
+            <li ><a href="/cases/{{project.id}}/">用例库</a></li>
             <li><a href="/project_set/{{project.id}}/">项目设置</a></li>
              <li><a href="/global_data/{{project.id}}/">全局变量</a></li>
         </ul>
@@ -74,12 +74,12 @@
 </div>
 </div>
 
-<div style="position: fixed;bottom:0px;
+<div style="position: fixed;bottom:0px;background:linear-gradient(to right,#a7e2ff,white,#ffd7e1);
 width:100%;background-color: #f8f8f8;text-align: center;
 boeder:1px solid #e7e7e7">
         <div class="btn-group">
 {#            新增接口，这里没有设计弹窗，直接在接口列表新增的None#}
-            <button type="button" class="btn btn-primary" onclick="document.location.href='/project_api_add/{{ project.id }}/'">新增接口</button>
+            <button type="button" style="background:linear-gradient(to bottom,#a7e2ff,white,#ffd7e1);" class="btn btn-default" onclick="document.location.href='/project_api_add/{{ project.id }}/'">新增接口</button>
             <button type="button" onclick="project_header_div_show()" class="btn btn-default">全局请求头</button>
             <button type="button" onclick="project_host_div_show()" class="btn btn-default">全局域名</button>
             <button type="button" class="btn btn-default">接口文档导入</button>

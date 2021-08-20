@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>项目列表</title>
     <style>
+       .wqrf_back{
+          background-image: linear-gradient(50deg, #ffcde8,white, #a5e5ff);
+          background-size: 200%;
+          animation: animate_bg 3s infinite;
+      }
+      @keyframes animate_bg {
+          0%, 100% {
+              background-position: 0%, 50%;
+          }
+          50% {
+              background-position: 100%, 50%;
+          }
+      }
     </style>
 </head>
 <body>
@@ -14,9 +27,9 @@
 
 
     <table class="table table-striped">
-        <thead>
+        <thead class="wqrf_back">
             <tr>
-                <th>项目id</th> <th>项目名称</th> <th>创建者</th> <th>备注</th> <th>操作</th>
+                <th></th><th>项目id</th> <th>项目名称</th> <th>创建者</th> <th>备注</th> <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -24,9 +37,9 @@
             <tr>
                 <!--我们这里点击后是直接跳转到新页面，所以不需要调用异步接口。直接强行让其跳转即可，所以给它加上onclick属性，里面是一句简单的跳转js代码
                 document.location.href = '路由'  可以强行跳转。我们要跳到的链接中，肯定需要带上i.id才行，这样django才知道你要跳转的是哪个项目的接口库-->
-                <td>{{ i.id }}</td> <td>{{ i.name }}</td> <td>{{ i.user }}</td> <td>{{ i.remark }}</td> <td>
-                <button onclick="javascript:document.location.href='/apis/{{ i.id }}/'" class="btn btn-success">进入</button>
-                <button onclick="delete_project('{{ i.id }}')" class="btn btn-danger">删除</button></td>
+                <td></td><td>{{ i.id }}</td> <td>{{ i.name }}</td> <td>{{ i.user }}</td> <td>{{ i.remark }}</td> <td>
+                <button style="background-color: #c4eeff;color: black" onclick="javascript:document.location.href='/apis/{{ i.id }}/'" class="btn btn-success">进入</button>
+                <button style="background-color: #ffdfea;color: black" onclick="delete_project('{{ i.id }}')" class="btn btn-danger">删除</button></td>
             </tr>
             {%  endfor %}
         </tbody>

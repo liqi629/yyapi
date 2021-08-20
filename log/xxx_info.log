@@ -4338,3 +4338,8 @@ TypeError: 'method' object is not subscriptable
 [2021-08-18 10:17:55,993][MainThread:18768][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
 [2021-08-18 10:18:29,150][MainThread:18768][task_id:django.utils.autoreload][autoreload.py:236][INFO][E:\PycharmProjects\yyapi\MyApp\views.py changed, reloading.]
 [2021-08-18 10:18:30,010][MainThread:13144][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-20 13:40:43,591][MainThread:11252][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-20 13:40:47,031][Thread-1:26172][task_id:django.request][log.py:230][WARNING][Not Found: /]
+[2021-08-20 13:40:47,157][Thread-1:26172][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
+[2021-08-20 13:48:25,240][MainThread:16560][task_id:django.utils.autoreload][autoreload.py:613][INFO][Watching for file changes with StatReloader]
+[2021-08-20 13:51:30,121][Thread-2:18140][task_id:django.request][log.py:230][WARNING][Not Found: /favicon.ico]
